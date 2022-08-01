@@ -13,6 +13,8 @@ import java.util.Arrays;
  */
 public class Client {
 
+    Solution solution = new Solution();
+
     @Test
     public void test100() {
         Solution.ListNode l1 = new Solution.ListNode(1);
@@ -24,7 +26,7 @@ public class Client {
 //        ListNode l2 = new ListNode(1);
 //        l2.next = new ListNode(3);
 //        l2.next.next = new ListNode(4);
-        Solution solution = new Solution();
+
         solution.printNode(l1);
 //        printNode(l2);
         Solution.ListNode result = solution.deleteDuplicates(l1);
@@ -37,7 +39,6 @@ public class Client {
      */
     @Test
     public void no1161() {
-        Solution solution = new Solution();
         int maxLevelSum = solution.maxLevelSum(null);
         System.out.println("maxLevelSum = " + maxLevelSum);
     }
@@ -48,18 +49,27 @@ public class Client {
      */
     @Test
     public void no1331() {
-        Solution solution = new Solution();
         int[] arr = {40, 10, 10, 20, 30};
         int[] transform = solution.arrayRankTransform(arr);
         System.out.println("transform = " + Arrays.toString(transform));
         //预期结果：[5,1,1,3,4]
     }
 
+    /**
+     * 1374. 生成每种字符都是奇数个的字符串
+     * https://leetcode.cn/problems/generate-a-string-with-characters-that-have-odd-counts/
+     */
+    @Test
+    public void no1374() {
+        int n = 4;
+        String generateTheString = solution.generateTheString(n);
+        System.out.println("generateTheString = " + generateTheString);
+    }
+
     @Test
     public void test101() {
         String[] s = {"ab", "a"};
-        Solution solution2 = new Solution();
-        String s1 = solution2.longestCommonPrefix(s);
+        String s1 = solution.longestCommonPrefix(s);
         System.out.println(s1);
     }
 

@@ -78,6 +78,22 @@ public class Solution {
         return 0;
     }
 
+    public String generateTheString(int n) {
+        StringBuilder sb = new StringBuilder(n);
+        if (n % 2 == 1) {
+            //奇数
+            for (int i = 0; i < n; i++) {
+                sb.append("a");
+            }
+        } else {
+            for (int i = 0; i < n - 1; i++) {
+                sb.append("a");
+            }
+            sb.append("b");
+        }
+        return sb.toString();
+    }
+
     public int[] arrayRankTransform(int[] arr) {
         if (arr.length < 1) {
             return new int[0];
