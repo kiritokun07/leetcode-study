@@ -1,5 +1,6 @@
 package leetcode;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -39,8 +40,14 @@ public class Client {
      */
     @Test
     public void no1161() {
-        int maxLevelSum = solution.maxLevelSum(null);
+        Solution.TreeNode five = new Solution.TreeNode(7, null, null);
+        Solution.TreeNode six = new Solution.TreeNode(-8, null, null);
+        Solution.TreeNode two = new Solution.TreeNode(7, five, six);
+        Solution.TreeNode three = new Solution.TreeNode(0, null, null);
+        Solution.TreeNode one = new Solution.TreeNode(1, two, three);
+        int maxLevelSum = solution.maxLevelSum(one);
         System.out.println("maxLevelSum = " + maxLevelSum);
+        Assertions.assertEquals(maxLevelSum, 2);
     }
 
     /**

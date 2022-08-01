@@ -1,17 +1,17 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
+ * LeetCode题解
+ *
  * @author kirito
  * @desc ...
  * @date 2022-07-31 15:34:22
  */
 public class Solution {
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -75,7 +75,30 @@ public class Solution {
     }
 
     public int maxLevelSum(TreeNode root) {
-        return 0;
+        List<TreeNode> rootList = new ArrayList<>();
+        rootList.add(root);
+        int maxSum = root.val;
+        int ans = 1;
+        for (int level = 1; !rootList.isEmpty(); ++level) {
+            int sum = 0;
+            List<TreeNode> childNodeList = new ArrayList<>();
+            for (TreeNode node : rootList) {
+                sum += node.val;
+                if (node.left != null) {
+                    childNodeList.add(node.left);
+                }
+                if (node.right != null) {
+                    childNodeList.add(node.right);
+                }
+            }
+            if (sum > maxSum) {
+                maxSum = sum;
+                ans = level;
+            }
+            rootList = childNodeList;
+
+        }
+        return ans;
     }
 
     public String generateTheString(int n) {
