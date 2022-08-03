@@ -35,6 +35,24 @@ public class Client {
     }
 
     /**
+     * 622. 设计循环队列
+     * https://leetcode.cn/problems/design-circular-queue/
+     */
+    @Test
+    public void no622() {
+        MyCircularQueue circularQueue = new MyCircularQueue(3);
+        Assertions.assertTrue(circularQueue.enQueue(1)); // 返回 true
+        Assertions.assertTrue(circularQueue.enQueue(2)); // 返回 true
+        Assertions.assertTrue(circularQueue.enQueue(3)); // 返回 true
+        Assertions.assertFalse(circularQueue.enQueue(4)); // 返回 false，队列已满
+        Assertions.assertEquals(circularQueue.Rear(), 3); // 返回 3
+        Assertions.assertTrue(circularQueue.isFull()); // 返回 true
+        Assertions.assertTrue(circularQueue.deQueue()); // 返回 true
+        Assertions.assertTrue(circularQueue.enQueue(4)); // 返回 true
+        Assertions.assertEquals(circularQueue.Rear(), 4); // 返回 4
+    }
+
+    /**
      * 1161. 最大层内元素和
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/
      */
