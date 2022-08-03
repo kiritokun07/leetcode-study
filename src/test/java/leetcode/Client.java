@@ -52,6 +52,25 @@ public class Client {
         Assertions.assertEquals(circularQueue.Rear(), 4); // 返回 4
     }
 
+    @Test
+    public void temp() {
+        String s = "abcd";
+        int length = s.length();
+        int i = 2;
+        String tempS = s.substring(i, length) + s.substring(0, i);
+        System.out.println("tempS = " + tempS);
+    }
+
+    /**
+     * 899. 有序队列
+     * https://leetcode.cn/problems/orderly-queue/
+     */
+    @Test
+    public void no899() {
+        Assertions.assertEquals(solution.orderlyQueue("cba", 1), "acb");
+        Assertions.assertEquals(solution.orderlyQueue("baaca", 3), "aaabc");
+    }
+
     /**
      * 1161. 最大层内元素和
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/

@@ -55,6 +55,29 @@ public class Solution {
         System.out.println("");
     }
 
+    public String orderlyQueue(String s, int k) {
+        if (k == 0) {
+            return s;
+        }
+        if (k == 1) {
+            //for循环n次
+            String minS = s;
+            int length = s.length();
+            for (int i = 0; i < length; ++i) {
+                String tempS = s.substring(i, length) + s.substring(0, i);
+                //如果小于最小s就返回s
+                if (tempS.compareTo(minS) < 0) {
+                    minS = tempS;
+                }
+            }
+            return minS;
+        }
+        //直接输出升序排序
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
+    }
+
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;
