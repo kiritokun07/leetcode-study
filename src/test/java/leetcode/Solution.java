@@ -63,7 +63,7 @@ public class Solution {
             //for循环n次
             String minS = s;
             int length = s.length();
-            for (int i = 0; i < length; ++i) {
+            for (int i = 1; i < length; ++i) {
                 String tempS = s.substring(i, length) + s.substring(0, i);
                 //如果小于最小s就返回s
                 if (tempS.compareTo(minS) < 0) {
