@@ -142,22 +142,19 @@ public class Solution {
     }
 
     public List<Integer> minSubsequence(int[] nums) {
-        if (nums.length <= 1) {
-            return Arrays.stream(nums).boxed().collect(Collectors.toList());
-        }
-        Arrays.sort(nums);
-        int sum = Arrays.stream(nums).sum();
+        //降序排序，选刚好大于剩余的前缀序列
         List<Integer> result = new ArrayList<>(nums.length);
+        for (int num : nums) {
+            result.add(num);
+        }
+        Collections.sort(result);
+        Collections.reverse(result);
+        Integer sum = result.stream().reduce(0, Integer::sum);
         int tempSum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            tempSum += nums[i];
-            if (tempSum >= sum - tempSum) {
-                for (int ii = i; ii < nums.length; ++ii) {
-                    result.add(nums[ii]);
-                }
-                Collections.sort(result);
-                Collections.reverse(result);
-                return result;
+        for (int i = 0; i < result.size(); i++) {
+            tempSum += result.get(i);
+            if (tempSum > sum - tempSum) {
+                return result.subList(0, i+1);
             }
         }
         return result;
