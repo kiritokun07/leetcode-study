@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 测试
@@ -108,6 +109,23 @@ public class Client {
         int n = 4;
         String generateTheString = solution.generateTheString(n);
         System.out.println("generateTheString = " + generateTheString);
+    }
+
+    /**
+     * 1403. 非递增顺序的最小子序列
+     * https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order/
+     */
+    @Test
+    public void no1403() {
+        int[] nums = new int[]{4, 3, 10, 9, 8};
+        List<Integer> subsequence = solution.minSubsequence(nums);
+        Assertions.assertEquals(subsequence.get(0), 10);
+        Assertions.assertEquals(subsequence.get(1), 9);
+        int[] nums2 = new int[]{4, 4, 7, 6, 7};
+        List<Integer> subsequence2 = solution.minSubsequence(nums2);
+        Assertions.assertEquals(subsequence2.get(0), 7);
+        Assertions.assertEquals(subsequence2.get(1), 7);
+        Assertions.assertEquals(subsequence2.get(2), 6);
     }
 
     @Test

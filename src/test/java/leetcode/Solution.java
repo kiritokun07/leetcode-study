@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * LeetCode题解
@@ -138,6 +139,28 @@ public class Solution {
             sb.append("b");
         }
         return sb.toString();
+    }
+
+    public List<Integer> minSubsequence(int[] nums) {
+        if (nums.length <= 1) {
+            return Arrays.stream(nums).boxed().collect(Collectors.toList());
+        }
+        Arrays.sort(nums);
+        int sum = Arrays.stream(nums).sum();
+        List<Integer> result = new ArrayList<>(nums.length);
+        int tempSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            tempSum += nums[i];
+            if (tempSum >= sum - tempSum) {
+                for (int ii = i; ii < nums.length; ++ii) {
+                    result.add(nums[ii]);
+                }
+                Collections.sort(result);
+                Collections.reverse(result);
+                return result;
+            }
+        }
+        return result;
     }
 
     public int[] arrayRankTransform(int[] arr) {
