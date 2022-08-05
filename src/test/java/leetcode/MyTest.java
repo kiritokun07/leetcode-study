@@ -7,43 +7,20 @@ import org.junit.jupiter.api.Test;
 /**
  * @author kirito
  * @desc ...
- * @date 2022-08-05 10:55:43
+ * @date 2022-08-05 17:29:08
  */
-public class MyUtils {
-
-    /**
-     * 数组转二叉树
-     *
-     * @param nums
-     * @return
-     */
-    public static TreeNode array2TreeNode(int[] nums) {
-        if (nums.length < 1) {
-            return null;
-        }
-        TreeNode[] treeNodes = new TreeNode[nums.length];
-        //通过下标判断父节点
-        for (int i = 0; i < nums.length; i++) {
-            //第i个数字
-            int num = nums[i];
-            TreeNode treeNode = new TreeNode(num, null, null);
-            //TODO 获取其与父节点的关联，父节点下标是多少，它是父节点的左子树还是右子树
-
-            treeNodes[i] = treeNode;
-        }
-        return treeNodes[0];
-    }
+public class MyTest {
 
     /**
      * 二叉树
-     * 4
-     * 2     6
+     * ----4
+     * --2     6
      * 3  1   5
      */
     @Test
     public void testArray2TreeNode() {
         int[] root = new int[]{4, 2, 6, 3, 1, 5};
-        TreeNode array2TreeNode = array2TreeNode(root);
+        TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
 
         TreeNode four = new TreeNode(3, null, null);
         TreeNode five = new TreeNode(1, null, null);
@@ -53,6 +30,7 @@ public class MyUtils {
         TreeNode one = new TreeNode(4, two, three);
 
         //判断array2TreeNode和one一样
+        assert array2TreeNode != null;
         Assertions.assertEquals(array2TreeNode.val, one.val);
         Assertions.assertEquals(array2TreeNode.left.val, one.left.val);
         Assertions.assertEquals(array2TreeNode.right.val, one.right.val);

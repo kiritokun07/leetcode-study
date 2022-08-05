@@ -72,7 +72,7 @@ public class Client {
     public void no623() {
         int[] root = new int[]{4, 2, 6, 3, 1, 5};
         //数组转二叉树
-        //TreeNode array2TreeNode = MyUtils.array2TreeNode(root);
+        //TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
         TreeNode four = new TreeNode(3, null, null);
         TreeNode five = new TreeNode(1, null, null);
         TreeNode six = new TreeNode(5, null, null);
