@@ -1,7 +1,9 @@
 package leetcode;
 
+import leetcode.node.ListNode;
+import leetcode.node.TreeNode;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * LeetCode题解
@@ -12,48 +14,16 @@ import java.util.stream.Collectors;
  */
 public class Solution {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public void printNode(ListNode l) {
         while (l != null) {
             System.out.print(l.val);
             l = l.next;
         }
         System.out.println("");
+    }
+
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
+        return null;
     }
 
     public String orderlyQueue(String s, int k) {
@@ -154,7 +124,7 @@ public class Solution {
         for (int i = 0; i < result.size(); i++) {
             tempSum += result.get(i);
             if (tempSum > sum - tempSum) {
-                return result.subList(0, i+1);
+                return result.subList(0, i + 1);
             }
         }
         return result;

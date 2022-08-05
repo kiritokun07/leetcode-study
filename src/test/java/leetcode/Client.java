@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.node.ListNode;
+import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,19 +21,19 @@ public class Client {
 
     @Test
     public void test100() {
-        Solution.ListNode l1 = new Solution.ListNode(1);
-        l1.next = new Solution.ListNode(1);
-        l1.next.next = new Solution.ListNode(3);
-        l1.next.next.next = new Solution.ListNode(3);
-        l1.next.next.next.next = new Solution.ListNode(4);
-        l1.next.next.next.next.next = new Solution.ListNode(4);
+        ListNode l1 = new ListNode(1);
+        l1.next = new ListNode(1);
+        l1.next.next = new ListNode(3);
+        l1.next.next.next = new ListNode(3);
+        l1.next.next.next.next = new ListNode(4);
+        l1.next.next.next.next.next = new ListNode(4);
 //        ListNode l2 = new ListNode(1);
 //        l2.next = new ListNode(3);
 //        l2.next.next = new ListNode(4);
 
         solution.printNode(l1);
 //        printNode(l2);
-        Solution.ListNode result = solution.deleteDuplicates(l1);
+        ListNode result = solution.deleteDuplicates(l1);
         solution.printNode(result);
     }
 
@@ -63,6 +65,34 @@ public class Client {
     }
 
     /**
+     * 623. 在二叉树中增加一行
+     * https://leetcode.cn/problems/add-one-row-to-tree/
+     */
+    @Test
+    public void no623() {
+        int[] root = new int[]{4, 2, 6, 3, 1, 5};
+        //数组转二叉树
+        //TreeNode array2TreeNode = MyUtils.array2TreeNode(root);
+        TreeNode four = new TreeNode(3, null, null);
+        TreeNode five = new TreeNode(1, null, null);
+        TreeNode six = new TreeNode(5, null, null);
+        TreeNode two = new TreeNode(2, four, five);
+        TreeNode three = new TreeNode(6, six, null);
+        TreeNode one = new TreeNode(4, two, three);
+        int val = 1;
+        int depth = 2;
+        TreeNode addOneRow = solution.addOneRow(one, val, depth);
+        Assertions.assertEquals(addOneRow.val, 4);
+        Assertions.assertEquals(addOneRow.left.val, 1);
+        Assertions.assertEquals(addOneRow.right.val, 1);
+        Assertions.assertEquals(addOneRow.left.left.val, 2);
+        Assertions.assertEquals(addOneRow.right.right.val, 6);
+        Assertions.assertEquals(addOneRow.left.left.left.val, 3);
+        Assertions.assertEquals(addOneRow.left.left.right.val, 1);
+        Assertions.assertEquals(addOneRow.right.right.left.val, 5);
+    }
+
+    /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
      */
@@ -78,11 +108,11 @@ public class Client {
      */
     @Test
     public void no1161() {
-        Solution.TreeNode five = new Solution.TreeNode(7, null, null);
-        Solution.TreeNode six = new Solution.TreeNode(-8, null, null);
-        Solution.TreeNode two = new Solution.TreeNode(7, five, six);
-        Solution.TreeNode three = new Solution.TreeNode(0, null, null);
-        Solution.TreeNode one = new Solution.TreeNode(1, two, three);
+        TreeNode five = new TreeNode(7, null, null);
+        TreeNode six = new TreeNode(-8, null, null);
+        TreeNode two = new TreeNode(7, five, six);
+        TreeNode three = new TreeNode(0, null, null);
+        TreeNode one = new TreeNode(1, two, three);
         int maxLevelSum = solution.maxLevelSum(one);
         System.out.println("maxLevelSum = " + maxLevelSum);
         Assertions.assertEquals(maxLevelSum, 2);
