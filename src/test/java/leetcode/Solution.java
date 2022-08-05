@@ -23,7 +23,33 @@ public class Solution {
     }
 
     public TreeNode addOneRow(TreeNode root, int val, int depth) {
-        return null;
+        if (depth == 1) {
+            return new TreeNode(val, root, null);
+        }
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(root);
+        for (int level = 2; !pNodeList.isEmpty(); ++level) {
+            if (level == depth) {
+                break;
+            }
+            List<TreeNode> childNodeList = new ArrayList<>();
+            for (TreeNode pNode : pNodeList) {
+                if (pNode.left != null) {
+                    childNodeList.add(pNode.left);
+                }
+                if (pNode.right != null) {
+                    childNodeList.add(pNode.right);
+                }
+            }
+            pNodeList = childNodeList;
+        }
+        for (TreeNode pNode : pNodeList) {
+            TreeNode left = new TreeNode(val, pNode.left, null);
+            TreeNode right = new TreeNode(val, null, pNode.right);
+            pNode.left = left;
+            pNode.right = right;
+        }
+        return root;
     }
 
     public String orderlyQueue(String s, int k) {

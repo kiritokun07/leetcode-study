@@ -72,16 +72,16 @@ public class Client {
     public void no623() {
         int[] root = new int[]{4, 2, 6, 3, 1, 5};
         //数组转二叉树
-        //TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
-        TreeNode four = new TreeNode(3, null, null);
-        TreeNode five = new TreeNode(1, null, null);
-        TreeNode six = new TreeNode(5, null, null);
-        TreeNode two = new TreeNode(2, four, five);
-        TreeNode three = new TreeNode(6, six, null);
-        TreeNode one = new TreeNode(4, two, three);
+        TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
+        //TreeNode four = new TreeNode(3, null, null);
+        //TreeNode five = new TreeNode(1, null, null);
+        //TreeNode six = new TreeNode(5, null, null);
+        //TreeNode two = new TreeNode(2, four, five);
+        //TreeNode three = new TreeNode(6, six, null);
+        //TreeNode one = new TreeNode(4, two, three);
         int val = 1;
         int depth = 2;
-        TreeNode addOneRow = solution.addOneRow(one, val, depth);
+        TreeNode addOneRow = solution.addOneRow(array2TreeNode, val, depth);
         Assertions.assertEquals(addOneRow.val, 4);
         Assertions.assertEquals(addOneRow.left.val, 1);
         Assertions.assertEquals(addOneRow.right.val, 1);
