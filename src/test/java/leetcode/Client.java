@@ -5,6 +5,7 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -90,6 +91,46 @@ public class Client {
         Assertions.assertEquals(addOneRow.left.left.left.val, 3);
         Assertions.assertEquals(addOneRow.left.left.right.val, 1);
         Assertions.assertEquals(addOneRow.right.right.left.val, 5);
+    }
+
+    /**
+     * 636. 函数的独占时间
+     * https://leetcode.cn/problems/exclusive-time-of-functions/
+     */
+    @Test
+    public void no636() {
+        int n1 = 2;
+        List<String> logs1 = Arrays.asList("0:start:0", "1:start:2", "1:end:5", "0:end:6");
+        int[] exclusiveTime1 = solution.exclusiveTime(n1, logs1);
+        Assertions.assertEquals(exclusiveTime1.length, 2);
+        Assertions.assertEquals(exclusiveTime1[0], 3);
+        Assertions.assertEquals(exclusiveTime1[1], 4);
+
+        int n2 = 1;
+        List<String> logs2 = Arrays.asList("0:start:0", "0:start:2", "0:end:5", "0:start:6", "0:end:6", "0:end:7");
+        int[] exclusiveTime2 = solution.exclusiveTime(n2, logs2);
+        Assertions.assertEquals(exclusiveTime2.length, 1);
+        Assertions.assertEquals(exclusiveTime2[0], 8);
+
+        int n3 = 2;
+        List<String> logs3 = Arrays.asList("0:start:0", "0:start:2", "0:end:5", "1:start:6", "1:end:6", "0:end:7");
+        int[] exclusiveTime3 = solution.exclusiveTime(n3, logs3);
+        Assertions.assertEquals(exclusiveTime3.length, 2);
+        Assertions.assertEquals(exclusiveTime3[0], 7);
+        Assertions.assertEquals(exclusiveTime3[1], 1);
+
+        int n4 = 2;
+        List<String> logs4 = Arrays.asList("0:start:0", "0:start:2", "0:end:5", "1:start:7", "1:end:7", "0:end:8");
+        int[] exclusiveTime4 = solution.exclusiveTime(n4, logs4);
+        Assertions.assertEquals(exclusiveTime4.length, 2);
+        Assertions.assertEquals(exclusiveTime4[0], 8);
+        Assertions.assertEquals(exclusiveTime4[1], 1);
+
+        int n5 = 1;
+        List<String> logs5 = Arrays.asList("0:start:0", "0:end:0");
+        int[] exclusiveTime5 = solution.exclusiveTime(n5, logs5);
+        Assertions.assertEquals(exclusiveTime5.length, 1);
+        Assertions.assertEquals(exclusiveTime5[0], 1);
     }
 
     /**
