@@ -158,6 +158,27 @@ public class Client {
         Assertions.assertEquals(subsequence2.get(2), 6);
     }
 
+    /**
+     * 1408. 数组中的字符串匹配
+     * https://leetcode.cn/problems/string-matching-in-an-array/
+     */
+    @Test
+    public void no1408() {
+        String[] words1 = new String[]{"mass", "as", "hero", "superhero"};
+        List<String> matching1 = solution.stringMatching(words1);
+        Assertions.assertEquals(matching1.get(0), "as");
+        Assertions.assertEquals(matching1.get(1), "hero");
+
+        String[] words2 = new String[]{"leetcode", "et", "code"};
+        List<String> matching2 = solution.stringMatching(words2);
+        Assertions.assertEquals(matching2.get(0), "et");
+        Assertions.assertEquals(matching2.get(1), "code");
+
+        String[] words3 = new String[]{"blue", "green", "bu"};
+        List<String> matching3 = solution.stringMatching(words3);
+        Assertions.assertEquals(matching3.size(), 0);
+    }
+
     @Test
     public void test101() {
         String[] s = {"ab", "a"};

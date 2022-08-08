@@ -156,6 +156,22 @@ public class Solution {
         return result;
     }
 
+    public List<String> stringMatching(String[] words) {
+        Set<String> matchSet = new HashSet<>(words.length);
+        for (int i = 0; i < words.length; i++) {
+            String wordI = words[i];
+            for (int j = 0; j < words.length; j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (words[j].contains(wordI)) {
+                    matchSet.add(wordI);
+                }
+            }
+        }
+        return new ArrayList<>(matchSet);
+    }
+
     public int[] arrayRankTransform(int[] arr) {
         if (arr.length < 1) {
             return new int[0];
