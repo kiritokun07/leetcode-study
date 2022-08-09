@@ -5,12 +5,12 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * 测试
+ * 力扣每日一题
+ * https://leetcode.cn/problemset/all/
  *
  * @author kirito
  * @desc ...
@@ -20,8 +20,23 @@ public class Client {
 
     Solution solution = new Solution();
 
+    /**
+     * 14. 最长公共前缀
+     * https://leetcode.cn/problems/longest-common-prefix/
+     */
     @Test
-    public void test100() {
+    public void no14() {
+        String[] s = {"ab", "a"};
+        String s1 = solution.longestCommonPrefix(s);
+        System.out.println(s1);
+    }
+
+    /**
+     * 83. 删除排序链表中的重复元素
+     * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
+     */
+    @Test
+    public void no83() {
         ListNode l1 = new ListNode(1);
         l1.next = new ListNode(1);
         l1.next.next = new ListNode(3);
@@ -220,11 +235,23 @@ public class Client {
         Assertions.assertEquals(matching3.size(), 0);
     }
 
+    /**
+     * 1413. 逐步求和得到正数的最小值
+     * https://leetcode.cn/problems/minimum-value-to-get-positive-step-by-step-sum/
+     */
     @Test
-    public void test101() {
-        String[] s = {"ab", "a"};
-        String s1 = solution.longestCommonPrefix(s);
-        System.out.println(s1);
+    public void no1413() {
+        int[] nums1 = new int[]{-3, 2, -3, 4, 2};
+        int value1 = solution.minStartValue(nums1);
+        Assertions.assertEquals(value1, 5);
+
+        int[] nums2 = new int[]{1, 2};
+        int value2 = solution.minStartValue(nums2);
+        Assertions.assertEquals(value2, 1);
+
+        int[] nums3 = new int[]{1, -2, -3};
+        int value3 = solution.minStartValue(nums3);
+        Assertions.assertEquals(value3, 5);
     }
 
 }
