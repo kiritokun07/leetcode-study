@@ -229,7 +229,16 @@ public class Solution {
     }
 
     public int minStartValue(int[] nums) {
-        return 0;
+        int sum = nums[0];
+        int sMin = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            sum = sum + nums[i];
+            sMin = Math.min(sMin, sum);
+        }
+        if (sMin > 0) {
+            return 1;
+        }
+        return 1 - sMin;
     }
 
 }
