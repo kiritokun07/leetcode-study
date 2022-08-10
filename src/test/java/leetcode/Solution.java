@@ -86,6 +86,10 @@ public class Solution {
         return null;
     }
 
+    public String solveEquation(String equation) {
+        return null;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;

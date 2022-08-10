@@ -149,6 +149,17 @@ public class Client {
     }
 
     /**
+     * 640. 求解方程
+     * https://leetcode.cn/problems/solve-the-equation/
+     */
+    @Test
+    public void no640() {
+        Assertions.assertEquals(solution.solveEquation("x+5-3+x=6+x-2"), "x=2");
+        Assertions.assertEquals(solution.solveEquation("x=x"), "Infinite solutions");
+        Assertions.assertEquals(solution.solveEquation("2x=x"), "x=0");
+    }
+
+    /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
      */
