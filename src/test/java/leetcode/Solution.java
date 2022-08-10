@@ -86,8 +86,131 @@ public class Solution {
         return null;
     }
 
+    public static void main(String[] args) {
+        String a = "abc+-x";
+        for (int i = 0; i < a.length(); i++) {
+            System.out.println("a.charAt(i) = " + a.charAt(i));
+        }
+
+    }
+
+    /**
+     * 用+号-号分隔左边和右边，提取左边和右边的
+     * 然后计算1次项、0次项：ax+b=0
+     * x=x   0x+0=0
+     * 如果a==0&&b==0，返回"Infinite solutions"
+     * x=x+2  0x-2=0
+     * 如果a==0&&b!=0，返回"No solution"
+     * 否则返回x=-b/a
+     *
+     * @param equation
+     * @return
+     */
     public String solveEquation(String equation) {
-        return null;
+        //用=分割左边和右边，（左边）-（右边）=0
+        String[] split = equation.split("=");
+        String leftStr = split[0];
+        String rightStr = split[1];
+
+        int leftLen = leftStr.length();
+        int rightLen = rightStr.length();
+
+        int a = 0;
+        int b = 0;
+        int tempA = 0;
+        String tempStr = "";
+        int tempB = 0;
+
+        //左边字符串循环
+        for (int i = 0; i < leftLen; i++) {
+            char leftI = leftStr.charAt(i);
+            //如果==x 120，是结尾
+            if (leftI == 120) {
+                //如果字符串是空的，那么tempA=1，否则就parse
+                switch (tempStr) {
+                    case "":
+                        tempA = 1;
+                        break;
+                    case "+":
+                        tempA = 1;
+                        break;
+                    case "-":
+                        tempA = -1;
+                        break;
+                    default:
+                        tempA = Integer.parseInt(tempStr);
+                        break;
+                }
+                a += tempA;
+                continue;
+            }
+            //如果== +/- 43 45
+            if (leftI == 43 || leftI == 45) { //为+或-
+                tempStr = "" + leftI;
+                continue;
+            }
+            //剩下情况是数字
+            //数字的下一位可能是：数字、x、+/-、无
+            //+/-、无，是结尾
+            if (i == leftLen - 1 || (leftStr.charAt(i + 1) == 43 || leftStr.charAt(i + 1) == 45)) {
+                tempStr = tempStr + leftI;
+                tempB = Integer.parseInt(tempStr);
+                b += tempB;
+                continue;
+            }
+            //数字、x可以继续
+            tempStr = tempStr + leftI;
+        }
+        tempA = 0;
+        tempStr = "";
+        tempB = 0;
+        //右边字符串循环
+        for (int i = 0; i < rightLen; i++) {
+            char rightI = rightStr.charAt(i);
+            //如果==x 120，是结尾
+            if (rightI == 120) {
+                //如果字符串是空的，那么tempA=1，否则就parse
+                switch (tempStr) {
+                    case "":
+                        tempA = 1;
+                        break;
+                    case "+":
+                        tempA = 1;
+                        break;
+                    case "-":
+                        tempA = -1;
+                        break;
+                    default:
+                        tempA = Integer.parseInt(tempStr);
+                        break;
+                }
+                a -= tempA;
+                continue;
+            }
+            //如果== +/- 43 45
+            if (rightI == 43 || rightI == 45) { //为+或-
+                tempStr = "" + rightI;
+                continue;
+            }
+            //剩下情况是数字
+            //数字的下一位可能是：数字、x、+/-、无
+            //+/-、无，是结尾
+            if (i == rightLen - 1 || (rightStr.charAt(i + 1) == 43 || rightStr.charAt(i + 1) == 45)) {
+                tempStr = tempStr + rightI;
+                tempB = Integer.parseInt(tempStr);
+                b -= tempB;
+                continue;
+            }
+            //数字、x可以继续
+            tempStr = tempStr + rightI;
+        }
+        if (a == 0 && b == 0) {
+            return "Infinite solutions";
+        }
+        if (a == 0 && b != 0) {
+            return "No solution";
+        }
+        return "x=" + (-b / a);
     }
 
     public String orderlyQueue(String s, int k) {
