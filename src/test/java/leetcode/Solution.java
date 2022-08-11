@@ -369,7 +369,58 @@ public class Solution {
     }
 
     public String reformat(String s) {
-        return null;
+        StringBuilder alphaSb = new StringBuilder();
+        StringBuilder numberSb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (isAlphabet(s.charAt(i))) {
+                alphaSb.append(s.charAt(i));
+            } else {
+                numberSb.append(s.charAt(i));
+            }
+        }
+        //筛出字母
+        String alphabetStr = alphaSb.toString();
+        //筛出数字
+        String numberStr = numberSb.toString();
+        //如果length差超过1就返回空字符串
+        if (Math.abs(alphabetStr.length() - numberStr.length()) > 1) {
+            return "";
+        }
+        StringBuilder result = new StringBuilder(s.length());
+        //当前是否选字母
+        boolean isAlphabet = alphabetStr.length() > numberStr.length();
+        int i = 0;
+        int j = 0;
+        while (true) {
+            if (isAlphabet) {
+                result.append(alphabetStr.charAt(i));
+                ++i;
+            } else {
+                result.append(numberStr.charAt(j));
+                ++j;
+            }
+            isAlphabet = !isAlphabet;
+            if (i >= alphabetStr.length() && j >= numberStr.length()) {
+                break;
+            }
+        }
+        return result.toString();
+    }
+
+    /**
+     * 字符   a  z
+     * ascii 97 122
+     */
+    public static boolean isAlphabet(char ch) {
+        return ch >= 97 && ch <= 122;
+    }
+
+    /**
+     * 字符   0  9
+     * ascii 48 57
+     */
+    public static boolean isNumber(char ch) {
+        return ch >= 48 && ch <= 57;
     }
 
 }

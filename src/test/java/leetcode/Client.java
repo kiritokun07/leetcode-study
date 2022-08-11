@@ -272,11 +272,39 @@ public class Client {
      */
     @Test
     public void no1417() {
-        Assertions.assertEquals(solution.reformat("a0b1c2"),"0a1b2c");
-        Assertions.assertEquals(solution.reformat("leetcode"),"");
-        Assertions.assertEquals(solution.reformat("1229857369"),"");
-        Assertions.assertEquals(solution.reformat("covid2019"),"c2o0v1i9d");
-        Assertions.assertEquals(solution.reformat("ab123"),"1a2b3");
+        assertReformat("a0b1c2");
+        Assertions.assertEquals(solution.reformat("leetcode"), "");
+        Assertions.assertEquals(solution.reformat("1229857369"), "");
+        assertReformat("covid2019");
+        assertReformat("ab123");
+    }
+
+    /**
+     * assert：排序等于原字符串排序，且交替是字母或字符串
+     *
+     * @param input
+     */
+    public void assertReformat(String input) {
+        String output = solution.reformat(input);
+        char[] inputArr = input.toCharArray();
+        Arrays.sort(inputArr);
+        char[] outputArr = output.toCharArray();
+        Arrays.sort(outputArr);
+        Assertions.assertEquals(Arrays.toString(inputArr), Arrays.toString(outputArr));
+        //是否是字母
+        if (output.length() < 1) {
+            return;
+        }
+        boolean flag = Solution.isAlphabet(output.charAt(0));
+        for (int i = 1; i < output.length(); i++) {
+            if (flag) {
+                Assertions.assertTrue(Solution.isNumber(output.charAt(i)));
+                flag = false;
+            } else {
+                Assertions.assertTrue(Solution.isAlphabet(output.charAt(i)));
+                flag = true;
+            }
+        }
     }
 
 }
