@@ -266,4 +266,17 @@ public class Client {
         Assertions.assertEquals(value3, 5);
     }
 
+    /**
+     * 1417. 重新格式化字符串
+     * https://leetcode.cn/problems/reformat-the-string/
+     */
+    @Test
+    public void no1417() {
+        Assertions.assertEquals(solution.reformat("a0b1c2"),"0a1b2c");
+        Assertions.assertEquals(solution.reformat("leetcode"),"");
+        Assertions.assertEquals(solution.reformat("1229857369"),"");
+        Assertions.assertEquals(solution.reformat("covid2019"),"c2o0v1i9d");
+        Assertions.assertEquals(solution.reformat("ab123"),"1a2b3");
+    }
+
 }

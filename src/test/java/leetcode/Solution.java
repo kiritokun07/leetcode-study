@@ -368,4 +368,8 @@ public class Solution {
         return 1 - sMin;
     }
 
+    public String reformat(String s) {
+        return null;
+    }
+
 }
