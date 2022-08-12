@@ -193,12 +193,24 @@ public class Client {
     @Test
     public void no1282() {
         int[] groupSizes1 = {3, 3, 3, 3, 3, 1, 3};
-        List<List<Integer>> people1 = solution.groupThePeople(groupSizes1);
-        Assertions.assertEquals(people1.toString().replace(" ",""), "[[5],[0,1,2],[3,4,6]]");
+        assertGroupPeople(groupSizes1);
+        int[] groupSizes2 = {2, 1, 3, 3, 3, 2};
+        assertGroupPeople(groupSizes2);
+    }
 
-        int[] groupSizes2 = {2,1,3,3,3,2};
-        List<List<Integer>> people2 = solution.groupThePeople(groupSizes2);
-        Assertions.assertEquals(people2.toString().replace(" ",""), "[[1],[0,5],[2,3,4]]");
+    /**
+     * 验证这个数组的每个元素所在的list的大小都等于以数字为下表的原数组的值
+     *
+     * @param groupSizes
+     */
+    public void assertGroupPeople(int[] groupSizes) {
+        List<List<Integer>> peopleListList = solution.groupThePeople(groupSizes);
+        for (List<Integer> peopList : peopleListList) {
+            int size = peopList.size();
+            for (Integer peop : peopList) {
+                Assertions.assertEquals(groupSizes[peop], size);
+            }
+        }
     }
 
     /**

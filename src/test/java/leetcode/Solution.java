@@ -4,6 +4,7 @@ import leetcode.node.ListNode;
 import leetcode.node.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * LeetCode题解
@@ -282,8 +283,44 @@ public class Solution {
         return ans;
     }
 
+    public static class NumberAndSubScript {
+        private Integer num;
+        private Integer sub;
+
+        public NumberAndSubScript(int num, int sub) {
+            this.num = num;
+            this.sub = sub;
+        }
+
+        public Integer getNum() {
+            return num;
+        }
+
+        public Integer getSub() {
+            return sub;
+        }
+    }
+
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
-        return null;
+        int length = groupSizes.length;
+        List<NumberAndSubScript> numberAndSubScriptList = new ArrayList<>(length);
+        for (int i = 0; i < length; i++) {
+            numberAndSubScriptList.add(new NumberAndSubScript(groupSizes[i], i));
+        }
+        //排序
+        numberAndSubScriptList = numberAndSubScriptList.stream().sorted(Comparator.comparing(NumberAndSubScript::getNum)).collect(Collectors.toList());
+        int i = 0;
+        List<List<Integer>> peopleListList = new ArrayList<>();
+        while (i < length) {
+            int first = numberAndSubScriptList.get(i).getNum();
+            List<Integer> peopleList = new ArrayList<>(first);
+            for (int j = 0; j < first; j++) {
+                peopleList.add(numberAndSubScriptList.get(i).getSub());
+                ++i;
+            }
+            peopleListList.add(peopleList);
+        }
+        return peopleListList;
     }
 
     public int[] arrayRankTransform(int[] arr) {
