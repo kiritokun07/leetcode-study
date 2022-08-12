@@ -282,6 +282,10 @@ public class Solution {
         return ans;
     }
 
+    public List<List<Integer>> groupThePeople(int[] groupSizes) {
+        return null;
+    }
+
     public int[] arrayRankTransform(int[] arr) {
         if (arr.length < 1) {
             return new int[0];

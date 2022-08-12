@@ -187,6 +187,21 @@ public class Client {
     }
 
     /**
+     * 1282. 用户分组
+     * https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/
+     */
+    @Test
+    public void no1282() {
+        int[] groupSizes1 = {3, 3, 3, 3, 3, 1, 3};
+        List<List<Integer>> people1 = solution.groupThePeople(groupSizes1);
+        Assertions.assertEquals(people1.toString().replace(" ",""), "[[5],[0,1,2],[3,4,6]]");
+
+        int[] groupSizes2 = {2,1,3,3,3,2};
+        List<List<Integer>> people2 = solution.groupThePeople(groupSizes2);
+        Assertions.assertEquals(people2.toString().replace(" ",""), "[[1],[0,5],[2,3,4]]");
+    }
+
+    /**
      * 1331. 数组序号转换
      * https://leetcode.cn/problems/rank-transform-of-an-array/
      */
