@@ -160,6 +160,16 @@ public class Client {
         Assertions.assertEquals(solution.solveEquation("x=x+2"), "No solution");
     }
 
+
+    /**
+     * 641. 设计循环双端队列
+     * https://leetcode.cn/problems/design-circular-deque/
+     */
+    @Test
+    public void no641() {
+        //MyCircularDeque myCircularDeque = new MyCircularDeque();
+    }
+
     /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
@@ -332,6 +342,15 @@ public class Client {
                 flag = true;
             }
         }
+    }
+
+    /**
+     * 1422. 分割字符串的最大得分
+     * https://leetcode.cn/problems/maximum-score-after-splitting-a-string/
+     */
+    @Test
+    public void no1422() {
+        Assertions.assertEquals(solution.maxScore("011101"), 5);
     }
 
 }

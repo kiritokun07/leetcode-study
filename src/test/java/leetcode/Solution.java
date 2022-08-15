@@ -464,4 +464,8 @@ public class Solution {
         return ch >= 48 && ch <= 57;
     }
 
+    public int maxScore(String s) {
+        return 0;
+    }
+
 }
