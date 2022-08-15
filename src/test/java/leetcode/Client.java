@@ -167,7 +167,17 @@ public class Client {
      */
     @Test
     public void no641() {
-        //MyCircularDeque myCircularDeque = new MyCircularDeque();
+        int k = 3;
+        MyCircularDeque myCircularDeque = new MyCircularDeque(k);
+        Assertions.assertTrue(myCircularDeque.insertLast(1));
+        Assertions.assertTrue(myCircularDeque.insertLast(2));
+        Assertions.assertTrue(myCircularDeque.insertFront(3));
+        Assertions.assertFalse(myCircularDeque.insertFront(4));
+        Assertions.assertEquals(myCircularDeque.getRear(), 2);
+        Assertions.assertTrue(myCircularDeque.isFull());
+        Assertions.assertTrue(myCircularDeque.deleteLast());
+        Assertions.assertTrue(myCircularDeque.insertFront(4));
+        Assertions.assertEquals(myCircularDeque.getFront(), 4);
     }
 
     /**
