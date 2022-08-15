@@ -465,7 +465,33 @@ public class Solution {
     }
 
     public int maxScore(String s) {
-        return 0;
+        int oneCount = 0;
+        for (int i = 0; i < s.length(); i++) {
+            //1的个数
+            if (s.charAt(i) == 49) {
+                ++oneCount;
+            }
+        }
+        int currentScore = oneCount;
+        int maxScore = oneCount;
+        //如果开头是0
+        if (s.charAt(0) == 48) {
+            ++currentScore;
+            ++maxScore;
+        } else {
+            --currentScore;
+            --maxScore;
+        }
+        for (int i = 1; i < s.length() - 1; i++) {
+            //如果是0
+            if (s.charAt(i) == 48) {
+                ++currentScore;
+            } else {
+                --currentScore;
+            }
+            maxScore = Math.max(currentScore, maxScore);
+        }
+        return maxScore;
     }
 
 }

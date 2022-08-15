@@ -351,6 +351,9 @@ public class Client {
     @Test
     public void no1422() {
         Assertions.assertEquals(solution.maxScore("011101"), 5);
+        Assertions.assertEquals(solution.maxScore("00111"), 5);
+        Assertions.assertEquals(solution.maxScore("1111"), 3);
+        Assertions.assertEquals(solution.maxScore("00"), 1);
     }
 
 }
