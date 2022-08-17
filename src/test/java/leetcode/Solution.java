@@ -323,6 +323,10 @@ public class Solution {
         return peopleListList;
     }
 
+    public int deepestLeavesSum(TreeNode root) {
+        return 0;
+    }
+
     public int[] arrayRankTransform(int[] arr) {
         if (arr.length < 1) {
             return new int[0];

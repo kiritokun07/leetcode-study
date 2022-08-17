@@ -234,6 +234,19 @@ public class Client {
     }
 
     /**
+     * 1302. 层数最深叶子节点的和
+     * https://leetcode.cn/problems/deepest-leaves-sum/
+     */
+    @Test
+    public void no1302() {
+        //array2TreeNode方法需要支持传null
+        //TreeNode treeNode1 = TreeNode.array2TreeNode(new int[]{1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8});
+        //Assertions.assertEquals(solution.deepestLeavesSum(treeNode1), 15);
+        //TreeNode treeNode2 = TreeNode.array2TreeNode(new int[]{6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5});
+        //Assertions.assertEquals(solution.deepestLeavesSum(treeNode2), 19);
+    }
+
+    /**
      * 1331. 数组序号转换
      * https://leetcode.cn/problems/rank-transform-of-an-array/
      */
