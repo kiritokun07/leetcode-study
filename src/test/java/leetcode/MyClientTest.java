@@ -16,7 +16,7 @@ import java.util.List;
  * @desc ...
  * @date 2022-07-31 16:02:08
  */
-public class Client {
+public class MyClientTest {
 
     Solution solution = new Solution();
 
@@ -221,7 +221,7 @@ public class Client {
     /**
      * 验证这个数组的每个元素所在的list的大小都等于以数字为下表的原数组的值
      *
-     * @param groupSizes
+     * @param groupSizes 数组大小
      */
     public void assertGroupPeople(int[] groupSizes) {
         List<List<Integer>> peopleListList = solution.groupThePeople(groupSizes);
@@ -342,7 +342,7 @@ public class Client {
     /**
      * assert：排序等于原字符串排序，且交替是字母或字符串
      *
-     * @param input
+     * @param input 输入字符串
      */
     public void assertReformat(String input) {
         String output = solution.reformat(input);
@@ -377,6 +377,24 @@ public class Client {
         Assertions.assertEquals(solution.maxScore("00111"), 5);
         Assertions.assertEquals(solution.maxScore("1111"), 3);
         Assertions.assertEquals(solution.maxScore("00"), 1);
+    }
+
+    /**
+     * 1656. 设计有序流
+     * https://leetcode.cn/problems/design-an-ordered-stream/
+     */
+    @Test
+    public void no1656() {
+        OrderedStream orderedStream = new OrderedStream(5);
+        Assertions.assertEquals(orderedStream.insert(3, "ccccc").size(), 0);
+        Assertions.assertEquals(orderedStream.insert(1, "aaaaa").get(0), "aaaaa");
+        List<String> bbbbb = orderedStream.insert(2, "bbbbb");
+        Assertions.assertEquals(bbbbb.get(0), "bbbbb");
+        Assertions.assertEquals(bbbbb.get(1), "ccccc");
+        Assertions.assertEquals(orderedStream.insert(5, "eeeee").size(), 0);
+        List<String> ddddd = orderedStream.insert(4, "ddddd");
+        Assertions.assertEquals(ddddd.get(0), "ddddd");
+        Assertions.assertEquals(ddddd.get(1), "eeeee");
     }
 
 }
