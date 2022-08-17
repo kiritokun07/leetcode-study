@@ -19,7 +19,7 @@ public class MyTest {
      */
     @Test
     public void testArray2TreeNode() {
-        int[] root = new int[]{4, 2, 6, 3, 1, 5};
+        Integer[] root = new Integer[]{4, 2, 6, 3, 1, 5};
         TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
 
         TreeNode four = new TreeNode(3, null, null);

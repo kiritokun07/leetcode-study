@@ -86,7 +86,7 @@ public class MyClientTest {
      */
     @Test
     public void no623() {
-        int[] root = new int[]{4, 2, 6, 3, 1, 5};
+        Integer[] root = new Integer[]{4, 2, 6, 3, 1, 5};
         //数组转二叉树
         TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
         //TreeNode four = new TreeNode(3, null, null);
@@ -240,10 +240,10 @@ public class MyClientTest {
     @Test
     public void no1302() {
         //array2TreeNode方法需要支持传null
-        //TreeNode treeNode1 = TreeNode.array2TreeNode(new int[]{1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8});
-        //Assertions.assertEquals(solution.deepestLeavesSum(treeNode1), 15);
-        //TreeNode treeNode2 = TreeNode.array2TreeNode(new int[]{6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5});
-        //Assertions.assertEquals(solution.deepestLeavesSum(treeNode2), 19);
+        TreeNode treeNode1 = TreeNode.array2TreeNode2(new Integer[]{1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8});
+        Assertions.assertEquals(solution.deepestLeavesSum(treeNode1), 15);
+        TreeNode treeNode2 = TreeNode.array2TreeNode(new Integer[]{6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5});
+        Assertions.assertEquals(solution.deepestLeavesSum(treeNode2), 19);
     }
 
     /**

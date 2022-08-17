@@ -2,6 +2,9 @@ package leetcode.node;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 public class TreeNode {
 
@@ -22,12 +25,12 @@ public class TreeNode {
     }
 
     /**
-     * 数组转二叉树
+     * 数组转二叉树 数组是满的，就是说null的子树也要给
      *
      * @param nums
      * @return
      */
-    public static TreeNode array2TreeNode(int[] nums) {
+    public static TreeNode array2TreeNode(Integer[] nums) {
         if (nums.length < 1) {
             return null;
         }
@@ -35,8 +38,13 @@ public class TreeNode {
         //通过下标判断父节点
         for (int i = 0; i < nums.length; i++) {
             //第i个数字
-            int num = nums[i];
-            TreeNode treeNode = new TreeNode(num, null, null);
+            Integer num = nums[i];
+            TreeNode treeNode;
+            if (num == null) {
+                treeNode = null;
+            } else {
+                treeNode = new TreeNode(num, null, null);
+            }
             //获取其与父节点的关联，父节点下标是多少，它是父节点的左子树还是右子树
             boolean isOdd = i % 2 == 1;
             int pI;
@@ -58,6 +66,55 @@ public class TreeNode {
                 }
             }
             treeNodes[i] = treeNode;
+        }
+        return treeNodes[0];
+    }
+
+    /**
+     * 数组转二叉树2 为null的树，子树不提供直接跳过
+     *
+     * @param nums
+     * @return
+     */
+    public static TreeNode array2TreeNode2(Integer[] nums) {
+        if (nums.length < 1) {
+            return null;
+        }
+        TreeNode[] treeNodes = new TreeNode[nums.length];
+        //当前层级
+        //int level = 1;
+
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(new TreeNode(nums[0], null, null));
+        int curse = 0;
+        int curse2 = 1;
+        while (!pNodeList.isEmpty() && curse2 < nums.length) {
+            List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
+            for (TreeNode treeNode : pNodeList) {
+                Integer leftNodeValue = nums[curse2];
+                TreeNode leftChildNode;
+                if (leftNodeValue == null) {
+                    leftChildNode = null;
+                } else {
+                    leftChildNode = new TreeNode(leftNodeValue, null, null);
+                    childNodeList.add(leftChildNode);
+                }
+                treeNode.left = leftChildNode;
+                ++curse2;
+                Integer rightNodeValue = nums[curse2];
+                TreeNode rightChildNode;
+                if (rightNodeValue == null) {
+                    rightChildNode = null;
+                } else {
+                    rightChildNode = new TreeNode(rightNodeValue, null, null);
+                    childNodeList.add(rightChildNode);
+                }
+                treeNode.right = rightChildNode;
+                ++curse2;
+                treeNodes[curse] = treeNode;
+                ++curse;
+            }
+            pNodeList = childNodeList;
         }
         return treeNodes[0];
     }
