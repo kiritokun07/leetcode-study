@@ -324,6 +324,27 @@ public class Solution {
     }
 
     public int deepestLeavesSum(TreeNode root) {
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(root);
+        while (!pNodeList.isEmpty()) {
+            List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
+            for (TreeNode pNode : pNodeList) {
+                if (pNode.left != null) {
+                    childNodeList.add(pNode.left);
+                }
+                if (pNode.right != null) {
+                    childNodeList.add(pNode.right);
+                }
+            }
+            if (childNodeList.isEmpty()) {
+                int sum = 0;
+                for (TreeNode pNode : pNodeList) {
+                    sum += pNode.val;
+                }
+                return sum;
+            }
+            pNodeList = childNodeList;
+        }
         return 0;
     }
 
