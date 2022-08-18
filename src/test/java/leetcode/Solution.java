@@ -301,6 +301,10 @@ public class Solution {
         }
     }
 
+    public int maxEqualFreq(int[] nums) {
+        return 0;
+    }
+
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
         int length = groupSizes.length;
         List<NumberAndSubScript> numberAndSubScriptList = new ArrayList<>(length);

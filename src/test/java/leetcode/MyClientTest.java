@@ -207,6 +207,16 @@ public class MyClientTest {
     }
 
     /**
+     * 1224. 最大相等频率
+     * https://leetcode.cn/problems/maximum-equal-frequency/
+     */
+    @Test
+    public void no1224() {
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{2, 2, 1, 1, 5, 3, 3, 5}), 7);
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5}), 13);
+    }
+
+    /**
      * 1282. 用户分组
      * https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/
      */
