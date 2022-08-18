@@ -5,6 +5,8 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
@@ -209,11 +211,16 @@ public class MyClientTest {
     /**
      * 1224. 最大相等频率
      * https://leetcode.cn/problems/maximum-equal-frequency/
+     * 需要优化时间复杂度
      */
     @Test
     public void no1224() {
         Assertions.assertEquals(solution.maxEqualFreq(new int[]{2, 2, 1, 1, 5, 3, 3, 5}), 7);
         Assertions.assertEquals(solution.maxEqualFreq(new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5}), 13);
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{10, 2, 8, 9, 3, 8, 1, 5, 2, 3, 7, 6}), 8);
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{1, 1}), 2);
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}), 9);
+        Assertions.assertEquals(solution.maxEqualFreq(new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3}), 7);
     }
 
     /**
