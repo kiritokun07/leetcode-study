@@ -593,7 +593,15 @@ public class Solution {
     }
 
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
-        return 0;
+        int count = 0;
+        for (int i = 0; i < startTime.length; i++) {
+            int startI = startTime[i];
+            int endI = endTime[i];
+            if (startI <= queryTime && queryTime <= endI) {
+                ++count;
+            }
+        }
+        return count;
     }
 
 }
