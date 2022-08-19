@@ -592,4 +592,8 @@ public class Solution {
         return maxScore;
     }
 
+    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
+        return 0;
+    }
+
 }
