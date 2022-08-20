@@ -183,6 +183,18 @@ public class MyClientTest {
     }
 
     /**
+     * 654. 最大二叉树
+     * https://leetcode.cn/problems/maximum-binary-tree/
+     */
+    @Test
+    public void no654() {
+        //需要写个二叉树转数组？
+        //或者写个判断treeNode相等的方法
+        Assertions.assertTrue(TreeNode.isEqual(solution.constructMaximumBinaryTree(new int[]{3, 2, 1, 6, 0, 5}), TreeNode.array2TreeNode2(new Integer[]{6, 3, 5, null, 2, 0, null, null, 1})));
+        Assertions.assertTrue(TreeNode.isEqual(solution.constructMaximumBinaryTree(new int[]{3, 2, 1}), TreeNode.array2TreeNode2(new Integer[]{3, null, 2, null, 1})));
+    }
+
+    /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
      */

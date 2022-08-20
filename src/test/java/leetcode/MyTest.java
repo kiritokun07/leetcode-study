@@ -39,4 +39,18 @@ public class MyTest {
         Assertions.assertEquals(array2TreeNode.right.left.val, one.right.left.val);
     }
 
+    @Test
+    public void testEqual() {
+        Integer[] root = new Integer[]{4, 2, 6, 3, 1, 5};
+        TreeNode array2TreeNode = TreeNode.array2TreeNode(root);
+        TreeNode four = new TreeNode(3, null, null);
+        TreeNode five = new TreeNode(1, null, null);
+        TreeNode six = new TreeNode(5, null, null);
+        TreeNode two = new TreeNode(2, four, five);
+        TreeNode three = new TreeNode(6, six, null);
+        TreeNode one = new TreeNode(4, two, three);
+
+        Assertions.assertTrue(TreeNode.isEqual(array2TreeNode, one));
+    }
+
 }

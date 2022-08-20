@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 public class TreeNode {
@@ -117,6 +118,30 @@ public class TreeNode {
             pNodeList = childNodeList;
         }
         return treeNodes[0];
+    }
+
+    /**
+     * 判断两个TreeNode相等
+     *
+     * @return
+     */
+    public static boolean isEqual(TreeNode a, TreeNode b) {
+        if (a == b) {
+            return true;
+        }
+        if (a != null && b == null) {
+            return false;
+        }
+        if (a == null && b != null) {
+            return false;
+        }
+        if (a == null && b == null) {
+            return true;
+        }
+        if (!Objects.equals(a.val, b.val)) {
+            return false;
+        }
+        return isEqual(a.left, b.left) && isEqual(a.right, b.right);
     }
 
 }
