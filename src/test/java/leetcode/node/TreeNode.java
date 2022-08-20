@@ -92,6 +92,11 @@ public class TreeNode {
         while (!pNodeList.isEmpty() && curse2 < nums.length) {
             List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
             for (TreeNode treeNode : pNodeList) {
+                treeNodes[curse] = treeNode;
+                ++curse;
+                if (curse2 >= nums.length) {
+                    break;
+                }
                 Integer leftNodeValue = nums[curse2];
                 TreeNode leftChildNode;
                 if (leftNodeValue == null) {
@@ -102,6 +107,9 @@ public class TreeNode {
                 }
                 treeNode.left = leftChildNode;
                 ++curse2;
+                if (curse2 >= nums.length) {
+                    break;
+                }
                 Integer rightNodeValue = nums[curse2];
                 TreeNode rightChildNode;
                 if (rightNodeValue == null) {
@@ -112,8 +120,9 @@ public class TreeNode {
                 }
                 treeNode.right = rightChildNode;
                 ++curse2;
-                treeNodes[curse] = treeNode;
-                ++curse;
+            }
+            if (curse2 >= nums.length) {
+                break;
             }
             pNodeList = childNodeList;
         }

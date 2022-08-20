@@ -215,7 +215,26 @@ public class Solution {
     }
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return null;
+        int length = nums.length;
+        if (length < 1) {
+            return null;
+        }
+        //获取最大值的下标
+        int maxNumSub = 0;
+        int maxNum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > maxNum) {
+                maxNum = nums[i];
+                maxNumSub = i;
+            }
+        }
+        //以下递归
+        TreeNode treeNode = new TreeNode(maxNum);
+        int[] leftNums = Arrays.copyOfRange(nums, 0, maxNumSub);
+        int[] rightNums = Arrays.copyOfRange(nums, maxNumSub + 1, length);
+        treeNode.left = constructMaximumBinaryTree(leftNums); //0到i 左闭右开
+        treeNode.right = constructMaximumBinaryTree(rightNums); //i+1到length 左闭右开
+        return treeNode;
     }
 
     public String orderlyQueue(String s, int k) {
