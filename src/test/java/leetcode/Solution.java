@@ -87,14 +87,6 @@ public class Solution {
         return null;
     }
 
-    public static void main(String[] args) {
-        String a = "abc+-x";
-        for (int i = 0; i < a.length(); i++) {
-            System.out.println("a.charAt(i) = " + a.charAt(i));
-        }
-
-    }
-
     /**
      * 用+号-号分隔左边和右边，提取左边和右边的
      * 然后计算1次项、0次项：ax+b=0
@@ -624,6 +616,52 @@ public class Solution {
             }
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        String a = "1 2 3";
+        System.out.println("a = " + a);
+    }
+
+    public int isPrefixOfWord(String sentence, String searchWord) {
+        int curse = 0;
+        int times = 1;
+        boolean flag = false;
+        while (sentence.length() - curse >= searchWord.length()) {
+            flag = true;
+            //如果当前字符串为空，就跳过
+            char charI = sentence.charAt(curse);
+            if (charI == 32) {
+                ++curse;
+                ++times;
+                flag = false;
+                continue;
+            }
+            //判断是否为前缀，即searchWord的每个单词都和sentence的相等
+            //如果判断不相等了，需要跳到空格处
+            for (int i = 0; i < searchWord.length(); i++) {
+                if (sentence.charAt(curse) == 32) {
+                    flag = false;
+                    break;
+                }
+                if (searchWord.charAt(i) != sentence.charAt(curse)) {
+                    flag = false;
+                    ++curse;
+                    break;
+                }
+                ++curse;
+            }
+            if (flag) {
+                break;
+            }
+            while (curse < sentence.length() - 1 && sentence.charAt(curse) != 32) {
+                ++curse;
+            }
+        }
+        if (flag) {
+            return times;
+        }
+        return -1;
     }
 
 }

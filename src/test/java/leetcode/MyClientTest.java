@@ -422,6 +422,20 @@ public class MyClientTest {
     }
 
     /**
+     * 1455. 检查单词是否为句中其他单词的前缀
+     * https://leetcode.cn/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
+     */
+    @Test
+    public void no1455() {
+        Assertions.assertEquals(solution.isPrefixOfWord("i love eating burger", "burg"), 4);
+        Assertions.assertEquals(solution.isPrefixOfWord("this problem is an easy problem", "pro"), 2);
+        Assertions.assertEquals(solution.isPrefixOfWord("i am tired", "you"), -1);
+        Assertions.assertEquals(solution.isPrefixOfWord("i use triple pillow", "pill"), 4);
+        Assertions.assertEquals(solution.isPrefixOfWord("i dumb", "jiezcqu"), -1);
+        Assertions.assertEquals(solution.isPrefixOfWord("b bu bur burg burger", "burg"), 4);
+    }
+
+    /**
      * 1656. 设计有序流
      * https://leetcode.cn/problems/design-an-ordered-stream/
      */
