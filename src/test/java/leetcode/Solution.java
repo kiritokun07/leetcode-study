@@ -236,6 +236,10 @@ public class Solution {
         return treeNode;
     }
 
+    public List<List<String>> printTree(TreeNode root) {
+        return null;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;

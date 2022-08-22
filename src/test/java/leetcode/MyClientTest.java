@@ -5,8 +5,7 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -192,6 +191,28 @@ public class MyClientTest {
         //或者写个判断treeNode相等的方法
         Assertions.assertTrue(TreeNode.isEqual(solution.constructMaximumBinaryTree(new int[]{3, 2, 1, 6, 0, 5}), TreeNode.array2TreeNode2(new Integer[]{6, 3, 5, null, 2, 0, null, null, 1})));
         Assertions.assertTrue(TreeNode.isEqual(solution.constructMaximumBinaryTree(new int[]{3, 2, 1}), TreeNode.array2TreeNode2(new Integer[]{3, null, 2, null, 1})));
+    }
+
+    /**
+     * 655. 输出二叉树
+     * https://leetcode.cn/problems/print-binary-tree/
+     */
+    @Test
+    public void no655() {
+        TreeNode treeNode = TreeNode.array2TreeNode2(new Integer[]{1, 2});
+        List<List<String>> listList = solution.printTree(treeNode);
+        List<List<String>> listList2=new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+        list1.add("");
+        list1.add("1");
+        list1.add("");
+        listList2.add(list1);
+        List<String> list2 = new ArrayList<>();
+        list2.add("2");
+        list2.add("");
+        list2.add("");
+        listList2.add(list2);
+        //判断listList listList2
     }
 
     /**
