@@ -153,4 +153,29 @@ public class TreeNode {
         return isEqual(a.left, b.left) && isEqual(a.right, b.right);
     }
 
+    /**
+     * 获取树的高度（[1,2]高度=1）
+     *
+     * @return
+     */
+    public static int getHeight(TreeNode root) {
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(root);
+        int height = -1;
+        while (!pNodeList.isEmpty()) {
+            List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
+            for (TreeNode pNode : pNodeList) {
+                if (pNode.left != null) {
+                    childNodeList.add(pNode.left);
+                }
+                if (pNode.right != null) {
+                    childNodeList.add(pNode.right);
+                }
+            }
+            pNodeList = childNodeList;
+            ++height;
+        }
+        return height;
+    }
+
 }

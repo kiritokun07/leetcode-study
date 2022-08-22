@@ -229,7 +229,50 @@ public class Solution {
     }
 
     public List<List<String>> printTree(TreeNode root) {
-        return null;
+        //高度
+        int height = TreeNode.getHeight(root);
+        //矩阵行数
+        int m = height + 1;
+        //矩阵列数
+        int n = (int) (Math.pow(2, height + 1) - 1);
+        //初始化矩阵
+        List<List<String>> result = new ArrayList<>(m);
+        for (int i = 0; i < m; i++) {
+            List<String> resultI = new ArrayList<>(n);
+            for (int j = 0; j < n; j++) {
+                resultI.add("");
+            }
+            result.add(resultI);
+        }
+
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(root);
+        int r = 0;
+        while (!pNodeList.isEmpty()) {
+            List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
+            for (TreeNode pNode : pNodeList) {
+                if (pNode == root) {
+                    result.get(r).set((n - 1) / 2, String.valueOf(pNode.val));
+                    pNode.val = (n - 1) / 2;
+                }
+                int c = pNode.val;
+                if (pNode.left != null) {
+                    childNodeList.add(pNode.left);
+                    int lc = (int) (c - Math.pow(2, height - r - 1));
+                    result.get(r + 1).set(lc, String.valueOf(pNode.left.val));
+                    pNode.left.val = lc;
+                }
+                if (pNode.right != null) {
+                    childNodeList.add(pNode.right);
+                    int rc = (int) (c + Math.pow(2, height - r - 1));
+                    result.get(r + 1).set(rc, String.valueOf(pNode.right.val));
+                    pNode.right.val = rc;
+                }
+            }
+            ++r;
+            pNodeList = childNodeList;
+        }
+        return result;
     }
 
     public String orderlyQueue(String s, int k) {
@@ -620,11 +663,6 @@ public class Solution {
             }
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        String a = "1 2 3";
-        System.out.println("a = " + a);
     }
 
     public int isPrefixOfWord(String sentence, String searchWord) {

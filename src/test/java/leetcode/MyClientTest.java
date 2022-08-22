@@ -199,20 +199,8 @@ public class MyClientTest {
      */
     @Test
     public void no655() {
-        TreeNode treeNode = TreeNode.array2TreeNode2(new Integer[]{1, 2});
-        List<List<String>> listList = solution.printTree(treeNode);
-        List<List<String>> listList2=new ArrayList<>();
-        List<String> list1 = new ArrayList<>();
-        list1.add("");
-        list1.add("1");
-        list1.add("");
-        listList2.add(list1);
-        List<String> list2 = new ArrayList<>();
-        list2.add("2");
-        list2.add("");
-        list2.add("");
-        listList2.add(list2);
-        //判断listList listList2
+        List<List<String>> listList = solution.printTree(TreeNode.array2TreeNode2(new Integer[]{1, 2}));
+        List<List<String>> listList2 = solution.printTree(TreeNode.array2TreeNode2(new Integer[]{1,2,3,null,4}));
     }
 
     /**
