@@ -109,7 +109,7 @@ public class Solution {
             }
             lastId = nowId;
             lastTime = nowTime;
-            if (nowStatus.equals("end") && i < logs.size()-1) {
+            if (nowStatus.equals("end") && i < logs.size() - 1) {
                 lastId = myStack.getTheHead();
             }
         }
@@ -392,76 +392,39 @@ public class Solution {
     }
 
     public int maxEqualFreq(int[] nums) {
-        Map<Integer, Integer> numTimesMap = new HashMap<>();
-        //Map<Integer, Integer> timesNumMap = new HashMap<>();
-        int result = 0;
-        //int maxFreq = 0;
+        //值的频次
+        Map<Integer, Integer> numTimeMap = new HashMap<>();
+        //频次的频次
+        Map<Integer, Integer> timeTimeMap = new HashMap<>();
+        int res = 0;
+        int maxFreq = 0;
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
-            numTimesMap.merge(num, 1, Integer::sum);
-            if (numTimesMap.size() == 1) {
-                //if (numTimesMap.values().iterator().next() == 1) {
-                result = i;
-                //}
-                continue;
+            Integer sub = numTimeMap.get(num);
+            if (sub != null) {
+                //归位
+                timeTimeMap.put(sub, timeTimeMap.get(sub) - 1);
             }
-            //如果符合条件就更新result
-            //条件是：判断是否只有一个元素的数量比其他元素个数多1个
-            //有可能是：2 2 3
-            //有可能是：1 n n
-            //有可能是：1 1 1 1 2|2
-            //有可能是：1 1 1 1 1
-            //不能是：2 2 2 2 2
-            //有可能是 2 3
-            List<Integer> timesList = numTimesMap.values().stream().sorted().collect(Collectors.toList());
-            if (timesList.size() == 2) {
-                if (timesList.get(0) == 1) {
-                    result = i;
-                    continue;
-                }
-                if (Math.abs(timesList.get(0) - timesList.get(1)) == 1) {
-                    result = i;
-                    continue;
-                }
-            }
-            //size>=3的情况
-            boolean flag = true;
-            if (!timesList.get(0).equals(timesList.get(1))) {
-                //第一个值和第二个值不相同
-                //如果第一个值是1，那么其他值必须都相同
-                if (timesList.get(0) == 1) {
-                    for (int i1 = 1; i1 < timesList.size() - 1; i1++) {
-                        if (!timesList.get(i1).equals(timesList.get(i1 + 1))) {
-                            flag = false;
-                            break;
-                        }
-                    }
-                } else {
-                    continue;
-                }
-            } else if (!timesList.get(timesList.size() - 1).equals(timesList.get(timesList.size() - 2))) {
-                //倒一和倒二不相同
-                //判断最后一个值为其他值+1
-                for (int i1 = 0; i1 < timesList.size() - 1; i1++) {
-                    if (!timesList.get(i1).equals(timesList.get(timesList.size() - 1) - 1)) {
-                        flag = false;
-                        break;
-                    }
-                }
+            if (sub != null) {
+                ++sub;
             } else {
-                //如果都是1也可以
-                for (Integer ti : timesList) {
-                    if (!ti.equals(1)) {
-                        flag = false;
-                        break;
-                    }
-                }
+                sub = 1;
             }
-            if (flag) {
-                result = i;
+            numTimeMap.put(num, sub);
+            timeTimeMap.merge(sub, 1, Integer::sum);
+            maxFreq = Math.max(maxFreq, numTimeMap.get(num));
+            //判断当前map是否符合条件
+            //1.最大频次为1
+            //2.只有maxFreq和maxFreq-1（意思是加起来等于i+1），且前者只有1个，不能判断size==2，因为有可能value是0
+            //3.只有一个1，其余都是maxFreq
+            boolean ok = maxFreq == 1
+                    || (timeTimeMap.get(maxFreq) == 1 && timeTimeMap.get(maxFreq) * maxFreq + timeTimeMap.get(maxFreq - 1) * (maxFreq - 1) == i + 1)
+                    || (timeTimeMap.get(1) == 1 && timeTimeMap.get(maxFreq) * maxFreq + 1 == i + 1);
+            if (ok) {
+                res = Math.max(res, i + 1);
             }
         }
-        return result + 1;
+        return res;
     }
 
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
