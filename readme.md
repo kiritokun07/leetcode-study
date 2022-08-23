@@ -3,7 +3,6 @@
 https://leetcode.cn/problemset/all/
 
 #### 正在写
-no636
 no1224
 
 

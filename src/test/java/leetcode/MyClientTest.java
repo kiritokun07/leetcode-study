@@ -147,6 +147,14 @@ public class MyClientTest {
         int[] exclusiveTime5 = solution.exclusiveTime(n5, logs5);
         Assertions.assertEquals(exclusiveTime5.length, 1);
         Assertions.assertEquals(exclusiveTime5[0], 1);
+
+        int n6 = 3;
+        List<String> logs6 = Arrays.asList("0:start:0","0:end:0","1:start:1","1:end:1","2:start:2","2:end:2","2:start:3","2:end:3");
+        int[] exclusiveTime6 = solution.exclusiveTime(n6, logs6);
+        Assertions.assertEquals(exclusiveTime6.length, 3);
+        Assertions.assertEquals(exclusiveTime6[0], 1);
+        Assertions.assertEquals(exclusiveTime6[1], 1);
+        Assertions.assertEquals(exclusiveTime6[2], 2);
     }
 
     /**

@@ -1,12 +1,10 @@
 package leetcode.node;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Data
+//@Data
 public class TreeNode {
 
     public int val;

@@ -1,6 +1,7 @@
 package leetcode;
 
 import leetcode.node.ListNode;
+import leetcode.node.MyStack;
 import leetcode.node.TreeNode;
 
 import java.util.*;
@@ -84,7 +85,35 @@ public class Solution {
     }
 
     public int[] exclusiveTime(int n, List<String> logs) {
-        return null;
+        int[] result = new int[n];
+        MyStack myStack = new MyStack(logs.size());
+        int lastId = 0;
+        int lastTime = 0;
+        for (int i = 0; i < logs.size(); i++) {
+            String log = logs.get(i);
+            String[] split = log.split(":");
+            int nowId = Integer.parseInt(split[0]);
+            String nowStatus = split[1];
+            int nowTime = Integer.parseInt(split[2]);
+            if (nowStatus.equals("start")) {
+                //start
+                myStack.push(Integer.parseInt(split[0]));
+            } else {
+                //end
+                myStack.pop();
+                ++nowTime;
+            }
+            if (lastId >= 0) {
+                int deltaTime = nowTime - lastTime;
+                result[lastId] = result[lastId] + deltaTime;
+            }
+            lastId = nowId;
+            lastTime = nowTime;
+            if (nowStatus.equals("end") && i < logs.size()-1) {
+                lastId = myStack.getTheHead();
+            }
+        }
+        return result;
     }
 
     /**
