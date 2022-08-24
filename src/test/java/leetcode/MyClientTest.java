@@ -149,7 +149,7 @@ public class MyClientTest {
         Assertions.assertEquals(exclusiveTime5[0], 1);
 
         int n6 = 3;
-        List<String> logs6 = Arrays.asList("0:start:0","0:end:0","1:start:1","1:end:1","2:start:2","2:end:2","2:start:3","2:end:3");
+        List<String> logs6 = Arrays.asList("0:start:0", "0:end:0", "1:start:1", "1:end:1", "2:start:2", "2:end:2", "2:start:3", "2:end:3");
         int[] exclusiveTime6 = solution.exclusiveTime(n6, logs6);
         Assertions.assertEquals(exclusiveTime6.length, 3);
         Assertions.assertEquals(exclusiveTime6[0], 1);
@@ -208,7 +208,7 @@ public class MyClientTest {
     @Test
     public void no655() {
         List<List<String>> listList = solution.printTree(TreeNode.array2TreeNode2(new Integer[]{1, 2}));
-        List<List<String>> listList2 = solution.printTree(TreeNode.array2TreeNode2(new Integer[]{1,2,3,null,4}));
+        List<List<String>> listList2 = solution.printTree(TreeNode.array2TreeNode2(new Integer[]{1, 2, 3, null, 4}));
     }
 
     /**
@@ -450,6 +450,17 @@ public class MyClientTest {
         Assertions.assertEquals(solution.isPrefixOfWord("i use triple pillow", "pill"), 4);
         Assertions.assertEquals(solution.isPrefixOfWord("i dumb", "jiezcqu"), -1);
         Assertions.assertEquals(solution.isPrefixOfWord("b bu bur burg burger", "burg"), 4);
+    }
+
+    /**
+     * 1460. 通过翻转子数组使两个数组相等
+     * https://leetcode.cn/problems/make-two-arrays-equal-by-reversing-sub-arrays/
+     */
+    @Test
+    public void no1460() {
+        Assertions.assertTrue(solution.canBeEqual(new int[]{1, 2, 3, 4}, new int[]{2, 4, 1, 3}));
+        Assertions.assertTrue(solution.canBeEqual(new int[]{7}, new int[]{7}));
+        Assertions.assertFalse(solution.canBeEqual(new int[]{3, 7, 9}, new int[]{3, 7, 11}));
     }
 
     /**
