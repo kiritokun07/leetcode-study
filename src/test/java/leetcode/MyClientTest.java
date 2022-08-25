@@ -217,7 +217,8 @@ public class MyClientTest {
      */
     @Test
     public void no658() {
-
+        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, 3).toString(),"[1, 2, 3, 4]");
+        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, -1).toString(),"[1, 2, 3, 4]");
     }
 
     /**

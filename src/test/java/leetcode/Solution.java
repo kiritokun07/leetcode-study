@@ -304,6 +304,17 @@ public class Solution {
         return result;
     }
 
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        List<Integer> arrList = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        return arrList.stream().sorted((a, b) -> {
+            if (Math.abs(a - x) != Math.abs(b - x)) {
+                return Math.abs(a - x) - Math.abs(b - x);
+            } else {
+                return a - b;
+            }
+        }).limit(k).sorted().collect(Collectors.toList());
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;
