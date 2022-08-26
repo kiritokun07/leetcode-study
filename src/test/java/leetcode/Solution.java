@@ -724,7 +724,23 @@ public class Solution {
     }
 
     public int maxProduct(int[] nums) {
-        return 0;
+        //a是top1
+        int a = Math.max(nums[0], nums[1]);
+        //b是top2
+        int b = Math.min(nums[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            int num = nums[i];
+            //如果小于b，跳过
+            if (num < b) {
+                continue;
+            }
+            //如果这个数大于b，就把它变成b，再重分配a b
+            b = num;
+            int temp = Math.max(a, b);
+            b = Math.min(a, b);
+            a = temp;
+        }
+        return (a - 1) * (b - 1);
     }
 
 }
