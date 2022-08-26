@@ -217,8 +217,8 @@ public class MyClientTest {
      */
     @Test
     public void no658() {
-        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, 3).toString(),"[1, 2, 3, 4]");
-        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, -1).toString(),"[1, 2, 3, 4]");
+        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, 3).toString(), "[1, 2, 3, 4]");
+        Assertions.assertEquals(solution.findClosestElements(new int[]{1, 2, 3, 4, 5}, 4, -1).toString(), "[1, 2, 3, 4]");
     }
 
     /**
@@ -471,6 +471,17 @@ public class MyClientTest {
         Assertions.assertTrue(solution.canBeEqual(new int[]{1, 2, 3, 4}, new int[]{2, 4, 1, 3}));
         Assertions.assertTrue(solution.canBeEqual(new int[]{7}, new int[]{7}));
         Assertions.assertFalse(solution.canBeEqual(new int[]{3, 7, 9}, new int[]{3, 7, 11}));
+    }
+
+    /**
+     * 1464. 数组中两元素的最大乘积
+     * https://leetcode.cn/problems/maximum-product-of-two-elements-in-an-array/
+     */
+    @Test
+    public void no1464() {
+        Assertions.assertEquals(solution.maxProduct(new int[]{3, 4, 5, 2}), 12);
+        Assertions.assertEquals(solution.maxProduct(new int[]{1, 5, 4, 5}), 16);
+        Assertions.assertEquals(solution.maxProduct(new int[]{3, 7}), 12);
     }
 
     /**

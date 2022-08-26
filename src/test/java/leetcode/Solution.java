@@ -723,4 +723,8 @@ public class Solution {
         return true;
     }
 
+    public int maxProduct(int[] nums) {
+        return 0;
+    }
+
 }
