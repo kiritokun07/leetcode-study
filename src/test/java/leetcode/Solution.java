@@ -315,6 +315,42 @@ public class Solution {
         }).limit(k).sorted().collect(Collectors.toList());
     }
 
+    public int widthOfBinaryTree(TreeNode root) {
+        int width = 1;
+        List<TreeNode> pNodeList = new ArrayList<>();
+        pNodeList.add(root);
+        //下标列表
+        List<Integer> subList = new ArrayList<>();
+        subList.add(0);
+        while (!pNodeList.isEmpty()) {
+            List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
+            List<Integer> childSubList = new ArrayList<>(pNodeList.size() * 2);
+            int minSub = subList.get(subList.size() - 1) * 2 + 1;
+            int maxSub = 0;
+            for (int i = 0; i < pNodeList.size(); i++) {
+                TreeNode pNode = pNodeList.get(i);
+                int childSub = subList.get(i);
+                if (pNode.left != null) {
+                    minSub = Math.min(minSub, childSub * 2);
+                    maxSub = Math.max(maxSub, childSub * 2);
+                    childNodeList.add(pNode.left);
+                    childSubList.add(childSub * 2);
+                }
+                if (pNode.right != null) {
+                    minSub = Math.min(minSub, childSub * 2 + 1);
+                    maxSub = Math.max(maxSub, childSub * 2 + 1);
+                    //tempWidth = Math.max(tempWidth, subList.get(i) * 2);
+                    childNodeList.add(pNode.right);
+                    childSubList.add(childSub * 2 + 1);
+                }
+            }
+            width = Math.max(width, subList.get(subList.size() - 1) - subList.get(0) + 1);
+            pNodeList = childNodeList;
+            subList = childSubList;
+        }
+        return width;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;
