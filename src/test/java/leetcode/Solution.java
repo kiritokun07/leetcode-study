@@ -779,4 +779,14 @@ public class Solution {
         return (a - 1) * (b - 1);
     }
 
+    public int[] shuffle(int[] nums, int n) {
+        int length = nums.length;
+        int[] res = new int[length];
+        for (int i = 0; i < length / 2; i++) {
+            res[i * 2] = nums[i];
+            res[i * 2 + 1] = nums[i + length / 2];
+        }
+        return res;
+    }
+
 }

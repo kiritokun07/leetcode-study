@@ -499,6 +499,17 @@ public class MyClientTest {
     }
 
     /**
+     * 1470. 重新排列数组
+     * https://leetcode.cn/problems/shuffle-the-array/
+     */
+    @Test
+    public void no1470() {
+        Assertions.assertEquals(Arrays.toString(solution.shuffle(new int[]{2, 5, 1, 3, 4, 7}, 3)), "[2, 3, 5, 4, 1, 7]");
+        Assertions.assertEquals(Arrays.toString(solution.shuffle(new int[]{1, 2, 3, 4, 4, 3, 2, 1}, 4)), "[1, 4, 2, 3, 3, 2, 4, 1]");
+        Assertions.assertEquals(Arrays.toString(solution.shuffle(new int[]{1, 1, 2, 2}, 2)), "[1, 2, 1, 2]");
+    }
+
+    /**
      * 1656. 设计有序流
      * https://leetcode.cn/problems/design-an-ordered-stream/
      */
