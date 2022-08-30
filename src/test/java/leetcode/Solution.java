@@ -393,6 +393,19 @@ public class Solution {
         return b;
     }
 
+    public TreeNode insertIntoMaxTree(TreeNode root, int val) {
+        if (root == null) {
+            return new TreeNode(val);
+        }
+        if (root.val < val) {
+            TreeNode result = new TreeNode(val);
+            result.left = root;
+            return result;
+        }
+        root.right = insertIntoMaxTree(root.right, val);
+        return root;
+    }
+
     public int maxLevelSum(TreeNode root) {
         List<TreeNode> rootList = new ArrayList<>();
         rootList.add(root);

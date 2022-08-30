@@ -192,6 +192,7 @@ public class MyClientTest {
     /**
      * 654. 最大二叉树
      * https://leetcode.cn/problems/maximum-binary-tree/
+     * @see MyClientTest#no998
      */
     @Test
     public void no654() {
@@ -243,6 +244,19 @@ public class MyClientTest {
     public void no899() {
         Assertions.assertEquals(solution.orderlyQueue("cba", 1), "acb");
         Assertions.assertEquals(solution.orderlyQueue("baaca", 3), "aaabc");
+    }
+
+    /**
+     * 998. 最大二叉树 II
+     * https://leetcode.cn/problems/maximum-binary-tree-ii/
+     *
+     * @see MyClientTest#no654 最大二叉树
+     */
+    @Test
+    public void no998() {
+        Assertions.assertTrue(TreeNode.isEqual(solution.insertIntoMaxTree(TreeNode.array2TreeNode2(new Integer[]{4, 1, 3, null, null, 2}), 5), TreeNode.array2TreeNode2(new Integer[]{5, 4, null, 1, 3, null, null, 2})));
+        Assertions.assertTrue(TreeNode.isEqual(solution.insertIntoMaxTree(TreeNode.array2TreeNode2(new Integer[]{5, 2, 4, null, 1}), 3), TreeNode.array2TreeNode2(new Integer[]{5, 2, 4, null, 1, null, 3})));
+        Assertions.assertTrue(TreeNode.isEqual(solution.insertIntoMaxTree(TreeNode.array2TreeNode2(new Integer[]{5, 2, 3, null, 1}), 4), TreeNode.array2TreeNode2(new Integer[]{5, 2, 4, null, 1, 3})));
     }
 
     /**
