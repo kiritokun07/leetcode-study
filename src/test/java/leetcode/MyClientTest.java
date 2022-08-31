@@ -192,6 +192,7 @@ public class MyClientTest {
     /**
      * 654. 最大二叉树
      * https://leetcode.cn/problems/maximum-binary-tree/
+     *
      * @see MyClientTest#no998
      */
     @Test
@@ -244,6 +245,16 @@ public class MyClientTest {
     public void no899() {
         Assertions.assertEquals(solution.orderlyQueue("cba", 1), "acb");
         Assertions.assertEquals(solution.orderlyQueue("baaca", 3), "aaabc");
+    }
+
+    /**
+     * 946. 验证栈序列
+     * https://leetcode.cn/problems/validate-stack-sequences/
+     */
+    @Test
+    public void no946() {
+        Assertions.assertTrue(solution.validateStackSequences(new int[]{1, 2, 3, 4, 5}, new int[]{4, 5, 3, 2, 1}));
+        Assertions.assertFalse(solution.validateStackSequences(new int[]{1, 2, 3, 4, 5}, new int[]{4, 3, 5, 1, 2}));
     }
 
     /**

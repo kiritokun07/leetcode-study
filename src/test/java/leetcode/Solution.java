@@ -393,6 +393,34 @@ public class Solution {
         return b;
     }
 
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        if (pushed.length != popped.length) {
+            return false;
+        }
+        //int i=pushed.length;
+        //int j=i;
+        int curse = 0;
+        MyStack myStack = new MyStack(pushed.length);
+        for (int j = 0; j < popped.length; j++) {
+            //如果栈空就入栈
+            if (myStack.isEmpty()) {
+                myStack.push(pushed[curse]);
+                ++curse;
+            }
+            //先判断栈顶元素和popI是否相同
+            //如果不同就入栈，再判断栈顶
+            while (myStack.getTheHead() != popped[j] && curse < pushed.length) {
+                myStack.push(pushed[curse]);
+                ++curse;
+            }
+            if (curse == pushed.length && myStack.getTheHead() != popped[j]) {
+                return false;
+            }
+            myStack.pop();
+        }
+        return true;
+    }
+
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
         if (root == null) {
             return new TreeNode(val);
