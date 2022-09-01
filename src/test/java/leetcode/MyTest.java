@@ -56,7 +56,7 @@ public class MyTest {
     @Test
     public void testHeight() {
         Assertions.assertEquals(TreeNode.getHeight(TreeNode.array2TreeNode(new Integer[]{1, 2})), 1);
-        Assertions.assertEquals(TreeNode.getHeight(TreeNode.array2TreeNode(new Integer[]{1,2,3,null,4})), 2);
+        Assertions.assertEquals(TreeNode.getHeight(TreeNode.array2TreeNode(new Integer[]{1, 2, 3, null, 4})), 2);
     }
 
 }
