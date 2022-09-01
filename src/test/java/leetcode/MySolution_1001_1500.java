@@ -408,4 +408,8 @@ public class MySolution_1001_1500 {
         return res;
     }
 
+    public int[] finalPrices(int[] prices) {
+        return null;
+    }
+
 }

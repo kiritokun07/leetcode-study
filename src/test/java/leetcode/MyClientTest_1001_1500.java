@@ -280,4 +280,15 @@ public class MyClientTest_1001_1500 {
         Assertions.assertEquals(Arrays.toString(solution.shuffle(new int[]{1, 1, 2, 2}, 2)), "[1, 2, 1, 2]");
     }
 
+    /**
+     * 1475. 商品折扣后的最终价格
+     * https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/
+     */
+    @Test
+    public void no1475() {
+        Assertions.assertEquals(Arrays.toString(solution.finalPrices(new int[]{8, 4, 6, 2, 3})), "[4, 2, 4, 2, 3]");
+        Assertions.assertEquals(Arrays.toString(solution.finalPrices(new int[]{1, 2, 3, 4, 5})), "[1, 2, 3, 4, 5]");
+        Assertions.assertEquals(Arrays.toString(solution.finalPrices(new int[]{10, 1, 1, 6})), "[9, 0, 1, 6]");
+    }
+
 }
