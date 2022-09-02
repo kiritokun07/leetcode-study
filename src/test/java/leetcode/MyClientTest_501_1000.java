@@ -191,6 +191,15 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 687. 最长同值路径
+     */
+    @Test
+    public void no687() {
+        Assertions.assertEquals(solution.longestUnivaluePath(TreeNode.array2TreeNode2(new Integer[]{5, 4, 5, 1, 1, 5})), 2);
+        Assertions.assertEquals(solution.longestUnivaluePath(TreeNode.array2TreeNode2(new Integer[]{1, 4, 5, 4, 4, 5})), 2);
+    }
+
+    /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
      */
