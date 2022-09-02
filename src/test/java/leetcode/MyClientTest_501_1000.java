@@ -192,10 +192,12 @@ public class MyClientTest_501_1000 {
 
     /**
      * 687. 最长同值路径
+     * https://leetcode.cn/problems/longest-univalue-path/
      */
     @Test
     public void no687() {
         Assertions.assertEquals(solution.longestUnivaluePath(TreeNode.array2TreeNode2(new Integer[]{5, 4, 5, 1, 1, 5})), 2);
+        Assertions.assertEquals(solution.longestUnivaluePath(TreeNode.array2TreeNode2(new Integer[]{5, 4, 5, 1, 1, null, 5})), 2);
         Assertions.assertEquals(solution.longestUnivaluePath(TreeNode.array2TreeNode2(new Integer[]{1, 4, 5, 4, 4, 5})), 2);
     }
 

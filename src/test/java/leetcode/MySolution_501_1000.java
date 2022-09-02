@@ -312,8 +312,37 @@ public class MySolution_501_1000 {
         return width;
     }
 
+    int longestPath = 0;
+
     public int longestUnivaluePath(TreeNode root) {
-        return 0;
+        dfs(root);
+        return longestPath;
+    }
+
+    /**
+     * 传入root，返回当前层单边最大深度
+     *
+     * @param root
+     * @return
+     */
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        //左子树路径
+        int maxLeft = dfs(root.left);
+        //右子树路径
+        int maxRight = dfs(root.right);
+        int left = 0;
+        int right = 0;
+        if (root.left != null && root.val == root.left.val) {
+            left = maxLeft + 1;
+        }
+        if (root.right != null && root.val == root.right.val) {
+            right = maxRight + 1;
+        }
+        longestPath = Math.max(longestPath, left + right);
+        return Math.max(left, right);
     }
 
     public String orderlyQueue(String s, int k) {
