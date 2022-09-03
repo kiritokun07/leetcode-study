@@ -143,6 +143,15 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 646. 最长数对链
+     * https://leetcode.cn/problems/maximum-length-of-pair-chain/
+     */
+    @Test
+    public void no646() {
+        Assertions.assertEquals(solution.findLongestChain(new int[][]{{1, 2}, {2, 3}, {3, 4}}), 2);
+    }
+
+    /**
      * 654. 最大二叉树
      * https://leetcode.cn/problems/maximum-binary-tree/
      *

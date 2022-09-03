@@ -5,6 +5,7 @@ import leetcode.node.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -194,6 +195,20 @@ public class MySolution_501_1000 {
             return "No solution";
         }
         return "x=" + (-b / a);
+    }
+
+    public int findLongestChain(int[][] pairs) {
+        int maxRight = Integer.MIN_VALUE;
+        int result = 0;
+        Arrays.sort(pairs, Comparator.comparingInt(o -> o[1]));
+        for (int i = 0; i < pairs.length; i++) {
+            int[] pair = pairs[i];
+            if (pair[0] > maxRight) {
+                ++result;
+                maxRight = pair[1];
+            }
+        }
+        return result;
     }
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
