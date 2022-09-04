@@ -15,6 +15,18 @@ public class MyClientTest_1501_2000 {
     MySolution_1501_2000 solution = new MySolution_1501_2000();
 
     /**
+     * 1582. 二进制矩阵中的特殊位置
+     * https://leetcode.cn/problems/special-positions-in-a-binary-matrix/
+     */
+    @Test
+    public void no1582() {
+        Assertions.assertEquals(solution.numSpecial(new int[][]{{1, 0, 0}, {0, 0, 1}, {1, 0, 0}}), 1);
+        Assertions.assertEquals(solution.numSpecial(new int[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}), 3);
+        Assertions.assertEquals(solution.numSpecial(new int[][]{{0, 0, 0, 1}, {1, 0, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 0}}), 2);
+        Assertions.assertEquals(solution.numSpecial(new int[][]{{0, 0, 0, 0, 0}, {1, 0, 0, 0, 0}, {0, 1, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 1, 1}}), 3);
+    }
+
+    /**
      * 1656. 设计有序流
      * https://leetcode.cn/problems/design-an-ordered-stream/
      */
