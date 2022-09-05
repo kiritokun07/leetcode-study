@@ -152,6 +152,20 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 652. 寻找重复的子树
+     * https://leetcode.cn/problems/find-duplicate-subtrees/
+     */
+    @Test
+    public void no652() {
+        List<TreeNode> list1 = solution.findDuplicateSubtrees(TreeNode.array2TreeNode2(new Integer[]{1, 2, 3, 4, null, 2, 4, null, null, 4}));
+        Assertions.assertTrue(TreeNode.isEqual(list1.get(0), TreeNode.array2TreeNode2(new Integer[]{2, 4})));
+        Assertions.assertTrue(TreeNode.isEqual(list1.get(1), TreeNode.array2TreeNode2(new Integer[]{4})));
+
+        List<TreeNode> list2 = solution.findDuplicateSubtrees(TreeNode.array2TreeNode2(new Integer[]{2, 1, 1}));
+        Assertions.assertTrue(TreeNode.isEqual(list2.get(0), TreeNode.array2TreeNode2(new Integer[]{1})));
+    }
+
+    /**
      * 654. 最大二叉树
      * https://leetcode.cn/problems/maximum-binary-tree/
      *

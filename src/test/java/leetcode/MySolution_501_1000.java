@@ -211,6 +211,10 @@ public class MySolution_501_1000 {
         return result;
     }
 
+    public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+        return null;
+    }
+
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return generateConstruct(nums, 0, nums.length);
     }
