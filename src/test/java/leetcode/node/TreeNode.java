@@ -87,6 +87,9 @@ public class TreeNode {
         pNodeList.add(new TreeNode(nums[0], null, null));
         int curse = 0;
         int curse2 = 1;
+        if (curse2 >= nums.length) {
+            return pNodeList.get(0);
+        }
         while (!pNodeList.isEmpty() && curse2 < nums.length) {
             List<TreeNode> childNodeList = new ArrayList<>(pNodeList.size() * 2);
             for (TreeNode treeNode : pNodeList) {

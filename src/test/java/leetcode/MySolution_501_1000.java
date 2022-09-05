@@ -1,12 +1,10 @@
 package leetcode;
 
+import javafx.util.Pair;
 import leetcode.node.MyStack;
 import leetcode.node.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -211,8 +209,38 @@ public class MySolution_501_1000 {
         return result;
     }
 
+    Map<String, Pair<TreeNode, Integer>> map;
+    Set<TreeNode> set;
+    int idx;
+
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-        return null;
+        map = new HashMap<>();
+        set = new HashSet<>();
+        idx = 0;
+        dupDfs(root);
+        return new ArrayList<>(set);
+    }
+
+    /**
+     * 返回节点标记序列
+     *
+     * @param root
+     * @return
+     */
+    private int dupDfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int[] tri = new int[]{root.val, dupDfs(root.left), dupDfs(root.right)};
+        String hash = Arrays.toString(tri);
+        if (map.containsKey(hash)) {
+            Pair<TreeNode, Integer> pair = map.get(hash);
+            set.add(pair.getKey());
+            return pair.getValue();
+        } else {
+            map.put(hash, new Pair<>(root, ++idx));
+            return idx;
+        }
     }
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
