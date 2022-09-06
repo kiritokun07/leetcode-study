@@ -225,6 +225,16 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 828. 统计子串中的唯一字符
+     * https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/
+     */
+    @Test
+    public void no828() {
+        Assertions.assertEquals(solution.uniqueLetterString("ABC"), 10);
+        Assertions.assertEquals(solution.uniqueLetterString("ABA"), 8);
+    }
+
+    /**
      * 899. 有序队列
      * https://leetcode.cn/problems/orderly-queue/
      */

@@ -392,6 +392,11 @@ public class MySolution_501_1000 {
         return Math.max(left, right);
     }
 
+    public int uniqueLetterString(String s) {
+
+        return 0;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;
