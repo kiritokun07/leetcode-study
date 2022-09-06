@@ -392,50 +392,32 @@ public class MySolution_501_1000 {
         return Math.max(left, right);
     }
 
-    Map<String, Integer> countMap;
 
     public int uniqueLetterString(String s) {
-        countMap = new HashMap<>();
-        return uniqueDfs(s);
-    }
-
-    private int uniqueDfs(String s) {
-        if (s.length() < 1) {
-            return 0;
-        }
-        if (s.length() == 1) {
-            return 1;
-        }
-        int last = uniqueLetterString(s.substring(0, s.length() - 1));
-        //获取增量数量
-        int now = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            //B
-            //AB
-            //C
-            //BC
-            //ABC
-            now = now + countUniqueChars(s.substring(s.length() - i - 1, s.length()));
-        }
-        return last + now;
-    }
-
-    private int countUniqueChars(String s) {
-        if (countMap.containsKey(s)) {
-            return countMap.get(s);
-        }
-        Map<Character, Integer> map = new HashMap<>();
+        //存储每个元素的所有下标list
+        Map<Character, List<Integer>> subListMap = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 1);
+            if (!subListMap.containsKey(c)) {
+                subListMap.put(c, new ArrayList<>());
+            }
+            subListMap.get(c).add(i);
+        }
+
+        //元素只有1个时，结果是(下标+1)*(length-下标)
+        int res = 0;
+        for (Map.Entry<Character, List<Integer>> entry : subListMap.entrySet()) {
+            List<Integer> subList = entry.getValue();
+            int head = -1;
+            int tail = -1;
+            for (int i = 0; i < subList.size(); i++) {
+                tail = (i < subList.size() - 1) ? subList.get(i + 1) : s.length();
+                int times = (subList.get(i) - head) * (tail - subList.get(i));
+                res += times;
+                head = subList.get(i);
             }
         }
-        int count = (int) map.values().stream().filter(a -> a.equals(1)).count();
-        countMap.put(s, count);
-        return count;
+        return res;
     }
 
     public String orderlyQueue(String s, int k) {
