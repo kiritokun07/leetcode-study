@@ -392,9 +392,50 @@ public class MySolution_501_1000 {
         return Math.max(left, right);
     }
 
-    public int uniqueLetterString(String s) {
+    Map<String, Integer> countMap;
 
-        return 0;
+    public int uniqueLetterString(String s) {
+        countMap = new HashMap<>();
+        return uniqueDfs(s);
+    }
+
+    private int uniqueDfs(String s) {
+        if (s.length() < 1) {
+            return 0;
+        }
+        if (s.length() == 1) {
+            return 1;
+        }
+        int last = uniqueLetterString(s.substring(0, s.length() - 1));
+        //获取增量数量
+        int now = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            //B
+            //AB
+            //C
+            //BC
+            //ABC
+            now = now + countUniqueChars(s.substring(s.length() - i - 1, s.length()));
+        }
+        return last + now;
+    }
+
+    private int countUniqueChars(String s) {
+        if (countMap.containsKey(s)) {
+            return countMap.get(s);
+        }
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
+            }
+        }
+        int count = (int) map.values().stream().filter(a -> a.equals(1)).count();
+        countMap.put(s, count);
+        return count;
     }
 
     public String orderlyQueue(String s, int k) {
