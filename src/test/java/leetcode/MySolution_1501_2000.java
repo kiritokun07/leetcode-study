@@ -33,4 +33,44 @@ public class MySolution_1501_2000 {
         return sum;
     }
 
+    public String reorderSpaces(String text) {
+        //获得空格数量和每个单词的数组 空格是32
+        int blankNum = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c == 32) {
+                //空格
+                ++blankNum;
+            }
+        }
+        if (blankNum < 1) {
+            return text;
+        }
+        String[] split = text.trim().split("\\s+");
+        //List<String> collect = Arrays.stream(split).filter(a -> !a.equals("")).collect(Collectors.toList());
+        int n = split.length;
+        if (n == 1) {
+            StringBuilder sb = new StringBuilder(blankNum);
+            for (int i = 0; i < blankNum; i++) {
+                sb.append(" ");
+            }
+            return split[0] + sb.toString();
+        }
+        int x = blankNum / (n - 1);
+        StringBuilder sb = new StringBuilder(x);
+        for (int i = 0; i < x; i++) {
+            sb.append(" ");
+        }
+
+        int elseBlank = blankNum - x * (n - 1);
+        StringBuilder elseBlankSb = new StringBuilder(elseBlank);
+        for (int i = 0; i < elseBlank; i++) {
+            elseBlankSb.append(" ");
+        }
+        String join = String.join(sb.toString(), split);
+        //计算每两个单词间的空格数量和最后一个位置的空格数量
+        //拼接字符串
+        return join + elseBlankSb.toString();
+    }
+
 }

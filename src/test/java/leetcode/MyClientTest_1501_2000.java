@@ -27,6 +27,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1592. 重新排列单词间的空格
+     * https://leetcode.cn/problems/rearrange-spaces-between-words/
+     */
+    @Test
+    public void no1592() {
+        Assertions.assertEquals(solution.reorderSpaces("  this   is  a sentence "),"this   is   a   sentence");
+        Assertions.assertEquals(solution.reorderSpaces(" practice   makes   perfect"),"practice   makes   perfect ");
+        Assertions.assertEquals(solution.reorderSpaces("hello   world"),"hello   world");
+        Assertions.assertEquals(solution.reorderSpaces("  walks  udp package   into  bar a"),"walks  udp  package  into  bar  a ");
+        Assertions.assertEquals(solution.reorderSpaces("a"),"a");
+    }
+
+    /**
      * 1656. 设计有序流
      * https://leetcode.cn/problems/design-an-ordered-stream/
      */
