@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author kirito
@@ -231,8 +233,16 @@ public class MyClientTest_501_1000 {
      */
     @Test
     public void no667() {
-        Assertions.assertEquals(Arrays.toString(solution.constructArray(3, 1)), "[1, 2, 3]");
-        Assertions.assertEquals(Arrays.toString(solution.constructArray(3, 2)), "[1, 3, 2]");
+        checkConstructArray(solution.constructArray(3, 1), 1);
+        checkConstructArray(solution.constructArray(3, 2), 2);
+    }
+
+    private void checkConstructArray(int[] array, int k) {
+        Set<Integer> set = new HashSet<>(array.length);
+        for (int i = 0; i < array.length - 1; i++) {
+            set.add(Math.abs(array[i] - array[i + 1]));
+        }
+        Assertions.assertEquals(set.size(), k);
     }
 
     /**

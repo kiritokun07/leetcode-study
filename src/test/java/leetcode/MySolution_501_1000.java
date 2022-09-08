@@ -360,7 +360,27 @@ public class MySolution_501_1000 {
     }
 
     public int[] constructArray(int n, int k) {
-        return null;
+        //1 <= k < n <= 10^4
+        //和答案相似的思路，因为1~n可以组成的差的个数的范围是[1,n-1]
+        //所以当需要组成k个不同的差时，1~k+1可以组成的差的个数的范围是[1,k]（头尾互相入列），k+2~n直接落位
+        int[] res = new int[n];
+        int head = 1;
+        int tail = k + 1;
+        boolean headFirst = true;
+        for (int i = 0; i < k + 1; i++) {
+            if (headFirst) {
+                res[i] = head;
+                ++head;
+            } else {
+                res[i] = tail;
+                --tail;
+            }
+            headFirst = !headFirst;
+        }
+        for (int i = k + 1; i < n; ++i) {
+            res[i] = i + 1;
+        }
+        return res;
     }
 
     int longestPath;
