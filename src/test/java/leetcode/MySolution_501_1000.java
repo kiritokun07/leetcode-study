@@ -359,9 +359,14 @@ public class MySolution_501_1000 {
         return width;
     }
 
-    int longestPath = 0;
+    public int[] constructArray(int n, int k) {
+        return null;
+    }
+
+    int longestPath;
 
     public int longestUnivaluePath(TreeNode root) {
+        longestPath = 0;
         dfs(root);
         return longestPath;
     }

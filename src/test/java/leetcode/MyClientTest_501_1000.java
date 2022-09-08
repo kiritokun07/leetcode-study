@@ -214,6 +214,16 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 667. 优美的排列 II
+     * https://leetcode.cn/problems/beautiful-arrangement-ii/
+     */
+    @Test
+    public void no667() {
+        Assertions.assertEquals(Arrays.toString(solution.constructArray(3, 1)), "[1, 2, 3]");
+        Assertions.assertEquals(Arrays.toString(solution.constructArray(3, 2)), "[1, 3, 2]");
+    }
+
+    /**
      * 687. 最长同值路径
      * https://leetcode.cn/problems/longest-univalue-path/
      */
