@@ -16,6 +16,7 @@ public class MyClientTest_1501_2000 {
 
     /**
      * 1582. 二进制矩阵中的特殊位置
+     * 简单
      * https://leetcode.cn/problems/special-positions-in-a-binary-matrix/
      */
     @Test
@@ -28,6 +29,7 @@ public class MyClientTest_1501_2000 {
 
     /**
      * 1592. 重新排列单词间的空格
+     * 简单
      * https://leetcode.cn/problems/rearrange-spaces-between-words/
      */
     @Test
@@ -41,6 +43,7 @@ public class MyClientTest_1501_2000 {
 
     /**
      * 1656. 设计有序流
+     * 简单
      * https://leetcode.cn/problems/design-an-ordered-stream/
      */
     @Test

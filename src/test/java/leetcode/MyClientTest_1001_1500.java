@@ -18,6 +18,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1161. 最大层内元素和
+     * 中等
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/
      */
     @Test
@@ -34,6 +35,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1224. 最大相等频率
+     * 困难
      * https://leetcode.cn/problems/maximum-equal-frequency/
      * 需要优化时间复杂度
      */
@@ -49,6 +51,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1282. 用户分组
+     * 中等
      * https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/
      */
     @Test
@@ -76,6 +79,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1302. 层数最深叶子节点的和
+     * 中等
      * https://leetcode.cn/problems/deepest-leaves-sum/
      */
     @Test
@@ -89,6 +93,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1331. 数组序号转换
+     * 简单
      * https://leetcode.cn/problems/rank-transform-of-an-array/
      */
     @Test
@@ -101,6 +106,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1374. 生成每种字符都是奇数个的字符串
+     * 简单
      * https://leetcode.cn/problems/generate-a-string-with-characters-that-have-odd-counts/
      */
     @Test
@@ -112,6 +118,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1403. 非递增顺序的最小子序列
+     * 简单
      * https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order/
      */
     @Test
@@ -129,6 +136,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1408. 数组中的字符串匹配
+     * 简单
      * https://leetcode.cn/problems/string-matching-in-an-array/
      */
     @Test
@@ -150,6 +158,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1413. 逐步求和得到正数的最小值
+     * 简单
      * https://leetcode.cn/problems/minimum-value-to-get-positive-step-by-step-sum/
      */
     @Test
@@ -169,6 +178,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1417. 重新格式化字符串
+     * 简单
      * https://leetcode.cn/problems/reformat-the-string/
      */
     @Test
@@ -210,6 +220,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1422. 分割字符串的最大得分
+     * 简单
      * https://leetcode.cn/problems/maximum-score-after-splitting-a-string/
      */
     @Test
@@ -222,6 +233,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1450. 在既定时间做作业的学生人数
+     * 简单
      * https://leetcode.cn/problems/number-of-students-doing-homework-at-a-given-time/
      */
     @Test
@@ -235,6 +247,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1455. 检查单词是否为句中其他单词的前缀
+     * 简单
      * https://leetcode.cn/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
      */
     @Test
@@ -249,6 +262,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1460. 通过翻转子数组使两个数组相等
+     * 简单
      * https://leetcode.cn/problems/make-two-arrays-equal-by-reversing-sub-arrays/
      */
     @Test
@@ -260,6 +274,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1464. 数组中两元素的最大乘积
+     * 简单
      * https://leetcode.cn/problems/maximum-product-of-two-elements-in-an-array/
      */
     @Test
@@ -271,6 +286,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1470. 重新排列数组
+     * 简单
      * https://leetcode.cn/problems/shuffle-the-array/
      */
     @Test
@@ -282,6 +298,7 @@ public class MyClientTest_1001_1500 {
 
     /**
      * 1475. 商品折扣后的最终价格
+     * 简单
      * https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/
      */
     @Test

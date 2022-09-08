@@ -19,6 +19,7 @@ public class MyClientTest_1_500 {
 
     /**
      * 14. 最长公共前缀
+     * 简单
      * https://leetcode.cn/problems/longest-common-prefix/
      */
     @Test
@@ -30,6 +31,7 @@ public class MyClientTest_1_500 {
 
     /**
      * 83. 删除排序链表中的重复元素
+     * 简单
      * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
      */
     @Test

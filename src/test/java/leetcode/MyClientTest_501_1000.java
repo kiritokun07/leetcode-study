@@ -18,6 +18,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 622. 设计循环队列
+     * 中等
      * https://leetcode.cn/problems/design-circular-queue/
      */
     @Test
@@ -36,6 +37,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 623. 在二叉树中增加一行
+     * 中等
      * https://leetcode.cn/problems/add-one-row-to-tree/
      */
     @Test
@@ -64,6 +66,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 636. 函数的独占时间
+     * 中等
      * https://leetcode.cn/problems/exclusive-time-of-functions/
      */
     @Test
@@ -112,6 +115,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 640. 求解方程
+     * 中等
      * https://leetcode.cn/problems/solve-the-equation/
      */
     @Test
@@ -125,6 +129,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 641. 设计循环双端队列
+     * 中等
      * https://leetcode.cn/problems/design-circular-deque/
      */
     @Test
@@ -144,6 +149,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 646. 最长数对链
+     * 中等
      * https://leetcode.cn/problems/maximum-length-of-pair-chain/
      */
     @Test
@@ -153,6 +159,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 652. 寻找重复的子树
+     * 中等
      * https://leetcode.cn/problems/find-duplicate-subtrees/
      */
     @Test
@@ -167,6 +174,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 654. 最大二叉树
+     * 中等
      * https://leetcode.cn/problems/maximum-binary-tree/
      *
      * @see MyClientTest_501_1000#no998
@@ -181,6 +189,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 655. 输出二叉树
+     * 中等
      * https://leetcode.cn/problems/print-binary-tree/
      */
     @Test
@@ -191,6 +200,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 658. 找到 K 个最接近的元素
+     * 中等
      * https://leetcode.cn/problems/find-k-closest-elements/
      */
     @Test
@@ -201,6 +211,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 662. 二叉树最大宽度
+     * 中等
      * https://leetcode.cn/problems/maximum-width-of-binary-tree/
      */
     @Test
@@ -215,6 +226,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 667. 优美的排列 II
+     * 中等
      * https://leetcode.cn/problems/beautiful-arrangement-ii/
      */
     @Test
@@ -225,6 +237,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 687. 最长同值路径
+     * 中等
      * https://leetcode.cn/problems/longest-univalue-path/
      */
     @Test
@@ -236,6 +249,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 828. 统计子串中的唯一字符
+     * 困难
      * https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/
      */
     @Test
@@ -247,6 +261,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 899. 有序队列
+     * 困难
      * https://leetcode.cn/problems/orderly-queue/
      */
     @Test
@@ -257,6 +272,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 946. 验证栈序列
+     * 中等
      * https://leetcode.cn/problems/validate-stack-sequences/
      */
     @Test
@@ -267,6 +283,7 @@ public class MyClientTest_501_1000 {
 
     /**
      * 998. 最大二叉树 II
+     * 中等
      * https://leetcode.cn/problems/maximum-binary-tree-ii/
      *
      * @see MyClientTest_501_1000#no654 最大二叉树
