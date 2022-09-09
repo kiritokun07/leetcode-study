@@ -73,4 +73,27 @@ public class MySolution_1501_2000 {
         return join + elseBlankSb.toString();
     }
 
+    /**
+     * 1 <= logs.length <= 103
+     * 2 <= logs[i].length <= 10
+     * logs[i] 包含小写英文字母，数字，'.' 和 '/'
+     * logs[i] 符合语句中描述的格式
+     * 文件夹名称由小写英文字母和数字组成
+     */
+    public int minOperations(String[] logs) {
+        int depth = 0;
+        for (String log : logs) {
+            if (log.equals("../")) {
+                if (depth > 0) {
+                    --depth;
+                }
+            } else if (log.equals("./")) {
+            } else {
+                //x/
+                ++depth;
+            }
+        }
+        return depth;
+    }
+
 }

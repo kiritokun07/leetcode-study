@@ -34,11 +34,24 @@ public class MyClientTest_1501_2000 {
      */
     @Test
     public void no1592() {
-        Assertions.assertEquals(solution.reorderSpaces("  this   is  a sentence "),"this   is   a   sentence");
-        Assertions.assertEquals(solution.reorderSpaces(" practice   makes   perfect"),"practice   makes   perfect ");
-        Assertions.assertEquals(solution.reorderSpaces("hello   world"),"hello   world");
-        Assertions.assertEquals(solution.reorderSpaces("  walks  udp package   into  bar a"),"walks  udp  package  into  bar  a ");
-        Assertions.assertEquals(solution.reorderSpaces("a"),"a");
+        Assertions.assertEquals(solution.reorderSpaces("  this   is  a sentence "), "this   is   a   sentence");
+        Assertions.assertEquals(solution.reorderSpaces(" practice   makes   perfect"), "practice   makes   perfect ");
+        Assertions.assertEquals(solution.reorderSpaces("hello   world"), "hello   world");
+        Assertions.assertEquals(solution.reorderSpaces("  walks  udp package   into  bar a"), "walks  udp  package  into  bar  a ");
+        Assertions.assertEquals(solution.reorderSpaces("a"), "a");
+    }
+
+    /**
+     * 1598. 文件夹操作日志搜集器
+     * 简单
+     * https://leetcode.cn/problems/crawler-log-folder/
+     */
+    @Test
+    public void no1598() {
+        Assertions.assertEquals(solution.minOperations(new String[]{"d1/", "d2/", "../", "d21/", "./"}), 2);
+        Assertions.assertEquals(solution.minOperations(new String[]{"d1/", "d2/", "./", "d3/", "../", "d31/"}), 3);
+        Assertions.assertEquals(solution.minOperations(new String[]{"d1/", "../", "../", "../"}), 0);
+        Assertions.assertEquals(solution.minOperations(new String[]{"./", "../", "./"}), 0);
     }
 
     /**
