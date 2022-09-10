@@ -246,6 +246,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 669. 修剪二叉搜索树
+     * 中等
+     * https://leetcode.cn/problems/trim-a-binary-search-tree/
+     */
+    @Test
+    public void no669() {
+        TreeNode bst1 = solution.trimBST(TreeNode.array2TreeNode2(new Integer[]{1, 0, 2}), 1, 2);
+        Assertions.assertTrue(TreeNode.isEqual(bst1, TreeNode.array2TreeNode2(new Integer[]{1, null, 2})));
+        TreeNode bst2 = solution.trimBST(TreeNode.array2TreeNode2(new Integer[]{3, 0, 4, null, 2, null, null, 1}), 1, 3);
+        Assertions.assertTrue(TreeNode.isEqual(bst2, TreeNode.array2TreeNode2(new Integer[]{3, 2, null, 1})));
+    }
+
+    /**
      * 687. 最长同值路径
      * 中等
      * https://leetcode.cn/problems/longest-univalue-path/

@@ -383,6 +383,10 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public TreeNode trimBST(TreeNode root, int low, int high) {
+        return null;
+    }
+
     int longestPath;
 
     public int longestUnivaluePath(TreeNode root) {
