@@ -384,7 +384,17 @@ public class MySolution_501_1000 {
     }
 
     public TreeNode trimBST(TreeNode root, int low, int high) {
-        return null;
+        if (root == null) {
+            return null;
+        }
+        int val = root.val;
+        if (val < low) {
+            return trimBST(root.right, low, high);
+        }
+        if (val > high) {
+            return trimBST(root.left, low, high);
+        }
+        return new TreeNode(root.val, trimBST(root.left, low, val), trimBST(root.right, val, high));
     }
 
     int longestPath;
