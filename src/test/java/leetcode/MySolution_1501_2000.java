@@ -1,5 +1,11 @@
 package leetcode;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author kirito
  * @desc ...
@@ -94,6 +100,22 @@ public class MySolution_1501_2000 {
             }
         }
         return depth;
+    }
+
+    public int specialArray(int[] nums) {
+        List<Integer> numList = Arrays.stream(nums).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        int x = -1;
+        for (int i = 0; i < numList.size(); i++) {
+            if (numList.get(i) >= i + 1) {
+                x = i + 1;
+                continue;
+            }
+            if (numList.get(i) == x) {
+                return -1;
+            }
+            break;
+        }
+        return x;
     }
 
 }

@@ -55,6 +55,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1608. 特殊数组的特征值
+     * 简单
+     * https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/
+     */
+    @Test
+    public void no1608() {
+        Assertions.assertEquals(solution.specialArray(new int[]{3, 5}), 2);
+        Assertions.assertEquals(solution.specialArray(new int[]{0, 0}), -1);
+        Assertions.assertEquals(solution.specialArray(new int[]{0, 4, 3, 0, 4}), 3);
+        Assertions.assertEquals(solution.specialArray(new int[]{3, 6, 7, 7, 0}), -1);
+    }
+
+    /**
      * 1656. 设计有序流
      * 简单
      * https://leetcode.cn/problems/design-an-ordered-stream/
