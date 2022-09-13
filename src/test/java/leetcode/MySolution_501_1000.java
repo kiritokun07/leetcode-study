@@ -397,6 +397,36 @@ public class MySolution_501_1000 {
         return new TreeNode(root.val, trimBST(root.left, low, val), trimBST(root.right, val, high));
     }
 
+    public int maximumSwap(int num) {
+        String numStr = String.valueOf(num);
+        char[] numChars = numStr.toCharArray();
+        TreeMap<Character, Integer> map = new TreeMap<>(
+                (o1, o2) -> {
+                    if (o1.equals(o2)) {
+                        return 1;
+                    }
+                    return o2 - o1;
+                }
+        );
+        for (int i = 0; i < numChars.length; i++) {
+            map.put(numChars[i], i);
+        }
+        List<Map.Entry<Character, Integer>> collect = new ArrayList<>(map.entrySet());
+        for (int i = 0; i < collect.size(); i++) {
+            int j = i;
+            if (numChars[i] != collect.get(i).getKey()) {
+                while (j < collect.size() - 1 && collect.get(j).getKey() == collect.get(j + 1).getKey()) {
+                    ++j;
+                }
+                //交换，要拿当前最大值和当前值交换，如果有多个最大值，要取最后一个
+                numChars[collect.get(j).getValue()] = numChars[i];
+                numChars[i] = collect.get(j).getKey();
+                return Integer.parseInt(String.valueOf(numChars));
+            }
+        }
+        return num;
+    }
+
     int longestPath;
 
     public int longestUnivaluePath(TreeNode root) {

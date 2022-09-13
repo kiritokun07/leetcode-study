@@ -259,6 +259,18 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 670. 最大交换
+     * 中等
+     * https://leetcode.cn/problems/maximum-swap/
+     */
+    @Test
+    public void no670() {
+        Assertions.assertEquals(solution.maximumSwap(2736), 7236);
+        Assertions.assertEquals(solution.maximumSwap(9973), 9973);
+        Assertions.assertEquals(solution.maximumSwap(1993), 9913);
+    }
+
+    /**
      * 687. 最长同值路径
      * 中等
      * https://leetcode.cn/problems/longest-univalue-path/
