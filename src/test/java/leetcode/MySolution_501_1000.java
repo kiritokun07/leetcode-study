@@ -489,6 +489,35 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public double mincostToHireWorkers(int[] quality, int[] wage, int k) {
+        int len = quality.length;
+        double[][] rate = new double[len][2];
+        for (int i = 0; i < len; i++) {
+            rate[i][0] = wage[i] * 1.0 / quality[i];
+            rate[i][1] = i * 1.0;
+        }
+        //按比值升序排序
+        Arrays.sort(rate, Comparator.comparingDouble(a -> a[0]));
+        //需要符合比值要求的最小k个quality，所以构造最大堆
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        double totalK = 0;
+        for (int i = 0; i < k; i++) {
+            int sub = (int) rate[i][1];
+            totalK += quality[sub];
+            queue.add(quality[sub]);
+        }
+        double result = totalK * rate[k - 1][0];
+        for (int i = k; i < len; i++) {
+            int sub = (int) rate[i][1];
+            totalK += quality[sub];
+            queue.add(quality[sub]);
+            totalK -= queue.poll();
+            //计算result
+            result = Math.min(result, totalK * rate[i][0]);
+        }
+        return result;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;

@@ -295,6 +295,32 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 857. 雇佣 K 名工人的最低成本
+     * 困难
+     * https://leetcode.cn/problems/minimum-cost-to-hire-k-workers/
+     * 思路
+     * 假设实际工资[]=quality[i]*a (i=[0,k-1])
+     * 所以有两个条件：
+     * quality[i]*a>=wage[i]   =>  a>=(w[i]/q[i])  => am=max(w[i]/q[i])
+     * argmin(z)=(∑quality[i])*am  => 在am确定的前提下，问题转化为求 min(∑quality[i]) 其中每个i的a都小于等于am
+     * 预计算出 a[]=w[i]/q[i]，按升序排列，使用优先队列计算结果：
+     * 先假设满足要求的k个人是前k个，那么am=a[k-1]，优先队列吃掉前k个q
+     * 接着从k开始for循环，每次吃掉q[i]，吐掉最大的那个，此时am=a[i]，计算当前的总薪资z[i]
+     * 最后得到最小薪资zm
+     */
+    @Test
+    public void no857() {
+        doubleEqual(solution.mincostToHireWorkers(new int[]{10, 20, 5}, new int[]{70, 50, 30}, 2), 105.0000);
+        doubleEqual(solution.mincostToHireWorkers(new int[]{3, 1, 10, 10, 1}, new int[]{4, 8, 2, 2, 7}, 3), 30.66667);
+    }
+
+    double e = 1e-5;
+
+    private void doubleEqual(double result, double predict) {
+        Assertions.assertTrue(Math.abs(result - predict) <= e);
+    }
+
+    /**
      * 899. 有序队列
      * 困难
      * https://leetcode.cn/problems/orderly-queue/
