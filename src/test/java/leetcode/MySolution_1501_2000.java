@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -116,6 +113,28 @@ public class MySolution_1501_2000 {
             break;
         }
         return x;
+    }
+
+    public double trimMean(int[] arr) {
+        //5%
+        int delNum = arr.length / 20;
+        PriorityQueue<Integer> minQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> maxQueue = new PriorityQueue<>(Collections.reverseOrder());
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            minQueue.add(arr[i]);
+            maxQueue.add(arr[i]);
+            sum += arr[i];
+            if (i > delNum - 1) {
+                minQueue.poll();
+                maxQueue.poll();
+            }
+        }
+        while (!minQueue.isEmpty()) {
+            sum -= minQueue.poll();
+            sum -= maxQueue.poll();
+        }
+        return sum * 1.0 / (arr.length - 2 * delNum);
     }
 
 }

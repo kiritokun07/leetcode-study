@@ -310,14 +310,8 @@ public class MyClientTest_501_1000 {
      */
     @Test
     public void no857() {
-        doubleEqual(solution.mincostToHireWorkers(new int[]{10, 20, 5}, new int[]{70, 50, 30}, 2), 105.0000);
-        doubleEqual(solution.mincostToHireWorkers(new int[]{3, 1, 10, 10, 1}, new int[]{4, 8, 2, 2, 7}, 3), 30.66667);
-    }
-
-    double e = 1e-5;
-
-    private void doubleEqual(double result, double predict) {
-        Assertions.assertTrue(Math.abs(result - predict) <= e);
+        MyUtils.doubleEqual(solution.mincostToHireWorkers(new int[]{10, 20, 5}, new int[]{70, 50, 30}, 2), 105.0000);
+        MyUtils.doubleEqual(solution.mincostToHireWorkers(new int[]{3, 1, 10, 10, 1}, new int[]{4, 8, 2, 2, 7}, 3), 30.66667);
     }
 
     /**
