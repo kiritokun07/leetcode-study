@@ -1,12 +1,8 @@
 package leetcode;
 
 import leetcode.node.ListNode;
-import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author kirito
@@ -50,6 +46,18 @@ public class MyClientTest_1_500 {
 //        printNode(l2);
         ListNode result = solution.deleteDuplicates(l1);
         solution.printNode(result);
+    }
+
+    /**
+     * 319. 灯泡开关
+     * 中等
+     * https://leetcode.cn/problems/bulb-switcher/
+     */
+    @Test
+    public void no319() {
+        Assertions.assertEquals(solution.bulbSwitch(3), 1);
+        Assertions.assertEquals(solution.bulbSwitch(0), 0);
+        Assertions.assertEquals(solution.bulbSwitch(1), 1);
     }
 
 }

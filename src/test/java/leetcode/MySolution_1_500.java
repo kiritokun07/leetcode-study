@@ -66,4 +66,8 @@ public class MySolution_1_500 {
         return b;
     }
 
+    public int bulbSwitch(int n) {
+        return 0;
+    }
+
 }
