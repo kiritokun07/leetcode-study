@@ -427,6 +427,10 @@ public class MySolution_501_1000 {
         return num;
     }
 
+    public int flipLights(int n, int presses) {
+        return 0;
+    }
+
     int longestPath;
 
     public int longestUnivaluePath(TreeNode root) {

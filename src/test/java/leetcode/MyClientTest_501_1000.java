@@ -271,6 +271,18 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 672. 灯泡开关 Ⅱ
+     * 中等
+     * https://leetcode.cn/problems/bulb-switcher-ii/
+     */
+    @Test
+    public void no672() {
+        Assertions.assertEquals(solution.flipLights(1, 1), 2);
+        Assertions.assertEquals(solution.flipLights(2, 1), 3);
+        Assertions.assertEquals(solution.flipLights(3, 1), 4);
+    }
+
+    /**
      * 687. 最长同值路径
      * 中等
      * https://leetcode.cn/problems/longest-univalue-path/
