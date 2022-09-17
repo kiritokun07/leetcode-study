@@ -143,16 +143,15 @@ public class MySolution_1501_2000 {
         int length = s.length();
         int res = -1;
         //key:char value:[第一个下标,最后一个下标]
-        Map<Character, Pair<Integer, Integer>> map = new HashMap<>(length);
+        int[] charArray = new int[26];
+        Arrays.fill(charArray, -1);
+        //Map<Character, Pair<Integer, Integer>> map = new HashMap<>(26);
         for (int i = 0; i < length; i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                //更新res
-                Pair<Integer, Integer> pair = map.get(c);
-                map.put(c, new Pair<>(pair.getKey(), i));
-                res = Math.max(res, i - pair.getKey() - 1);
+            if (charArray[c - 'a'] < 0) {
+                charArray[c - 'a'] = i;
             } else {
-                map.put(c, new Pair<>(i, i));
+                res = Math.max(res, i - charArray[c - 'a'] - 1);
             }
         }
         return res;
