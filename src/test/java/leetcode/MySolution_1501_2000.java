@@ -1,5 +1,7 @@
 package leetcode;
 
+import javafx.util.Pair;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -135,6 +137,25 @@ public class MySolution_1501_2000 {
             sum -= maxQueue.poll();
         }
         return sum * 1.0 / (arr.length - 2 * delNum);
+    }
+
+    public int maxLengthBetweenEqualCharacters(String s) {
+        int length = s.length();
+        int res = -1;
+        //key:char value:[第一个下标,最后一个下标]
+        Map<Character, Pair<Integer, Integer>> map = new HashMap<>(length);
+        for (int i = 0; i < length; i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                //更新res
+                Pair<Integer, Integer> pair = map.get(c);
+                map.put(c, new Pair<>(pair.getKey(), i));
+                res = Math.max(res, i - pair.getKey() - 1);
+            } else {
+                map.put(c, new Pair<>(i, i));
+            }
+        }
+        return res;
     }
 
 }

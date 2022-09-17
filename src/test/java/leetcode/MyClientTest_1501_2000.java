@@ -82,6 +82,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1624. 两个相同字符之间的最长子字符串
+     * 简单
+     * https://leetcode.cn/problems/largest-substring-between-two-equal-characters/
+     */
+    @Test
+    public void no1624() {
+        Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("aa"), 0);
+        Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("abca"), 2);
+        Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("cbzxy"), -1);
+        Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("cabbac"), 4);
+    }
+
+    /**
      * 1656. 设计有序流
      * 简单
      * https://leetcode.cn/problems/design-an-ordered-stream/
