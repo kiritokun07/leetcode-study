@@ -3,6 +3,7 @@ package leetcode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -92,6 +93,18 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("abca"), 2);
         Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("cbzxy"), -1);
         Assertions.assertEquals(solution.maxLengthBetweenEqualCharacters("cabbac"), 4);
+    }
+
+    /**
+     * 1636. 按照频率将数组升序排序
+     * 简单
+     * https://leetcode.cn/problems/sort-array-by-increasing-frequency/
+     */
+    @Test
+    public void no1636() {
+        Assertions.assertEquals(Arrays.toString(solution.frequencySort(new int[]{1, 1, 2, 2, 2, 3})), "[3, 1, 1, 2, 2, 2]");
+        Assertions.assertEquals(Arrays.toString(solution.frequencySort(new int[]{2, 3, 1, 3, 2})), "[1, 3, 3, 2, 2]");
+        Assertions.assertEquals(Arrays.toString(solution.frequencySort(new int[]{-1, 1, -6, 4, 5, -6, 1, 4, 1})), "[5, -1, 4, 4, -6, -6, 1, 1, 1]");
     }
 
     /**
