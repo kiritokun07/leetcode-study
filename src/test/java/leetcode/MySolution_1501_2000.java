@@ -158,7 +158,37 @@ public class MySolution_1501_2000 {
     }
 
     public int[] frequencySort(int[] nums) {
-        return null;
+        //key 值 value 频次
+        Map<Integer, Integer> valueFreMap = new HashMap<>();
+        //统计每个值的频次
+        for (int num : nums) {
+            if (valueFreMap.containsKey(num)) {
+                valueFreMap.put(num, valueFreMap.get(num) + 1);
+            } else {
+                valueFreMap.put(num, 1);
+            }
+        }
+        Map<Integer, TreeSet<Integer>> freValueSetMap = new TreeMap<>();
+        for (Map.Entry<Integer, Integer> entry : valueFreMap.entrySet()) {
+            if (freValueSetMap.containsKey(entry.getValue())) {
+                freValueSetMap.get(entry.getValue()).add(entry.getKey());
+            } else {
+                TreeSet<Integer> set = new TreeSet<>();
+                set.add(entry.getKey());
+                freValueSetMap.put(entry.getValue(), set);
+            }
+        }
+        int[] res = new int[nums.length];
+        int curse = 0;
+        for (Map.Entry<Integer, TreeSet<Integer>> entry : freValueSetMap.entrySet()) {
+            for (Integer num : entry.getValue().descendingSet()) {
+                for (int i = 0; i < entry.getKey(); i++) {
+                    res[curse] = num;
+                    ++curse;
+                }
+            }
+        }
+        return res;
     }
 
 }
