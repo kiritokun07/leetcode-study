@@ -465,6 +465,57 @@ public class MySolution_501_1000 {
         return Math.max(left, right);
     }
 
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        int sum = 0;
+        //key 数字 value 总共多少|当前头指针
+        Map<Integer, Pair<Integer, Integer>> map = new TreeMap<>(Collections.reverseOrder());
+        for (int num : nums) {
+            sum += num;
+            if (map.containsKey(num)) {
+                Pair<Integer, Integer> pair = map.get(num);
+                map.put(num, new Pair<>(pair.getKey() + 1, 0));
+            } else {
+                map.put(num, new Pair<>(1, 0));
+            }
+        }
+        //如果sum不被k整除，返回false
+        if (sum % k > 0) {
+            return false;
+        }
+        int average = sum / k;
+        for (int num : nums) {
+            if (num > average) {
+                return false;
+            }
+        }
+
+        int successNum = 0;
+        while (successNum < k) {
+            //需要拼凑一个average
+            int temp = 0;
+            boolean isSuccess = false;
+            for (Map.Entry<Integer, Pair<Integer, Integer>> entry : map.entrySet()) {
+                Pair<Integer, Integer> pair = entry.getValue();
+                //这步可能需要反复的取当前的key值
+                while (pair.getValue() < pair.getKey() && temp + entry.getKey() <= average) {
+                    temp += entry.getKey();
+                    entry.setValue(new Pair<>(pair.getKey(), pair.getValue() + 1));
+                    if (temp == average) {
+                        isSuccess = true;
+                        break;
+                    }
+                }
+                if (isSuccess) {
+                    break;
+                }
+            }
+            if (!isSuccess) {
+                return false;
+            }
+            ++successNum;
+        }
+        return true;
+    }
 
     public int uniqueLetterString(String s) {
         //存储每个元素的所有下标list

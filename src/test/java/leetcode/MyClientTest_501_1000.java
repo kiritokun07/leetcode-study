@@ -295,6 +295,20 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 698. 划分为k个相等的子集
+     * 中等
+     * https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
+     * 这题不能贪心
+     */
+    @Test
+    public void no698() {
+        //Assertions.assertTrue(solution.canPartitionKSubsets(new int[]{4, 3, 2, 3, 5, 2, 1}, 4));
+        //Assertions.assertFalse(solution.canPartitionKSubsets(new int[]{1, 2, 3, 4}, 3));
+        //Assertions.assertTrue(solution.canPartitionKSubsets(new int[]{1, 1, 1, 1, 2, 2, 2, 2}, 2));
+        Assertions.assertTrue(solution.canPartitionKSubsets(new int[]{3522, 181, 521, 515, 304, 123, 2512, 312, 922, 407, 146, 1932, 4037, 2646, 3871, 269}, 5));
+    }
+
+    /**
      * 828. 统计子串中的唯一字符
      * 困难
      * https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/
