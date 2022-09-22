@@ -191,4 +191,27 @@ public class MySolution_1501_2000 {
         return res;
     }
 
+    public boolean canFormArray(int[] arr, int[][] pieces) {
+        Map<Integer, Integer> map = new HashMap<>(pieces.length);
+        for (int i = 0; i < pieces.length; i++) {
+            map.put(pieces[i][0], i);
+        }
+        int i = 0;
+        while (i < arr.length) {
+            int arrI = arr[i];
+            if (!map.containsKey(arrI)) {
+                return false;
+            }
+            Integer index = map.get(arrI);
+            int length = pieces[index].length;
+            for (int j = 0; j < length; j++) {
+                if (arr[i + j] != pieces[index][j]) {
+                    return false;
+                }
+            }
+            i += length;
+        }
+        return true;
+    }
+
 }

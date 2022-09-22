@@ -108,6 +108,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1640. 能否连接形成数组
+     * 简单
+     * https://leetcode.cn/problems/check-array-formation-through-concatenation/
+     * 理解：不断选择二维数组的当前的首位，拼接成一维数组
+     */
+    @Test
+    public void no1640() {
+        Assertions.assertTrue(solution.canFormArray(new int[]{15, 88}, new int[][]{{88}, {15}}));
+        Assertions.assertFalse(solution.canFormArray(new int[]{49, 18, 16}, new int[][]{{16, 18, 49}}));
+        Assertions.assertTrue(solution.canFormArray(new int[]{91, 4, 64, 78}, new int[][]{{78}, {4, 64}, {91}}));
+    }
+
+    /**
      * 1656. 设计有序流
      * 简单
      * https://leetcode.cn/problems/design-an-ordered-stream/
