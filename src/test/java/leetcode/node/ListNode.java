@@ -1,8 +1,5 @@
 package leetcode.node;
 
-import lombok.Data;
-
-@Data
 public class ListNode {
 
     public int val;

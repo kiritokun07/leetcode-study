@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.node.MyLinkedList;
 import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -271,7 +272,7 @@ public class MyClientTest_501_1000 {
     }
 
     /**
-     * 672. 灯泡开关 Ⅱ
+     * （正在写）672. 灯泡开关 Ⅱ
      * 中等
      * https://leetcode.cn/problems/bulb-switcher-ii/
      */
@@ -295,7 +296,7 @@ public class MyClientTest_501_1000 {
     }
 
     /**
-     * 698. 划分为k个相等的子集
+     * （正在写）698. 划分为k个相等的子集
      * 中等
      * https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
      * 这题不能贪心
@@ -306,6 +307,37 @@ public class MyClientTest_501_1000 {
         //Assertions.assertFalse(solution.canPartitionKSubsets(new int[]{1, 2, 3, 4}, 3));
         //Assertions.assertTrue(solution.canPartitionKSubsets(new int[]{1, 1, 1, 1, 2, 2, 2, 2}, 2));
         Assertions.assertTrue(solution.canPartitionKSubsets(new int[]{3522, 181, 521, 515, 304, 123, 2512, 312, 922, 407, 146, 1932, 4037, 2646, 3871, 269}, 5));
+    }
+
+    /**
+     * 707. 设计链表
+     * 中等
+     * https://leetcode.cn/problems/design-linked-list/
+     */
+    @Test
+    public void no707() {
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.addAtHead(1);
+        linkedList.addAtTail(3);
+        linkedList.addAtIndex(1, 2);   //链表变为1-> 2-> 3
+        Assertions.assertEquals(linkedList.get(1), 2);            //返回2
+        linkedList.deleteAtIndex(1);  //现在链表是1-> 3
+        Assertions.assertEquals(linkedList.get(1), 3);            //返回3
+
+        MyLinkedList linkedList2 = new MyLinkedList();
+        linkedList2.addAtHead(2);
+        linkedList2.deleteAtIndex(1);
+        linkedList2.addAtHead(2);
+        linkedList2.addAtHead(7);
+        linkedList2.addAtHead(3);
+
+        linkedList2.addAtHead(2);
+        linkedList2.addAtHead(5);
+        linkedList2.addAtTail(5);
+        Assertions.assertEquals(linkedList2.get(5), 2);
+        linkedList2.deleteAtIndex(6);
+
+        linkedList2.deleteAtIndex(4);
     }
 
     /**
