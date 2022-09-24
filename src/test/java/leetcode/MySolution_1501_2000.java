@@ -214,4 +214,42 @@ public class MySolution_1501_2000 {
         return true;
     }
 
+    public int[] decrypt(int[] code, int k) {
+        int[] res = new int[code.length];
+        if (k == 0) {
+            Arrays.fill(res, 0);
+            return res;
+        }
+        int base = 0;
+        if (k > 0) {
+            for (int i = 0; i < k; ++i) {
+                base += code[i];
+            }
+        } else {
+            //+=从右数k个值
+            for (int i = 0; i < -k; ++i) {
+                base += code[code.length - i - 1];
+            }
+        }
+        if (k > 0) {
+            for (int i = 0; i < code.length; i++) {
+                int sub = (i + k) % code.length;
+                //减当前值，加i+k下标的值
+                base += (-code[i] + code[sub]);
+                res[i] = base;
+            }
+        } else {
+            for (int i = code.length - 1; i >= 0; --i) {
+                //减当前值，加i+k下标的值
+                int sub = (i + k) % code.length;
+                if (sub < 0) {
+                    sub += code.length;
+                }
+                base += (-code[i] + code[sub]);
+                res[i] = base;
+            }
+        }
+        return res;
+    }
+
 }
