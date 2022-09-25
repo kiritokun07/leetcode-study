@@ -580,6 +580,9 @@ public class MySolution_501_1000 {
             if (CAN_NOT_ROTATE_SET.contains(c)) {
                 return false;
             }
+            if (hasRotateChange) {
+                continue;
+            }
             if (ROTATE_CHANGE_SET.contains(c)) {
                 hasRotateChange = true;
             }
