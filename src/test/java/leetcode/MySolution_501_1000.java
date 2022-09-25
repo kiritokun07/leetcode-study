@@ -517,6 +517,76 @@ public class MySolution_501_1000 {
         return true;
     }
 
+    public int rotatedDigits(int n) {
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (canRotate(i + 1)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * ASCII 不能旋转的数 3 4 7
+     */
+    private static final Set<Character> CAN_NOT_ROTATE_SET = new HashSet<>();
+
+    /**
+     * ASCII 旋转不变数 0 1 8
+     */
+    private static final Set<Character> ROTATE_NOT_CHANGE_SET = new HashSet<>();
+
+    /**
+     * ASCII 旋转后变的数 2 5 6 9
+     */
+    private static final Set<Character> ROTATE_CHANGE_SET = new HashSet<>();
+
+    //0->48
+    //1->49
+    //2->50
+    static {
+        CAN_NOT_ROTATE_SET.add('3');
+        CAN_NOT_ROTATE_SET.add('4');
+        CAN_NOT_ROTATE_SET.add('7');
+
+        ROTATE_NOT_CHANGE_SET.add('0');
+        ROTATE_NOT_CHANGE_SET.add('1');
+        ROTATE_NOT_CHANGE_SET.add('8');
+
+        ROTATE_CHANGE_SET.add('2');
+        ROTATE_CHANGE_SET.add('5');
+        ROTATE_CHANGE_SET.add('6');
+        ROTATE_CHANGE_SET.add('9');
+    }
+
+    /**
+     * 判断一个数是否是好数 no788
+     * 不能旋转的数 3 4 7
+     * 旋转不变数 0 1 8
+     * 旋转后变的数 2 5 6 9
+     * <p>
+     * 如果这个数字里存在不能旋转的数，那么必不是好数
+     * 在全部都能旋转的条件下，如果这个数里存在旋转后变的数，那就是好数
+     * 否则不是好数
+     *
+     * @return
+     */
+    private boolean canRotate(int n) {
+        String nStr = String.valueOf(n);
+        char[] nCharArray = nStr.toCharArray();
+        boolean hasRotateChange = false;
+        for (char c : nCharArray) {
+            if (CAN_NOT_ROTATE_SET.contains(c)) {
+                return false;
+            }
+            if (ROTATE_CHANGE_SET.contains(c)) {
+                hasRotateChange = true;
+            }
+        }
+        return hasRotateChange;
+    }
+
     public int uniqueLetterString(String s) {
         //存储每个元素的所有下标list
         Map<Character, List<Integer>> subListMap = new HashMap<>();

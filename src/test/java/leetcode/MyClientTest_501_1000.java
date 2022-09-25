@@ -341,6 +341,16 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 788. 旋转数字
+     * 中等
+     * https://leetcode.cn/problems/rotated-digits/
+     */
+    @Test
+    public void no788() {
+        Assertions.assertEquals(solution.rotatedDigits(10), 4);
+    }
+
+    /**
      * 828. 统计子串中的唯一字符
      * 困难
      * https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/

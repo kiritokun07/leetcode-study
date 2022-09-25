@@ -1,7 +1,5 @@
 package leetcode;
 
-import javafx.util.Pair;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
