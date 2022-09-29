@@ -23,4 +23,15 @@ public class MyInterviewClientTest {
         Assertions.assertFalse(solution.CheckPermutation("abc", "bad"));
     }
 
+    /**
+     * 面试题 01.09. 字符串轮转
+     * 简单
+     * https://leetcode.cn/problems/string-rotation-lcci/
+     */
+    @Test
+    public void interview01_09() {
+        Assertions.assertTrue(solution.isFlipedString("waterbottle", "erbottlewat"));
+        Assertions.assertFalse(solution.isFlipedString("aa", "aba"));
+    }
+
 }
