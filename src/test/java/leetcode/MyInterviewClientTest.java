@@ -3,6 +3,8 @@ package leetcode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 /**
  * @author kirito
  * @desc ...
@@ -21,6 +23,18 @@ public class MyInterviewClientTest {
     public void interview01_02() {
         Assertions.assertTrue(solution.CheckPermutation("abc", "bca"));
         Assertions.assertFalse(solution.CheckPermutation("abc", "bad"));
+    }
+
+    /**
+     * 面试题 01.08. 零矩阵
+     * 中等
+     * https://leetcode.cn/problems/zero-matrix-lcci/
+     */
+    @Test
+    public void interview01_08() {
+        int[][] intArrArr = new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+        solution.setZeroes(intArrArr);
+        System.out.println("Arrays.deepToString(intArrArr) = " + Arrays.deepToString(intArrArr));
     }
 
     /**

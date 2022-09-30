@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,30 @@ public class MyInterviewSolution {
             }
         }
         return true;
+    }
+
+    public void setZeroes(int[][] matrix) {
+        int row = matrix.length;
+        int[] rowZero = new int[row];
+        Arrays.fill(rowZero, 1);
+        int col = matrix[0].length;
+        int[] colZero = new int[col];
+        Arrays.fill(colZero, 1);
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matrix[i][j] == 0) {
+                    rowZero[i] = 0;
+                    colZero[j] = 0;
+                }
+            }
+        }
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (rowZero[i] == 0 || colZero[j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
     }
 
     public boolean isFlipedString(String s1, String s2) {
