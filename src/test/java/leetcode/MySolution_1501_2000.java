@@ -250,4 +250,77 @@ public class MySolution_1501_2000 {
         return res;
     }
 
+    public static void main(String[] args) {
+        String a = "123- 456";
+        System.out.println(a);
+    }
+
+    //原字符串 新字符串 商 余
+    //12:12 0 2
+    //123:123 1 0
+    //1234:12-34 1 1
+    //12345:123-45 1 2
+    //123456:123-456 2 0
+    //1234567:123-45-67 2 1
+    //12345678:123-456-78 2 2
+    //123456789:123-456-789 3 0
+    //1234567891:123-456-78-91 3 1
+    //规律
+    //余0时整除
+    //余1时末尾4个处理成xx-xx
+    //余2时末尾是-xx
+    public String reformatNumber(String number) {
+        List<Character> charList = new ArrayList<>();
+        for (int i = 0; i < number.length(); i++) {
+            char c = number.charAt(i);
+            //如果不是空格32 不是- 45
+            if (c != 32 && c != 45) {
+                charList.add(c);
+            }
+        }
+        int len = charList.size();
+        if (len <= 3) {
+            return getStrByCharList(charList);
+        }
+        //余数
+        int left = len % 3;
+        //从右数需要处理的数字个数
+        int len2 = left == 0 ? 0 : left == 1 ? 4 : 2;
+        //前面的数每3个加一个-
+        List<Character> resultList = new ArrayList<>();
+        for (int i = 0; i < len - len2; i++) {
+            resultList.add(charList.get(i));
+            if ((i + 1) % 3 == 0 && i != len - len2 - 1) {
+                resultList.add('-');
+            }
+        }
+        //处理剩余字符串
+        if (len2 == 0) {
+            //
+        } else if (len2 == 4) {
+            if (resultList.size() > 0) {
+                resultList.add('-');
+            }
+            resultList.add(charList.get(len-4));
+            resultList.add(charList.get(len-3));
+            resultList.add('-');
+            resultList.add(charList.get(len-2));
+            resultList.add(charList.get(len-1));
+        } else {
+            //len2==2
+            resultList.add('-');
+            resultList.add(charList.get(len-2));
+            resultList.add(charList.get(len-1));
+        }
+        return getStrByCharList(resultList);
+    }
+
+    private String getStrByCharList(List<Character> charList) {
+        StringBuilder sb = new StringBuilder(charList.size());
+        for (Character character : charList) {
+            sb.append(character);
+        }
+        return sb.toString();
+    }
+
 }
