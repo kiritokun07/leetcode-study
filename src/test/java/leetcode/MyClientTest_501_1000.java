@@ -351,6 +351,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 811. 子域名访问计数
+     * 中等
+     * https://leetcode.cn/problems/subdomain-visit-count/
+     */
+    @Test
+    public void no811() {
+        List<String> list = solution.subdomainVisits(new String[]{"9001 discuss.leetcode.com"});
+        System.out.println("list = " + list);
+        List<String> list2 = solution.subdomainVisits(new String[]{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"});
+        System.out.println("list2 = " + list2);
+    }
+
+    /**
      * 828. 统计子串中的唯一字符
      * 困难
      * https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/
