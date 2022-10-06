@@ -407,6 +407,17 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 921. 使括号有效的最少添加
+     * 中等
+     * https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/
+     */
+    @Test
+    public void no921() {
+        Assertions.assertEquals(solution.minAddToMakeValid("())"), 1);
+        Assertions.assertEquals(solution.minAddToMakeValid("((("), 3);
+    }
+
+    /**
      * 946. 验证栈序列
      * 中等
      * https://leetcode.cn/problems/validate-stack-sequences/

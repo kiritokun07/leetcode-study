@@ -702,6 +702,26 @@ public class MySolution_501_1000 {
         return new String(chars);
     }
 
+    public int minAddToMakeValid(String s) {
+        int res = 0;
+        int current = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                ++current;
+            } else {
+                //)
+                if (current > 0) {
+                    --current;
+                } else {
+                    ++res;
+                }
+            }
+        }
+        res += current;
+        return res;
+    }
+
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         if (pushed.length != popped.length) {
             return false;
