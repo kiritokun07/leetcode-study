@@ -590,6 +590,39 @@ public class MySolution_501_1000 {
         return hasRotateChange;
     }
 
+    public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String cpdomain : cpdomains) {
+            String[] split = cpdomain.split(" ");
+            int times = Integer.parseInt(split[0]);
+            String[] split1 = split[1].split("\\.");
+            switch (split1.length) {
+                case 1:
+                    //"com"
+                    map.merge(split1[0], times, Integer::sum);
+                    break;
+                case 2:
+                    //"baidu.com"
+                    map.merge(split1[1], times, Integer::sum);
+                    map.merge(split[1], times, Integer::sum);
+                    break;
+                case 3:
+                    //"www.baidu.com"
+                    map.merge(split1[2], times, Integer::sum);
+                    map.merge(split1[1] + "." + split1[2], times, Integer::sum);
+                    map.merge(split[1], times, Integer::sum);
+                    break;
+                default:
+                    break;
+            }
+        }
+        List<String> result = new ArrayList<>(map.size());
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            result.add(entry.getValue() + " " + entry.getKey());
+        }
+        return result;
+    }
+
     public int uniqueLetterString(String s) {
         //存储每个元素的所有下标list
         Map<Character, List<Integer>> subListMap = new HashMap<>();
