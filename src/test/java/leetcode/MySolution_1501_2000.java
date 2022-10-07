@@ -301,16 +301,16 @@ public class MySolution_1501_2000 {
             if (resultList.size() > 0) {
                 resultList.add('-');
             }
-            resultList.add(charList.get(len-4));
-            resultList.add(charList.get(len-3));
+            resultList.add(charList.get(len - 4));
+            resultList.add(charList.get(len - 3));
             resultList.add('-');
-            resultList.add(charList.get(len-2));
-            resultList.add(charList.get(len-1));
+            resultList.add(charList.get(len - 2));
+            resultList.add(charList.get(len - 1));
         } else {
             //len2==2
             resultList.add('-');
-            resultList.add(charList.get(len-2));
-            resultList.add(charList.get(len-1));
+            resultList.add(charList.get(len - 2));
+            resultList.add(charList.get(len - 1));
         }
         return getStrByCharList(resultList);
     }
@@ -321,6 +321,25 @@ public class MySolution_1501_2000 {
             sb.append(character);
         }
         return sb.toString();
+    }
+
+    public int maxAscendingSum(int[] nums) {
+        int res = 0;
+        int current = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i == 0) {
+                current = nums[i];
+                res = nums[i];
+                continue;
+            }
+            if (nums[i] > nums[i - 1]) {
+                current += nums[i];
+                res = Math.max(res, current);
+            } else {
+                current = nums[i];
+            }
+        }
+        return res;
     }
 
 }

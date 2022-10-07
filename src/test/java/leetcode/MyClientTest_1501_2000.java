@@ -166,4 +166,17 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.reformatNumber("--17-5 229 35-39475 "), "175-229-353-94-75");
     }
 
+    /**
+     * 1800. 最大升序子数组和
+     * 简单
+     * https://leetcode.cn/problems/maximum-ascending-subarray-sum/
+     */
+    @Test
+    public void no1800() {
+        Assertions.assertEquals(solution.maxAscendingSum(new int[]{10, 20, 30, 5, 10, 50}), 65);
+        Assertions.assertEquals(solution.maxAscendingSum(new int[]{10, 20, 30, 40, 50}), 150);
+        Assertions.assertEquals(solution.maxAscendingSum(new int[]{12, 17, 15, 13, 10, 11, 12}), 33);
+        Assertions.assertEquals(solution.maxAscendingSum(new int[]{100, 10, 1}), 100);
+    }
+
 }
