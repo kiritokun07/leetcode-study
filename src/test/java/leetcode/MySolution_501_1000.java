@@ -679,6 +679,32 @@ public class MySolution_501_1000 {
         return result;
     }
 
+    public int[] advantageCount(int[] nums1, int[] nums2) {
+        int len = nums2.length;
+        int[] res = new int[len];
+        Integer[] subList = new Integer[len];
+        for (int i = 0; i < len; i++) {
+            subList[i] = i;
+        }
+        Arrays.sort(nums1);
+        Arrays.sort(subList, Comparator.comparingInt(a -> nums2[a]));
+        int left = 0;
+        int right = len - 1;
+        for (int num : nums1) {
+            //田忌赛马，
+            int sub;
+            if (num > nums2[subList[left]]) {
+                sub = subList[left];
+                ++left;
+            } else {
+                sub = subList[right];
+                --right;
+            }
+            res[sub] = num; //和nums2的值对应起来，所以不是按顺序填充数组
+        }
+        return res;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;

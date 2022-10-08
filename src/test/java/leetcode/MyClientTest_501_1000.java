@@ -396,6 +396,17 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 870. 优势洗牌
+     * 中等
+     * https://leetcode.cn/problems/advantage-shuffle/
+     */
+    @Test
+    public void no870() {
+        Assertions.assertEquals(Arrays.toString(solution.advantageCount(new int[]{2, 7, 11, 15}, new int[]{1, 10, 4, 11})), "[2, 11, 7, 15]");
+        Assertions.assertEquals(Arrays.toString(solution.advantageCount(new int[]{12,24,8,32}, new int[]{13,25,32,11})), "[24, 32, 8, 12]");
+    }
+
+    /**
      * 899. 有序队列
      * 困难
      * https://leetcode.cn/problems/orderly-queue/
