@@ -650,6 +650,29 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public int scoreOfParentheses(String s) {
+        int res = 0;
+        int depth = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            //计算当前深度
+            if (c == '(') {
+                ++depth;
+            } else {
+                --depth;
+            }
+            //最底层只有一个完整的括号
+            //如果是2层的完整括号，那么res+=2^1
+            //如果是3层的完整括号，那么res+=2^2
+            //如果是n层的，那么res+=2^(n-1)
+            //1<<n=2^n
+            if (c == ')' && s.charAt(i - 1) == '(') {
+                res += 1 << depth;
+            }
+        }
+        return res;
+    }
+
     public double mincostToHireWorkers(int[] quality, int[] wage, int k) {
         int len = quality.length;
         double[][] rate = new double[len][2];
