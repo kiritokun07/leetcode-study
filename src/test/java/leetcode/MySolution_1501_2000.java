@@ -323,6 +323,44 @@ public class MySolution_1501_2000 {
         return sb.toString();
     }
 
+    public boolean areAlmostEqual(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        char dif1 = 0;
+        char dif2 = 0;
+        int count = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
+            if (c1 == c2) {
+                continue;
+            }
+            ++count;
+            if (count < 1) {
+                continue;
+            }
+            if (count > 2) {
+                return false;
+            }
+            if (count < 2) {
+                dif1 = c1;
+                dif2 = c2;
+            } else {
+                if (dif1 == 0 || dif2 == 0) {
+                    continue;
+                }
+                if (dif1 != c2 || dif2 != c1) {
+                    return false;
+                }
+            }
+        }
+        if (count == 1) {
+            return false;
+        }
+        return true;
+    }
+
     public int maxAscendingSum(int[] nums) {
         int res = 0;
         int current = 0;

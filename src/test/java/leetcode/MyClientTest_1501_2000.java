@@ -167,6 +167,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1790. 仅执行一次字符串交换能否使两个字符串相等
+     * 简单
+     * https://leetcode.cn/problems/check-if-one-string-swap-can-make-strings-equal/
+     */
+    @Test
+    public void no1790() {
+        Assertions.assertTrue(solution.areAlmostEqual("bank", "kanb"));
+        Assertions.assertFalse(solution.areAlmostEqual("attack", "defend"));
+        Assertions.assertTrue(solution.areAlmostEqual("kelb", "kelb"));
+        Assertions.assertFalse(solution.areAlmostEqual("abcd", "dcba"));
+    }
+
+    /**
      * 1800. 最大升序子数组和
      * 简单
      * https://leetcode.cn/problems/maximum-ascending-subarray-sum/
