@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.node.ListNode;
 import leetcode.node.MyLinkedList;
 import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
@@ -361,6 +362,24 @@ public class MyClientTest_501_1000 {
         System.out.println("list = " + list);
         List<String> list2 = solution.subdomainVisits(new String[]{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"});
         System.out.println("list2 = " + list2);
+    }
+
+    /**
+     * 817. 链表组件
+     * 中等
+     * https://leetcode.cn/problems/linked-list-components/
+     */
+    @Test
+    public void no817() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(3);
+        int[] nums = new int[]{0, 1, 3};
+        Assertions.assertEquals(solution.numComponents(head, nums), 2);
+        head.next.next.next.next = new ListNode(4);
+        int[] nums2 = new int[]{0, 3, 1, 4};
+        Assertions.assertEquals(solution.numComponents(head, nums2), 2);
     }
 
     /**

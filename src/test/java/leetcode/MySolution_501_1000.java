@@ -1,6 +1,7 @@
 package leetcode;
 
 import javafx.util.Pair;
+import leetcode.node.ListNode;
 import leetcode.node.MyStack;
 import leetcode.node.TreeNode;
 
@@ -621,6 +622,29 @@ public class MySolution_501_1000 {
             result.add(entry.getValue() + " " + entry.getKey());
         }
         return result;
+    }
+
+    public int numComponents(ListNode head, int[] nums) {
+        Set<Integer> set = new HashSet<>(nums.length);
+        for (int num : nums) {
+            set.add(num);
+        }
+        int res = 0;
+        //false表明不开启新的一段
+        boolean flag = false;
+        while (head != null) {
+            if (set.contains(head.val)) {
+                if (!flag) {
+                    flag = true;
+                    ++res;
+                }
+            } else {
+                //新的一段
+                flag = false;
+            }
+            head = head.next;
+        }
+        return res;
     }
 
     public int uniqueLetterString(String s) {
