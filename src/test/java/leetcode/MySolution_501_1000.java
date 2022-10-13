@@ -518,6 +518,10 @@ public class MySolution_501_1000 {
         return true;
     }
 
+    public int maxChunksToSorted(int[] arr) {
+        return 0;
+    }
+
     public int rotatedDigits(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {

@@ -342,6 +342,17 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 769. 最多能完成排序的块
+     * 中等
+     * https://leetcode.cn/problems/max-chunks-to-make-sorted/
+     */
+    @Test
+    public void no769() {
+        Assertions.assertEquals(solution.maxChunksToSorted(new int[]{4, 3, 2, 1, 0}), 1);
+        Assertions.assertEquals(solution.maxChunksToSorted(new int[]{1, 0, 2, 3, 4}), 4);
+    }
+
+    /**
      * 788. 旋转数字
      * 中等
      * https://leetcode.cn/problems/rotated-digits/
