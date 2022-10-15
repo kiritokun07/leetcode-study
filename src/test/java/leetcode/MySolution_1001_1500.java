@@ -311,6 +311,22 @@ public class MySolution_1001_1500 {
         return maxScore;
     }
 
+    public List<String> buildArray(int[] target, int n) {
+        int maxI = target[target.length - 1];
+        List<String> res = new ArrayList<>(2 * maxI);
+        int curse = 0;
+        for (int i = 1; i <= maxI; i++) {
+            if (i == target[curse]) {
+                res.add("Push");
+                ++curse;
+            } else {
+                res.add("Push");
+                res.add("Pop");
+            }
+        }
+        return res;
+    }
+
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
         int count = 0;
         for (int i = 0; i < startTime.length; i++) {

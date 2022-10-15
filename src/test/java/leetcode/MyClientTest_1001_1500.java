@@ -232,6 +232,18 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * 1441. 用栈操作构建数组
+     * 中等
+     * https://leetcode.cn/problems/build-an-array-with-stack-operations/
+     */
+    @Test
+    public void no1441() {
+        Assertions.assertEquals(Arrays.toString(solution.buildArray(new int[]{1, 3}, 3).toArray()), "[Push, Push, Pop, Push]");
+        Assertions.assertEquals(Arrays.toString(solution.buildArray(new int[]{1, 2, 3}, 3).toArray()), "[Push, Push, Push]");
+        Assertions.assertEquals(Arrays.toString(solution.buildArray(new int[]{1, 2}, 4).toArray()), "[Push, Push]");
+    }
+
+    /**
      * 1450. 在既定时间做作业的学生人数
      * 简单
      * https://leetcode.cn/problems/number-of-students-doing-homework-at-a-given-time/
