@@ -450,6 +450,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 886. 可能的二分法
+     * 中等
+     * https://leetcode.cn/problems/possible-bipartition/
+     */
+    @Test
+    public void no886() {
+        Assertions.assertTrue(solution.possibleBipartition(4, new int[][]{{1, 2}, {1, 3}, {2, 4}}));
+        Assertions.assertFalse(solution.possibleBipartition(3, new int[][]{{1, 2}, {1, 3}, {2, 3}}));
+        Assertions.assertFalse(solution.possibleBipartition(5, new int[][]{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {1, 5}}));
+        Assertions.assertTrue(solution.possibleBipartition(10, new int[][]{{1, 2}, {3, 4}, {5, 6}, {6, 7}, {8, 9}, {7, 8}}));
+    }
+
+    /**
      * 899. 有序队列
      * 困难
      * https://leetcode.cn/problems/orderly-queue/

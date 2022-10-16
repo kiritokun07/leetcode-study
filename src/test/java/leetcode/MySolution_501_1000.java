@@ -756,6 +756,48 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public boolean possibleBipartition(int n, int[][] dislikes) {
+        //Arrays.sort(dislikes, Comparator.comparingInt(a -> a[0]));
+        //Set<Integer> aSet = new HashSet<>(n);
+        //Set<Integer> bSet = new HashSet<>(n);
+        //for (int i = 0; i < dislikes.length; i++) {
+        //    int[] dislike = dislikes[i];
+        //    int a = dislike[0];
+        //    int b = dislike[1];
+        //    if (aSet.contains(a)) {
+        //        if (aSet.contains(b)) {
+        //            return false;
+        //        }
+        //        bSet.add(b);
+        //        continue;
+        //    }
+        //    if (bSet.contains(a)) {
+        //        if (bSet.contains(b)) {
+        //            return false;
+        //        }
+        //        aSet.add(b);
+        //        continue;
+        //    }
+        //    if (aSet.contains(b)) {
+        //        if (aSet.contains(a)) {
+        //            return false;
+        //        }
+        //        bSet.add(a);
+        //        continue;
+        //    }
+        //    if (bSet.contains(b)) {
+        //        if (bSet.contains(a)) {
+        //            return false;
+        //        }
+        //        aSet.add(a);
+        //        continue;
+        //    }
+        //    aSet.add(a);
+        //    bSet.add(b);
+        //}
+        return true;
+    }
+
     public String orderlyQueue(String s, int k) {
         if (k == 0) {
             return s;
