@@ -474,6 +474,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 904. 水果成篮
+     * 中等
+     * https://leetcode.cn/problems/fruit-into-baskets/
+     */
+    @Test
+    public void no904() {
+        Assertions.assertEquals(solution.totalFruit(new int[]{1, 2, 1}), 3);
+        Assertions.assertEquals(solution.totalFruit(new int[]{0, 1, 2, 2}), 3);
+        Assertions.assertEquals(solution.totalFruit(new int[]{1, 2, 3, 2, 2}), 4);
+        Assertions.assertEquals(solution.totalFruit(new int[]{3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4}), 5);
+    }
+
+    /**
      * 921. 使括号有效的最少添加
      * 中等
      * https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/

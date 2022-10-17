@@ -821,6 +821,28 @@ public class MySolution_501_1000 {
         return new String(chars);
     }
 
+    public int totalFruit(int[] fruits) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int left = 0;
+        int res = 0;
+        for (int i = 0; i < fruits.length; i++) {
+            map.put(fruits[i], map.getOrDefault(fruits[i], 0) + 1);
+            while (map.size() > 2) {
+                Integer le = map.get(fruits[left]);
+                if (le != null) {
+                    if (le > 1) {
+                        map.put(fruits[left], le - 1);
+                    } else {
+                        map.remove(fruits[left]);
+                    }
+                }
+                ++left;
+            }
+            res = Math.max(res, i - left + 1);
+        }
+        return res;
+    }
+
     public int minAddToMakeValid(String s) {
         int res = 0;
         int current = 0;
