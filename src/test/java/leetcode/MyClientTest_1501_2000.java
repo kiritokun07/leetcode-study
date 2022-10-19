@@ -167,6 +167,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1700. 无法吃午餐的学生数量
+     * 简单
+     * https://leetcode.cn/problems/number-of-students-unable-to-eat-lunch/
+     */
+    @Test
+    public void no1700() {
+        Assertions.assertEquals(solution.countStudents(new int[]{1, 1, 0, 0}, new int[]{0, 1, 0, 1}), 0);
+        Assertions.assertEquals(solution.countStudents(new int[]{1, 1, 1, 0, 0, 1}, new int[]{1, 0, 0, 0, 1, 1}), 3);
+        Assertions.assertEquals(solution.countStudents(new int[]{0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1}, new int[]{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0}), 1);
+    }
+
+    /**
      * 1790. 仅执行一次字符串交换能否使两个字符串相等
      * 简单
      * https://leetcode.cn/problems/check-if-one-string-swap-can-make-strings-equal/

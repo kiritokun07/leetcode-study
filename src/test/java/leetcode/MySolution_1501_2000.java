@@ -323,6 +323,32 @@ public class MySolution_1501_2000 {
         return sb.toString();
     }
 
+    public int countStudents(int[] students, int[] sandwiches) {
+        int zeroNum = 0;
+        int oneNum = 0;
+        for (int student : students) {
+            if (student == 0) {
+                ++zeroNum;
+            } else {
+                ++oneNum;
+            }
+        }
+        for (int sandwich : sandwiches) {
+            if (sandwich == 0) {
+                --zeroNum;
+                if (zeroNum < 0) {
+                    return oneNum;
+                }
+            } else {
+                --oneNum;
+                if (oneNum < 0) {
+                    return zeroNum;
+                }
+            }
+        }
+        return zeroNum + oneNum;
+    }
+
     public boolean areAlmostEqual(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
