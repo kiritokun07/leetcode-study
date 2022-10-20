@@ -522,6 +522,16 @@ public class MySolution_501_1000 {
         return 0;
     }
 
+    public int kthGrammar(int n, int k) {
+        if (k == 1) {
+            return 0;
+        }
+        if (k > (1 << (n - 2))) {
+            return 1 ^ kthGrammar(n - 1, k - (1 << (n - 2)));
+        }
+        return kthGrammar(n - 1, k);
+    }
+
     public int rotatedDigits(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {

@@ -353,6 +353,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 779. 第K个语法符号
+     * 中等
+     * https://leetcode.cn/problems/k-th-symbol-in-grammar/
+     */
+    @Test
+    public void no779() {
+        Assertions.assertEquals(solution.kthGrammar(1, 1), 0);
+        Assertions.assertEquals(solution.kthGrammar(2, 1), 0);
+        Assertions.assertEquals(solution.kthGrammar(2, 2), 1);
+        Assertions.assertEquals(solution.kthGrammar(3, 3), 1);
+    }
+
+    /**
      * 788. 旋转数字
      * 中等
      * https://leetcode.cn/problems/rotated-digits/
