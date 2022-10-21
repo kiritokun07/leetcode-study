@@ -487,6 +487,31 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 901. 股票价格跨度
+     * 中等
+     * https://leetcode.cn/problems/online-stock-span/
+     * 可以用单调栈改进
+     */
+    @Test
+    public void no901() throws Exception {
+        assertStockSpanner(new int[]{100, 80, 60, 70, 60, 75, 85}, new int[]{1, 1, 1, 2, 1, 4, 6});
+        assertStockSpanner(new int[]{32, 82, 73, 99, 91}, new int[]{1, 2, 1, 4, 1});
+        assertStockSpanner(new int[]{28, 14, 28, 35, 46, 53, 66, 80, 87, 88}, new int[]{1, 1, 3, 4, 5, 6, 7, 8, 9, 10});
+        assertStockSpanner(new int[]{90, 21, 21, 68, 94, 13, 1, 37, 3, 61, 86, 19, 12, 35, 96}, new int[]{1, 1, 2, 3, 5, 1, 1, 3, 1, 5, 6, 1, 1, 3, 15});
+    }
+
+    private void assertStockSpanner(int[] nextList, int[] resultList) throws Exception {
+        if (nextList.length != resultList.length) {
+            throw new Exception("输入和输出数量不一致");
+        }
+        MySolution_501_1000.StockSpanner stockSpanner = new MySolution_501_1000.StockSpanner();
+        for (int i = 0; i < nextList.length; i++) {
+            Assertions.assertEquals(stockSpanner.next(nextList[i]), resultList[i]);
+            System.out.println(i + " passed");
+        }
+    }
+
+    /**
      * 904. 水果成篮
      * 中等
      * https://leetcode.cn/problems/fruit-into-baskets/

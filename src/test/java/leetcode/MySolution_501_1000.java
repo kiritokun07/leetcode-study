@@ -831,6 +831,58 @@ public class MySolution_501_1000 {
         return new String(chars);
     }
 
+    static class StockSpanner {
+
+        private int flag;
+        private final int[] value1List; //记录price
+        private final int[] value2List; //记录满足题目要求的连续日的最小下标
+        private final int[] value3List; //next(price)返回的参数
+
+        public StockSpanner() {
+            flag = -1;
+            value1List = new int[10000];
+            value2List = new int[10000];
+            value3List = new int[10000];
+        }
+
+        public int next(int price) {
+            ++flag;
+            int value2;
+            int value3;
+            if (flag == 0) {
+                value2 = flag;
+                value3 = 1;
+            } else {
+                int lastValue1 = value1List[flag - 1];
+                //如果value[i+1]<value[i] 返回1
+                //如果== 返回dp[i]+1
+                //如果> 返回dp[i]+value2[i]开始向左所有满足要求的数量
+                if (price < lastValue1) {
+                    value2 = flag;
+                    value3 = 1;
+                } else if (price == lastValue1) {
+                    value2 = value2List[flag - 1];
+                    value3 = value3List[flag - 1] + 1;
+                } else {
+                    //int lastValue2 = value2List[flag - 1];
+                    int lastValue3 = value2List[flag - 1];
+                    int curse = lastValue3 - 1;
+                    int count = 1;
+                    while (curse >= 0 && price >= value1List[curse]) {
+                        --curse;
+                        ++count; //包括自己和已经前进的数量
+                    }
+                    value2 = curse + 1;
+                    value3 = value3List[flag - 1] + count;
+                }
+            }
+            value1List[flag] = price;
+            value2List[flag] = value2;
+            value3List[flag] = value3;
+            return value3;
+        }
+    }
+
     public int totalFruit(int[] fruits) {
         Map<Integer, Integer> map = new HashMap<>();
         int left = 0;
