@@ -349,6 +349,22 @@ public class MySolution_1501_2000 {
         return zeroNum + oneNum;
     }
 
+    public String mergeAlternately(String word1, String word2) {
+        int len1 = word1.length();
+        int len2 = word2.length();
+        int maxLen = Math.max(len1, len2);
+        StringBuilder sb = new StringBuilder(len1 + len2);
+        for (int i = 0; i < maxLen; i++) {
+            if (i < len1) {
+                sb.append(word1.charAt(i));
+            }
+            if (i < len2) {
+                sb.append(word2.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
     public boolean areAlmostEqual(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;

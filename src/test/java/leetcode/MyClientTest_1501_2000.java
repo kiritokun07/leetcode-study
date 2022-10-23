@@ -179,6 +179,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1768. 交替合并字符串
+     * 简单
+     * https://leetcode.cn/problems/merge-strings-alternately/
+     */
+    @Test
+    public void no1768() {
+        Assertions.assertEquals(solution.mergeAlternately("abc", "pqr"), "apbqcr");
+        Assertions.assertEquals(solution.mergeAlternately("ab", "pqrs"), "apbqrs");
+        Assertions.assertEquals(solution.mergeAlternately("abcd", "pq"), "apbqcd");
+    }
+
+    /**
      * 1790. 仅执行一次字符串交换能否使两个字符串相等
      * 简单
      * https://leetcode.cn/problems/check-if-one-string-swap-can-make-strings-equal/
