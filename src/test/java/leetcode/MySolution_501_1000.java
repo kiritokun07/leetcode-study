@@ -905,6 +905,27 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public int partitionDisjoint(int[] nums) {
+        int len = nums.length;
+        int[] minRightList = new int[len];
+        minRightList[len - 1] = nums[len - 1];
+        for (int i = len - 2; i >= 0; --i) {
+            minRightList[i] = Math.min(minRightList[i + 1], nums[i]);
+        }
+
+        int[] maxLeftList = new int[len];
+        maxLeftList[0] = nums[0];
+        for (int i = 1; i < len; i++) {
+            maxLeftList[i] = Math.max(maxLeftList[i - 1], nums[i]);
+        }
+        for (int i = 0; i < len - 1; i++) {
+            if (maxLeftList[i] <= minRightList[i + 1]) {
+                return i + 1;
+            }
+        }
+        return len - 1;
+    }
+
     public int minAddToMakeValid(String s) {
         int res = 0;
         int current = 0;

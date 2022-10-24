@@ -525,6 +525,18 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 915. 分割数组
+     * 中等
+     * https://leetcode.cn/problems/partition-array-into-disjoint-intervals/
+     */
+    @Test
+    public void no915() {
+        Assertions.assertEquals(solution.partitionDisjoint(new int[]{5, 0, 3, 8, 6}), 3);
+        Assertions.assertEquals(solution.partitionDisjoint(new int[]{1, 1, 1, 0, 6, 12}), 4);
+        Assertions.assertEquals(solution.partitionDisjoint(new int[]{1, 1}), 1);
+    }
+
+    /**
      * 921. 使括号有效的最少添加
      * 中等
      * https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/
