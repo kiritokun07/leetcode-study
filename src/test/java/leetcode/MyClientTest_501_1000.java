@@ -548,6 +548,18 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 934. 最短的桥
+     * 中等
+     * https://leetcode.cn/problems/shortest-bridge/
+     */
+    @Test
+    public void no934() {
+        Assertions.assertEquals(solution.shortestBridge(new int[][]{{0, 1}, {1, 0}}), 1);
+        Assertions.assertEquals(solution.shortestBridge(new int[][]{{0, 1, 0}, {0, 0, 0}, {0, 0, 1}}), 2);
+        Assertions.assertEquals(solution.shortestBridge(new int[][]{{1, 1, 1, 1, 1}, {1, 0, 0, 0, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {1, 1, 1, 1, 1}}), 1);
+    }
+
+    /**
      * 946. 验证栈序列
      * 中等
      * https://leetcode.cn/problems/validate-stack-sequences/

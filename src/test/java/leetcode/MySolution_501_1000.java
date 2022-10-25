@@ -946,6 +946,76 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public int shortestBridge(int[][] grid) {
+        int n = grid.length;
+        //找第一个1 (aI,aJ)
+        Pair<Integer, Integer> firstIJ = getFirstIJ(grid, n);
+        if (firstIJ == null) {
+            return 0;
+        }
+        //把A岛的1都改成2，并放在listA里
+        List<Pair<Integer, Integer>> listA = new ArrayList<>(n * n);
+        shortestBridgeBfs(grid, n, firstIJ, listA);
+        if (listA.isEmpty()) {
+            return 0;
+        }
+        //找到第二个1 (bI,bJ)
+        Pair<Integer, Integer> secondIJ = getFirstIJ(grid, n);
+        if (secondIJ == null) {
+            return 0;
+        }
+        //把B岛的坐标放在listB里
+        List<Pair<Integer, Integer>> listB = new ArrayList<>(n * n);
+        shortestBridgeBfs(grid, n, secondIJ, listB);
+        if (listB.isEmpty()) {
+            return 0;
+        }
+        //找listA和listB最近的
+        int res = 2 * n;
+        for (Pair<Integer, Integer> pairA : listA) {
+            for (Pair<Integer, Integer> pairB : listB) {
+                int temp = Math.abs(pairA.getKey() - pairB.getKey()) + Math.abs(pairA.getValue() - pairB.getValue()) - 1;
+                res = Math.min(res, temp);
+            }
+        }
+        return res;
+    }
+
+    //首先判断ij是否大于等于0
+    //然后判断grid[i][j]是否为1，如果否就结束
+    //如果是，把它改成2
+    //然后找(i,j)的上下左右
+    //即4次bfs：bfs(i-1,j) bfs(i+1,j) bfs(i,j-1) bfs(i,j+1)
+    private void shortestBridgeBfs(int[][] grid, int n, Pair<Integer, Integer> point, List<Pair<Integer, Integer>> list) {
+        if (point.getKey() < 0 || point.getKey() > n - 1 || point.getValue() < 0 || point.getValue() > n - 1) {
+            return;
+        }
+        if (grid[point.getKey()][point.getValue()] != 1) {
+            return;
+        }
+        list.add(point);
+        grid[point.getKey()][point.getValue()] = 2;
+        //上
+        shortestBridgeBfs(grid, n, new Pair<>(point.getKey() - 1, point.getValue()), list);
+        //下
+        shortestBridgeBfs(grid, n, new Pair<>(point.getKey() + 1, point.getValue()), list);
+        //左
+        shortestBridgeBfs(grid, n, new Pair<>(point.getKey(), point.getValue() - 1), list);
+        //右
+        shortestBridgeBfs(grid, n, new Pair<>(point.getKey(), point.getValue() + 1), list);
+    }
+
+    private Pair<Integer, Integer> getFirstIJ(int[][] grid, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    return new Pair<>(i, j);
+                }
+            }
+        }
+        return null;
+    }
+
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         if (pushed.length != popped.length) {
             return false;
