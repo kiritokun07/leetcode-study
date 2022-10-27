@@ -422,4 +422,18 @@ public class MySolution_1501_2000 {
         return res;
     }
 
+    public int arraySign(int[] nums) {
+        //false表示负数
+        boolean res = true;
+        for (int num : nums) {
+            if (num == 0) {
+                return 0;
+            }
+            if (num < 0) {
+                res = !res;
+            }
+        }
+        return res ? 1 : -1;
+    }
+
 }

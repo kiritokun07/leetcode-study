@@ -216,4 +216,15 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.maxAscendingSum(new int[]{100, 10, 1}), 100);
     }
 
+    /**
+     * 1822. 数组元素积的符号
+     * 简单
+     * https://leetcode.cn/problems/sign-of-the-product-of-an-array/
+     */
+    @Test
+    public void no1822() {
+        Assertions.assertEquals(solution.arraySign(new int[]{-1, -2, -3, -4, 3, 2, 1}), 1);
+        Assertions.assertEquals(solution.arraySign(new int[]{1, 5, 0, 2, -3}), 0);
+        Assertions.assertEquals(solution.arraySign(new int[]{-1, 1, -1, 1, -1}), -1);
+    }
 }
