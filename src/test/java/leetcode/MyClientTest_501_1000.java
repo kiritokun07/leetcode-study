@@ -525,6 +525,17 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 907. 子数组的最小值之和
+     * 中等
+     * https://leetcode.cn/problems/sum-of-subarray-minimums/
+     */
+    @Test
+    public void no907() {
+        Assertions.assertEquals(solution.sumSubarrayMins(new int[]{3, 1, 2, 4}), 17);
+        Assertions.assertEquals(solution.sumSubarrayMins(new int[]{11, 81, 94, 43, 3}), 444);
+    }
+
+    /**
      * 915. 分割数组
      * 中等
      * https://leetcode.cn/problems/partition-array-into-disjoint-intervals/

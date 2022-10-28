@@ -905,6 +905,12 @@ public class MySolution_501_1000 {
         return res;
     }
 
+    public int sumSubarrayMins(int[] arr) {
+        long res = 0;
+
+        return (int) res % (1 << 9 + 7);
+    }
+
     public int partitionDisjoint(int[] nums) {
         int len = nums.length;
         int[] minRightList = new int[len];
