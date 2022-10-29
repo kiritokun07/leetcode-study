@@ -3,6 +3,7 @@ package leetcode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -188,6 +189,49 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.mergeAlternately("abc", "pqr"), "apbqcr");
         Assertions.assertEquals(solution.mergeAlternately("ab", "pqrs"), "apbqrs");
         Assertions.assertEquals(solution.mergeAlternately("abcd", "pq"), "apbqcd");
+    }
+
+    /**
+     * 1773. 统计匹配检索规则的物品数量
+     * 简单
+     * https://leetcode.cn/problems/count-items-matching-a-rule/
+     */
+    @Test
+    public void no1773() {
+        List<List<String>> itemList1 = new ArrayList<>(3);
+        itemList1.add(new ArrayList<String>() {{
+            add("phone");
+            add("blue");
+            add("pixel");
+        }});
+        itemList1.add(new ArrayList<String>() {{
+            add("computer");
+            add("silver");
+            add("lenovo");
+        }});
+        itemList1.add(new ArrayList<String>() {{
+            add("phone");
+            add("gold");
+            add("iphone");
+        }});
+        Assertions.assertEquals(solution.countMatches(itemList1, "color", "silver"), 1);
+        List<List<String>> itemList2 = new ArrayList<>(3);
+        itemList2.add(new ArrayList<String>() {{
+            add("phone");
+            add("blue");
+            add("pixel");
+        }});
+        itemList2.add(new ArrayList<String>() {{
+            add("computer");
+            add("silver");
+            add("phone");
+        }});
+        itemList2.add(new ArrayList<String>() {{
+            add("phone");
+            add("gold");
+            add("iphone");
+        }});
+        Assertions.assertEquals(solution.countMatches(itemList2, "type", "phone"), 2);
     }
 
     /**

@@ -365,6 +365,31 @@ public class MySolution_1501_2000 {
         return sb.toString();
     }
 
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int sub;
+        switch (ruleKey) {
+            case "type":
+                sub = 0;
+                break;
+            case "color":
+                sub = 1;
+                break;
+            case "name":
+                sub = 2;
+                break;
+            default:
+                sub = 0;
+                break;
+        }
+        int res = 0;
+        for (List<String> item : items) {
+            if (item.get(sub).equals(ruleValue)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
     public boolean areAlmostEqual(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
