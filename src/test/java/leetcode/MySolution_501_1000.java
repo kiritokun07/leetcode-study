@@ -532,6 +532,10 @@ public class MySolution_501_1000 {
         return kthGrammar(n - 1, k);
     }
 
+    public List<String> letterCasePermutation(String s) {
+        return null;
+    }
+
     public int rotatedDigits(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {

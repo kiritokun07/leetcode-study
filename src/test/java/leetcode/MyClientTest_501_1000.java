@@ -6,10 +6,7 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author kirito
@@ -363,6 +360,26 @@ public class MyClientTest_501_1000 {
         Assertions.assertEquals(solution.kthGrammar(2, 1), 0);
         Assertions.assertEquals(solution.kthGrammar(2, 2), 1);
         Assertions.assertEquals(solution.kthGrammar(3, 3), 1);
+    }
+
+    /**
+     * 正在写
+     * 784. 字母大小写全排列
+     * 中等
+     * https://leetcode.cn/problems/letter-case-permutation/
+     */
+    @Test
+    public void no784() {
+        List<String> permutation1 = solution.letterCasePermutation("a1b2");
+        Assertions.assertEquals(permutation1.size(), 4);
+        Assertions.assertTrue(permutation1.stream().anyMatch(a -> a.equals("a1b2")));
+        Assertions.assertTrue(permutation1.stream().anyMatch(a -> a.equals("a1B2")));
+        Assertions.assertTrue(permutation1.stream().anyMatch(a -> a.equals("A1b2")));
+        Assertions.assertTrue(permutation1.stream().anyMatch(a -> a.equals("A1B2")));
+        List<String> permutation2 = solution.letterCasePermutation("3z4");
+        Assertions.assertEquals(permutation2.size(), 2);
+        Assertions.assertTrue(permutation2.stream().anyMatch(a -> a.equals("3z4")));
+        Assertions.assertTrue(permutation2.stream().anyMatch(a -> a.equals("3Z4")));
     }
 
     /**
