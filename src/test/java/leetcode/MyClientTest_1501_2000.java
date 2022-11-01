@@ -154,6 +154,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1662. 检查两个字符串数组是否相等
+     * 简单
+     * https://leetcode.cn/problems/check-if-two-string-arrays-are-equivalent/
+     */
+    @Test
+    public void no1662() {
+        Assertions.assertTrue(solution.arrayStringsAreEqual(new String[]{"ab", "c"}, new String[]{"a", "bc"}));
+        Assertions.assertFalse(solution.arrayStringsAreEqual(new String[]{"a", "cb"}, new String[]{"ab", "c"}));
+        Assertions.assertTrue(solution.arrayStringsAreEqual(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}));
+    }
+
+    /**
      * 1694. 重新格式化电话号码
      * 简单
      * https://leetcode.cn/problems/reformat-phone-number/
