@@ -262,6 +262,30 @@ public class MySolution_1501_2000 {
         return sb1.toString().equals(sb2.toString());
     }
 
+    public int countConsistentStrings(String allowed, String[] words) {
+        int count = 0;
+        Set<Character> set = new HashSet<>(allowed.length());
+        for (int i = 0; i < allowed.length(); i++) {
+            set.add(allowed.charAt(i));
+        }
+
+        for (String word : words) {
+            if (isConsistentString(set, word)) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
+    private boolean isConsistentString(Set<Character> set, String word) {
+        for (int i = 0; i < word.length(); i++) {
+            if (!set.contains(word.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String a = "123- 456";
         System.out.println(a);

@@ -166,6 +166,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1684. 统计一致字符串的数目
+     * 简单
+     * https://leetcode.cn/problems/count-the-number-of-consistent-strings/
+     */
+    @Test
+    public void no1684() {
+        Assertions.assertEquals(solution.countConsistentStrings("ab", new String[]{"ad", "bd", "aaab", "baa", "badab"}), 2);
+        Assertions.assertEquals(solution.countConsistentStrings("abc", new String[]{"a", "b", "c", "ab", "ac", "bc", "abc"}), 7);
+        Assertions.assertEquals(solution.countConsistentStrings("cad", new String[]{"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"}), 4);
+    }
+
+    /**
      * 1694. 重新格式化电话号码
      * 简单
      * https://leetcode.cn/problems/reformat-phone-number/
