@@ -518,6 +518,10 @@ public class MySolution_501_1000 {
         return true;
     }
 
+    public int orderOfLargestPlusSign(int n, int[][] mines) {
+        return 0;
+    }
+
     public int maxChunksToSorted(int[] arr) {
         return 0;
     }

@@ -339,6 +339,19 @@ public class MyClientTest_501_1000 {
     }
 
     /**
+     * 正在写
+     * 764. 最大加号标志
+     * 中等
+     * https://leetcode.cn/problems/largest-plus-sign/
+     */
+    @Test
+    public void no764() {
+        Assertions.assertEquals(solution.orderOfLargestPlusSign(5, new int[][]{{4, 2}}), 2);
+        Assertions.assertEquals(solution.orderOfLargestPlusSign(1, new int[][]{{0, 0}}), 0);
+    }
+
+    /**
+     * 正在写
      * 769. 最多能完成排序的块
      * 中等
      * https://leetcode.cn/problems/max-chunks-to-make-sorted/
