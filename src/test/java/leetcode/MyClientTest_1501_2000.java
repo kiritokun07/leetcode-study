@@ -204,6 +204,17 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1704. 判断字符串的两半是否相似
+     * 简单
+     * https://leetcode.cn/problems/determine-if-string-halves-are-alike/
+     */
+    @Test
+    public void no1704() {
+        Assertions.assertTrue(solution.halvesAreAlike("book"));
+        Assertions.assertFalse(solution.halvesAreAlike("textbook"));
+    }
+
+    /**
      * 1768. 交替合并字符串
      * 简单
      * https://leetcode.cn/problems/merge-strings-alternately/

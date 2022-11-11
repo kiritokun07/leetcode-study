@@ -385,6 +385,41 @@ public class MySolution_1501_2000 {
         return zeroNum + oneNum;
     }
 
+    public boolean halvesAreAlike(String s) {
+        int countLeft = 0;
+        int countRight = 0;
+        int length = s.length();
+        int halfLength = length / 2;
+        for (int i = 0; i < halfLength; i++) {
+            if (isAEIOU(s.charAt(i))) {
+                ++countLeft;
+            }
+            if (isAEIOU(s.charAt(i + halfLength))) {
+                ++countRight;
+            }
+        }
+        return countLeft == countRight;
+    }
+
+    private static boolean isAEIOU(char c) {
+        if (c == 'a' || c == 'A') {
+            return true;
+        }
+        if (c == 'e' || c == 'E') {
+            return true;
+        }
+        if (c == 'i' || c == 'I') {
+            return true;
+        }
+        if (c == 'o' || c == 'O') {
+            return true;
+        }
+        if (c == 'u' || c == 'U') {
+            return true;
+        }
+        return false;
+    }
+
     public String mergeAlternately(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();
