@@ -420,6 +420,27 @@ public class MySolution_1501_2000 {
         return false;
     }
 
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+        //按numberOfUnitsPerBoxi倒序排
+        List<Integer> list = new ArrayList<>(boxTypes.length * 2);
+        for (int[] boxType : boxTypes) {
+            for (int times = 0; times < boxType[0]; times++) {
+                list.add(boxType[1]);
+            }
+        }
+        list = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        int res = 0;
+        int count = 0;
+        for (Integer integer : list) {
+            ++count;
+            res += integer;
+            if (count >= truckSize) {
+                break;
+            }
+        }
+        return res;
+    }
+
     public String mergeAlternately(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();

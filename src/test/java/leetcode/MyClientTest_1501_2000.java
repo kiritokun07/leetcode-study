@@ -215,6 +215,17 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1710. 卡车上的最大单元数
+     * 简单
+     * https://leetcode.cn/problems/maximum-units-on-a-truck/
+     */
+    @Test
+    public void no1710() {
+        Assertions.assertEquals(solution.maximumUnits(new int[][]{{1, 3}, {2, 2}, {3, 1}}, 4), 8);
+        Assertions.assertEquals(solution.maximumUnits(new int[][]{{5, 10}, {2, 5}, {4, 7}, {3, 9}}, 10), 91);
+    }
+
+    /**
      * 1768. 交替合并字符串
      * 简单
      * https://leetcode.cn/problems/merge-strings-alternately/
