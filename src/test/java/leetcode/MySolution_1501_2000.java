@@ -441,6 +441,23 @@ public class MySolution_1501_2000 {
         return res;
     }
 
+    public int countBalls(int lowLimit, int highLimit) {
+        Map<Integer, Integer> count = new HashMap<>();
+        int res = 0;
+        for (int i = lowLimit; i <= highLimit; ++i) {
+            //获得编号数
+            int temp = 0;
+            int ii = i;
+            while (ii != 0) {
+                temp += ii % 10;
+                ii = ii / 10;
+            }
+            count.merge(temp, 1, Integer::sum);
+            res = Math.max(res, count.get(temp));
+        }
+        return res;
+    }
+
     public String mergeAlternately(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();

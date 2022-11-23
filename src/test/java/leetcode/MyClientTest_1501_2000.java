@@ -226,6 +226,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1742. 盒子中小球的最大数量
+     * 简单
+     * https://leetcode.cn/problems/maximum-number-of-balls-in-a-box/
+     */
+    @Test
+    public void no1742() {
+        Assertions.assertEquals(solution.countBalls(1, 10), 2);
+        Assertions.assertEquals(solution.countBalls(5, 15), 2);
+        Assertions.assertEquals(solution.countBalls(19, 28), 2);
+    }
+
+    /**
      * 1768. 交替合并字符串
      * 简单
      * https://leetcode.cn/problems/merge-strings-alternately/
