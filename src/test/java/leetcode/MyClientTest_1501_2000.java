@@ -319,6 +319,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1805. 字符串中不同整数的数目
+     * 简单
+     * https://leetcode.cn/problems/number-of-different-integers-in-a-string/
+     */
+    @Test
+    public void no1805() {
+        Assertions.assertEquals(solution.numDifferentIntegers("a123bc34d8ef34"), 3);
+        Assertions.assertEquals(solution.numDifferentIntegers("leet1234code234"), 2);
+        Assertions.assertEquals(solution.numDifferentIntegers("a1b01c001"), 1);
+    }
+
+    /**
      * 1822. 数组元素积的符号
      * 简单
      * https://leetcode.cn/problems/sign-of-the-product-of-an-array/

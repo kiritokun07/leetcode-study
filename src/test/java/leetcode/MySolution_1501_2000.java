@@ -556,6 +556,20 @@ public class MySolution_1501_2000 {
         return res;
     }
 
+    public int numDifferentIntegers(String word) {
+        Set<String> set = new HashSet<>();
+        String replace = word.replaceAll("[a-z]", " ");
+        String[] split = replace.split("\\s+");
+        for (String s : split) {
+            if (Objects.equals(s, "")) {
+                continue;
+            }
+            String s1 = s.replaceAll("^0+", "");
+            set.add(s1);
+        }
+        return set.size();
+    }
+
     public int arraySign(int[] nums) {
         //false表示负数
         boolean res = true;
