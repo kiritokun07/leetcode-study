@@ -341,4 +341,16 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.arraySign(new int[]{1, 5, 0, 2, -3}), 0);
         Assertions.assertEquals(solution.arraySign(new int[]{-1, 1, -1, 1, -1}), -1);
     }
+
+    /**
+     * 1945. 字符串转化后的各位数字之和
+     * 简单
+     * https://leetcode.cn/problems/sum-of-digits-of-string-after-convert/
+     */
+    @Test
+    public void no1945() {
+        Assertions.assertEquals(solution.getLucky("iiii", 1), 36);
+        Assertions.assertEquals(solution.getLucky("leetcode", 2), 6);
+    }
+
 }

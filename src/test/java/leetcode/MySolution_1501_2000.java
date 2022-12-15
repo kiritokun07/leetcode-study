@@ -286,10 +286,10 @@ public class MySolution_1501_2000 {
         return true;
     }
 
-    public static void main(String[] args) {
-        String a = "123- 456";
-        System.out.println(a);
-    }
+    //public static void main(String[] args) {
+    //    String a = "123- 456";
+    //    System.out.println(a);
+    //}
 
     //原字符串 新字符串 商 余
     //12:12 0 2
@@ -582,6 +582,32 @@ public class MySolution_1501_2000 {
             }
         }
         return res ? 1 : -1;
+    }
+
+    public int getLucky(String s, int k) {
+        String numStr = alphabet2Num(s);
+        for (int i = 0; i < k; i++) {
+            numStr = lucky(numStr);
+        }
+        return Integer.parseInt(numStr);
+    }
+
+    private String lucky(String numStr) {
+        int res = 0;
+        for (int i = 0; i < numStr.length(); i++) {
+            char c = numStr.charAt(i);
+            res += Integer.parseInt(String.valueOf(c));
+        }
+        return String.valueOf(res);
+    }
+
+    //97 a
+    private String alphabet2Num(String s) {
+        StringBuilder sb = new StringBuilder(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.charAt(i) - 96);
+        }
+        return sb.toString();
     }
 
 }
