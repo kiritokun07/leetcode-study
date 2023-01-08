@@ -32,4 +32,15 @@ public class MyClientTest_2001_2500 {
         Assertions.assertTrue(solution.areNumbersAscending("4 5 11 26"));
     }
 
+    /**
+     * 2185. 统计包含给定前缀的字符串
+     * 简单
+     * https://leetcode.cn/problems/counting-words-with-a-given-prefix/
+     */
+    @Test
+    public void no2185() {
+        Assertions.assertEquals(solution.prefixCount(new String[]{"pay", "attention", "practice", "attend"}, "at"), 2);
+        Assertions.assertEquals(solution.prefixCount(new String[]{"leetcode", "win", "loops", "success"}, "code"), 0);
+    }
+
 }

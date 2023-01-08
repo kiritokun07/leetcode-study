@@ -44,4 +44,14 @@ public class MySolution_2001_2500 {
         return true;
     }
 
+    public int prefixCount(String[] words, String pref) {
+        int res = 0;
+        for (String word : words) {
+            if (word.startsWith(pref)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
 }
