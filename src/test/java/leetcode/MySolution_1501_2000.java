@@ -570,6 +570,18 @@ public class MySolution_1501_2000 {
         return set.size();
     }
 
+    public String evaluate(String s, List<List<String>> knowledge) {
+        Map<String, String> map = new HashMap<>(knowledge.size());
+        for (List<String> kn : knowledge) {
+            map.put("(" + kn.get(0) + ")", kn.get(1));
+        }
+        //for (Map.Entry<String, String> entry : map.entrySet()) {
+        //    s.replaceAll(entry.getKey(),entry.getValue());
+        //}
+
+        return null;
+    }
+
     public int arraySign(int[] nums) {
         //false表示负数
         boolean res = true;

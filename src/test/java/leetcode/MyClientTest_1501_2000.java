@@ -331,6 +331,25 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1807. 替换字符串中的括号内容
+     * 中等
+     * https://leetcode.cn/problems/evaluate-the-bracket-pairs-of-a-string/
+     */
+    @Test
+    public void no1807() {
+        List<List<String>> k1 = new ArrayList<>();
+        k1.add(Arrays.asList("name", "bob"));
+        k1.add(Arrays.asList("age", "two"));
+        Assertions.assertEquals(solution.evaluate("(name)is(age)yearsold", k1), "bobistwoyearsold");
+        List<List<String>> k2 = new ArrayList<>();
+        k2.add(Arrays.asList("a","b"));
+        Assertions.assertEquals(solution.evaluate("hi(name)", k2), "hi?");
+        List<List<String>> k3 = new ArrayList<>();
+        k3.add(Arrays.asList("a","yes"));
+        Assertions.assertEquals(solution.evaluate("(a)(a)(a)aaa", k3), "yesyesyesaaa");
+    }
+
+    /**
      * 1822. 数组元素积的符号
      * 简单
      * https://leetcode.cn/problems/sign-of-the-product-of-an-array/
