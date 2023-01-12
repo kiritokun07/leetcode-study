@@ -575,11 +575,26 @@ public class MySolution_1501_2000 {
         for (List<String> kn : knowledge) {
             map.put("(" + kn.get(0) + ")", kn.get(1));
         }
-        //for (Map.Entry<String, String> entry : map.entrySet()) {
-        //    s.replaceAll(entry.getKey(),entry.getValue());
-        //}
-
-        return null;
+        int n = s.length();
+        int curse = 0;
+        //找(xx)
+        StringBuilder sb = new StringBuilder();
+        while (curse < n) {
+            char c = s.charAt(curse);
+            if (c == '(') {
+                int left = curse;
+                while (s.charAt(curse + 1) != ')') {
+                    ++curse;
+                }
+                ++curse;
+                String s1 = s.substring(left, curse + 1);
+                sb.append(map.getOrDefault(s1, "?"));
+            } else {
+                sb.append(s.charAt(curse));
+            }
+            ++curse;
+        }
+        return sb.toString();
     }
 
     public int arraySign(int[] nums) {
