@@ -342,10 +342,10 @@ public class MyClientTest_1501_2000 {
         k1.add(Arrays.asList("age", "two"));
         Assertions.assertEquals(solution.evaluate("(name)is(age)yearsold", k1), "bobistwoyearsold");
         List<List<String>> k2 = new ArrayList<>();
-        k2.add(Arrays.asList("a","b"));
+        k2.add(Arrays.asList("a", "b"));
         Assertions.assertEquals(solution.evaluate("hi(name)", k2), "hi?");
         List<List<String>> k3 = new ArrayList<>();
-        k3.add(Arrays.asList("a","yes"));
+        k3.add(Arrays.asList("a", "yes"));
         Assertions.assertEquals(solution.evaluate("(a)(a)(a)aaa", k3), "yesyesyesaaa");
     }
 
