@@ -69,6 +69,9 @@ public class MySolution_2001_2500 {
         int result = s.length() / target.length() + 1;
         for (Map.Entry<Character, Integer> entry : tMap.entrySet()) {
             result = Math.min(result, sMap.getOrDefault(entry.getKey(), 0) / entry.getValue());
+            if (result == 0) {
+                return 0;
+            }
         }
         return result;
     }
