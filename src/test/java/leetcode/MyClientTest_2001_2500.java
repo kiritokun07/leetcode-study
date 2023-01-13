@@ -43,4 +43,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.prefixCount(new String[]{"leetcode", "win", "loops", "success"}, "code"), 0);
     }
 
+    /**
+     * 2287. 重排字符形成目标字符串
+     * 简单
+     * https://leetcode.cn/problems/rearrange-characters-to-make-target-string/
+     */
+    @Test
+    public void no2287() {
+        Assertions.assertEquals(solution.rearrangeCharacters("ilovecodingonleetcode", "code"), 2);
+        Assertions.assertEquals(solution.rearrangeCharacters("abcba", "abc"), 1);
+        Assertions.assertEquals(solution.rearrangeCharacters("abbaccaddaeea", "aaaaa"), 1);
+    }
+
 }
