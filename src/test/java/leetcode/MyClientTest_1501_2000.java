@@ -350,6 +350,16 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1813. 句子相似性 III
+     * 中等
+     * https://leetcode.cn/problems/sentence-similarity-iii/
+     */
+    @Test
+    public void no1813() {
+
+    }
+
+    /**
      * 1822. 数组元素积的符号
      * 简单
      * https://leetcode.cn/problems/sign-of-the-product-of-an-array/

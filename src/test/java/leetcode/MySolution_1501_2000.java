@@ -597,6 +597,10 @@ public class MySolution_1501_2000 {
         return sb.toString();
     }
 
+    public boolean areSentencesSimilar(String sentence1, String sentence2) {
+        return false;
+    }
+
     public int arraySign(int[] nums) {
         //false表示负数
         boolean res = true;
