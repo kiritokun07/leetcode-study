@@ -1,6 +1,7 @@
 package leetcode;
 
 import leetcode.node.ListNode;
+import leetcode.node.Trie;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +47,22 @@ public class MyClientTest_1_500 {
 //        printNode(l2);
         ListNode result = solution.deleteDuplicates(l1);
         solution.printNode(result);
+    }
+
+    /**
+     * 208. 实现 Trie (前缀树)
+     * 中等
+     * https://leetcode.cn/problems/implement-trie-prefix-tree/
+     */
+    @Test
+    public void no208() {
+        Trie trie = new Trie();
+        trie.insert("apple");
+        Assertions.assertTrue(trie.search("apple"));   // 返回 True
+        Assertions.assertFalse(trie.search("app"));     // 返回 False
+        Assertions.assertTrue(trie.startsWith("app")); // 返回 True
+        trie.insert("app");
+        Assertions.assertTrue(trie.search("app"));     // 返回 True
     }
 
     /**
