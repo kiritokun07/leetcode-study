@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class MySolution_2001_2500 {
 
@@ -74,6 +76,76 @@ public class MySolution_2001_2500 {
             }
         }
         return result;
+    }
+
+    private static final String SPECIAL_STR = "!@#$%^&*()-+";
+    private static final Set<Character> SPECIAL_CHAR_SET = new HashSet<>();
+
+    static {
+        for (int i = 0; i < SPECIAL_STR.length(); i++) {
+            SPECIAL_CHAR_SET.add(SPECIAL_STR.charAt(i));
+        }
+    }
+
+    /**
+     * 字符   a  z
+     * ascii 97 122
+     */
+    private static boolean isLowLetter(char c) {
+        return c >= 97 && c <= 122;
+    }
+
+    /**
+     * 字符 A Z
+     * ascii 65 90
+     */
+    private static boolean isUpperLetter(char c) {
+        return c >= 65 && c <= 90;
+    }
+
+    /**
+     * 字符   0  9
+     * ascii 48 57
+     */
+    private static boolean isNumber(char c) {
+        return c >= 48 && c <= 57;
+    }
+
+    private static boolean isSpecialChar(char c) {
+        return SPECIAL_CHAR_SET.contains(c);
+    }
+
+    public boolean strongPasswordCheckerII(String password) {
+        if (password.length() < 8) {
+            return false;
+        }
+        boolean hasLowLetter = false;
+        boolean hasUpperLetter = false;
+        boolean hasNumber = false;
+        boolean hasSpecChar = false;
+        char lastChar = 0;
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (i > 0) {
+                if (lastChar == c) {
+                    return false;
+                }
+            }
+            lastChar = c;
+            if (!hasLowLetter && isLowLetter(c)) {
+                hasLowLetter = true;
+            }
+            if (!hasUpperLetter && isUpperLetter(c)) {
+                hasUpperLetter = true;
+            }
+            if (!hasNumber && isNumber(c)) {
+                hasNumber = true;
+            }
+            if (!hasSpecChar && SPECIAL_CHAR_SET.contains(c)) {
+                hasSpecChar = true;
+            }
+        }
+        return hasLowLetter && hasUpperLetter && hasNumber && hasSpecChar;
     }
 
 }

@@ -55,4 +55,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.rearrangeCharacters("abbaccaddaeea", "aaaaa"), 1);
     }
 
+    /**
+     * 2299. 强密码检验器 II
+     * 简单
+     * https://leetcode.cn/problems/strong-password-checker-ii/
+     */
+    @Test
+    public void no2299() {
+        Assertions.assertTrue(solution.strongPasswordCheckerII("IloveLe3tcode!"));
+        Assertions.assertFalse(solution.strongPasswordCheckerII("Me+You--IsMyDream"));
+        Assertions.assertFalse(solution.strongPasswordCheckerII("1aB!"));
+    }
+
 }
