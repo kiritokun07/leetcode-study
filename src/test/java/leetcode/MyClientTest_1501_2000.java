@@ -360,6 +360,17 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1817. 查找用户活跃分钟数
+     * 中等
+     * https://leetcode.cn/problems/finding-the-users-active-minutes/
+     */
+    @Test
+    public void no1817() {
+        Assertions.assertEquals(Arrays.toString(solution.findingUsersActiveMinutes(new int[][]{{0, 5}, {1, 2}, {0, 2}, {0, 5}, {1, 3}}, 5)), "[0, 2, 0, 0, 0]");
+        Assertions.assertEquals(Arrays.toString(solution.findingUsersActiveMinutes(new int[][]{{1, 1}, {2, 2}, {2, 3}}, 4)), "[1, 1, 0, 0]");
+    }
+
+    /**
      * 1822. 数组元素积的符号
      * 简单
      * https://leetcode.cn/problems/sign-of-the-product-of-an-array/

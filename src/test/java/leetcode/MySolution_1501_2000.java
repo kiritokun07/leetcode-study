@@ -601,6 +601,24 @@ public class MySolution_1501_2000 {
         return false;
     }
 
+    public int[] findingUsersActiveMinutes(int[][] logs, int k) {
+        //k 用户id v.size 用户活跃分钟数
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for (int i = 0; i < logs.length; i++) {
+            int[] logI = logs[i];
+            if (!map.containsKey(logI[0])) {
+                map.put(logI[0], new HashSet<>());
+            }
+            map.get(logI[0]).add(logI[1]);
+        }
+        int[] res = new int[k];
+        for (Map.Entry<Integer, Set<Integer>> entry : map.entrySet()) {
+            int size = entry.getValue().size();
+            res[size - 1] = res[size - 1] + 1;
+        }
+        return res;
+    }
+
     public int arraySign(int[] nums) {
         //false表示负数
         boolean res = true;
