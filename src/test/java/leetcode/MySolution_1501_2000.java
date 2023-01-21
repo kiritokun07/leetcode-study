@@ -633,6 +633,27 @@ public class MySolution_1501_2000 {
         return res ? 1 : -1;
     }
 
+    public int minSideJumps(int[] obstacles) {
+        int[] res = new int[]{1, 0, 1};
+        for (int i = 1; i < obstacles.length; i++) {
+            for (int j = 0; j < res.length; j++) {
+                if (obstacles[i] - 1 == j) {
+                    res[j] = Integer.MAX_VALUE;
+                }
+            }
+            int min = Math.min(res[0], res[1]);
+            min = Math.min(min, res[2]);
+            for (int j = 0; j < res.length; j++) {
+                if (obstacles[i] - 1 != j) {
+                    res[j] = Math.min(res[j], min + 1);
+                }
+            }
+        }
+        int min = Math.min(res[0], res[1]);
+        min = Math.min(min, res[2]);
+        return min;
+    }
+
     public int getLucky(String s, int k) {
         String numStr = alphabet2Num(s);
         for (int i = 0; i < k; i++) {

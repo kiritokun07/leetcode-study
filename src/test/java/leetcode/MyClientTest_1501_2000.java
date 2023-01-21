@@ -383,6 +383,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1824. 最少侧跳次数
+     * 中等
+     * https://leetcode.cn/problems/minimum-sideway-jumps/
+     */
+    @Test
+    public void no1824() {
+        Assertions.assertEquals(solution.minSideJumps(new int[]{0, 1, 2, 3, 0}), 2);
+        Assertions.assertEquals(solution.minSideJumps(new int[]{0, 1, 1, 3, 3, 0}), 0);
+        Assertions.assertEquals(solution.minSideJumps(new int[]{0, 2, 1, 0, 3, 0}), 2);
+    }
+
+    /**
      * 1945. 字符串转化后的各位数字之和
      * 简单
      * https://leetcode.cn/problems/sum-of-digits-of-string-after-convert/
