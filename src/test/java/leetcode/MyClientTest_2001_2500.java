@@ -67,4 +67,15 @@ public class MyClientTest_2001_2500 {
         Assertions.assertFalse(solution.strongPasswordCheckerII("1aB!"));
     }
 
+    /**
+     * 2309. 兼具大小写的最好英文字母
+     * 简单
+     * https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case/
+     */
+    @Test
+    public void no2309() {
+        Assertions.assertEquals(solution.greatestLetter("lEeTcOdE"), "E");
+        Assertions.assertEquals(solution.greatestLetter("arRAzFif"), "R");
+        Assertions.assertEquals(solution.greatestLetter("AbCdEfGhIjK"), "");
+    }
 }

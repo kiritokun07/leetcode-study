@@ -148,4 +148,37 @@ public class MySolution_2001_2500 {
         return hasLowLetter && hasUpperLetter && hasNumber && hasSpecChar;
     }
 
+    public String greatestLetter(String s) {
+        String res = "";
+        //1 大写 2 小写 3 大写+小写
+        int[] letterArr = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            //如果是大写字母
+            if (isUpperLetter(c)) {
+                int curse = c - 65;
+                if (letterArr[curse] == 0) {
+                    letterArr[curse] = 1;
+                } else {
+                    letterArr[curse] = 1 | letterArr[curse];
+                }
+            } else if (isLowLetter(c)) {
+                int curse = c - 97;
+                if (letterArr[curse] == 0) {
+                    letterArr[curse] = 2;
+                } else {
+                    letterArr[curse] = 2 | letterArr[curse];
+                }
+            }
+        }
+        for (int i = 25; i >= 0; --i) {
+            if (letterArr[i] == 3) {
+                char c = (char) (i + 65);
+                res = String.valueOf(c);
+                break;
+            }
+        }
+        return res;
+    }
+
 }
