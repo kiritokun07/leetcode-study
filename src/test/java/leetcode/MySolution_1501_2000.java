@@ -263,8 +263,53 @@ public class MySolution_1501_2000 {
     }
 
     public int waysToMakeFair(int[] nums) {
-
-        return 0;
+        //sum原奇数
+        int sumOriOdd = 0;
+        //sum原偶数
+        int sumOriEven = 0;
+        //true：是偶数
+        boolean flag = true;
+        for (int num : nums) {
+            if (flag) {
+                //当前下标是偶数
+                sumOriEven += num;
+            } else {
+                //当前下标是奇数
+                sumOriOdd += num;
+            }
+            flag = !flag;
+        }
+        flag = true;
+        //for i累加的偶数和
+        int cumOdd = 0;
+        //for i累加的奇数和
+        int cumEven = 0;
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            //当前奇数和
+            int currentOdd = 0;
+            //当前偶数和
+            int currentEven = 0;
+            if (flag) {
+                //当前下标是偶数
+                currentOdd = sumOriEven - cumEven + cumOdd - num;
+                currentEven = sumOriOdd + cumEven - cumOdd;
+                cumEven += num;
+            } else {
+                //当前下标是奇数
+                currentOdd = sumOriEven - cumEven + cumOdd;
+                currentEven = sumOriOdd + cumEven - cumOdd - num;
+                cumOdd += num;
+            }
+            String msg = "当前删除数字nums[" + i + "]=" + num + ",当前奇偶=(" + currentOdd + "," + currentEven + ")";
+            System.out.println(msg);
+            if (currentOdd == currentEven) {
+                ++res;
+            }
+            flag = !flag;
+        }
+        return res;
     }
 
     public int countConsistentStrings(String allowed, String[] words) {
