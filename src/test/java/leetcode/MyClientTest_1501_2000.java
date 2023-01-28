@@ -166,6 +166,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1664. 生成平衡数组的方案数
+     * 中等
+     * https://leetcode.cn/problems/ways-to-make-a-fair-array/
+     */
+    @Test
+    public void no1664() {
+        Assertions.assertEquals(solution.waysToMakeFair(new int[]{2, 1, 6, 4}), 1);
+        Assertions.assertEquals(solution.waysToMakeFair(new int[]{1, 1, 1}), 3);
+        Assertions.assertEquals(solution.waysToMakeFair(new int[]{1, 2, 3}), 0);
+    }
+
+    /**
      * 1684. 统计一致字符串的数目
      * 简单
      * https://leetcode.cn/problems/count-the-number-of-consistent-strings/

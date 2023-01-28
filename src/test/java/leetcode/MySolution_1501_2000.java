@@ -262,6 +262,11 @@ public class MySolution_1501_2000 {
         return sb1.toString().equals(sb2.toString());
     }
 
+    public int waysToMakeFair(int[] nums) {
+
+        return 0;
+    }
+
     public int countConsistentStrings(String allowed, String[] words) {
         int count = 0;
         Set<Character> set = new HashSet<>(allowed.length());
