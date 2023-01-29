@@ -181,4 +181,24 @@ public class MySolution_2001_2500 {
         return res;
     }
 
+    public int countAsterisks(String s) {
+        //true即计数
+        boolean flag = true;
+        int res = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '|') {
+                flag = !flag;
+                continue;
+            }
+            if (!flag) {
+                continue;
+            }
+            if (c == '*') {
+                ++res;
+            }
+        }
+        return res;
+    }
+
 }

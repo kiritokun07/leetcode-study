@@ -78,4 +78,17 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.greatestLetter("arRAzFif"), "R");
         Assertions.assertEquals(solution.greatestLetter("AbCdEfGhIjK"), "");
     }
+
+    /**
+     * 2315. 统计星号
+     * 简单
+     * https://leetcode.cn/problems/count-asterisks/
+     */
+    @Test
+    public void no2315() {
+        Assertions.assertEquals(solution.countAsterisks("l|*e*et|c**o|*de|"), 2);
+        Assertions.assertEquals(solution.countAsterisks("iamprogrammer"), 0);
+        Assertions.assertEquals(solution.countAsterisks("yo|uar|e**|b|e***au|tifu|l"), 5);
+    }
+
 }
