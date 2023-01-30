@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.node.ListNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -175,6 +176,19 @@ public class MyClientTest_1501_2000 {
         Assertions.assertEquals(solution.waysToMakeFair(new int[]{2, 1, 6, 4}), 1);
         Assertions.assertEquals(solution.waysToMakeFair(new int[]{1, 1, 1}), 3);
         Assertions.assertEquals(solution.waysToMakeFair(new int[]{1, 2, 3}), 0);
+    }
+
+    /**
+     * 1669. 合并两个链表
+     * 中等
+     * https://leetcode.cn/problems/merge-in-between-linked-lists/
+     */
+    @Test
+    public void no1669() {
+        ListNode listNode1 = solution.mergeInBetween(MyUtils.array2ListNode(new Integer[]{0, 1, 2, 3, 4, 5}), 3, 4, MyUtils.array2ListNode(new Integer[]{1000000, 1000001, 1000002}));
+        Assertions.assertTrue(MyUtils.listNodeEqual(listNode1, MyUtils.array2ListNode(new Integer[]{0, 1, 2, 1000000, 1000001, 1000002, 5})));
+        ListNode listNode2 = solution.mergeInBetween(MyUtils.array2ListNode(new Integer[]{0, 1, 2, 3, 4, 5, 6}), 2, 5, MyUtils.array2ListNode(new Integer[]{1000000, 1000001, 1000002, 1000003, 1000004}));
+        Assertions.assertTrue(MyUtils.listNodeEqual(listNode2, MyUtils.array2ListNode(new Integer[]{0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6})));
     }
 
     /**

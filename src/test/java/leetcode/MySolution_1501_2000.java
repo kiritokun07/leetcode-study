@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.node.ListNode;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -308,6 +310,29 @@ public class MySolution_1501_2000 {
                 ++res;
             }
             flag = !flag;
+        }
+        return res;
+    }
+
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+        ListNode nodeAFront = goStep(list1, a - 1);
+        ListNode nodeB = goStep(nodeAFront, b - a + 1);
+        ListNode list2End = list2;
+        while (list2End.next != null) {
+            list2End = list2End.next;
+        }
+        nodeAFront.next = list2;
+        list2End.next = nodeB.next;
+        return list1;
+    }
+
+    /**
+     * 走n步
+     */
+    public static ListNode goStep(ListNode node, int n) {
+        ListNode res = node;
+        for (int i = 0; i < n; i++) {
+            res = res.next;
         }
         return res;
     }
