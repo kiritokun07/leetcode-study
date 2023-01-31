@@ -91,4 +91,14 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.countAsterisks("yo|uar|e**|b|e***au|tifu|l"), 5);
     }
 
+    /**
+     * 2319. 判断矩阵是否是一个 X 矩阵
+     * 简单
+     * https://leetcode.cn/problems/check-if-matrix-is-x-matrix/
+     */
+    @Test
+    public void no2319() {
+        Assertions.assertTrue(solution.checkXMatrix(new int[][]{{2, 0, 0, 1}, {0, 3, 1, 0}, {0, 5, 2, 0}, {4, 0, 0, 2}}));
+        Assertions.assertFalse(solution.checkXMatrix(new int[][]{{5, 7, 0}, {0, 3, 1}, {0, 5, 0}}));
+    }
 }
