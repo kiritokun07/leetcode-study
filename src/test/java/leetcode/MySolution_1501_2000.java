@@ -612,6 +612,17 @@ public class MySolution_1501_2000 {
         return true;
     }
 
+    public int getMaximumConsecutive(int[] coins) {
+        Arrays.sort(coins);
+        int max = 0;
+        for (int coin : coins) {
+            if (coin <= max + 1) {
+                max = coin + max;
+            }
+        }
+        return max + 1;
+    }
+
     public int maxAscendingSum(int[] nums) {
         int res = 0;
         int current = 0;

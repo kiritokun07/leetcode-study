@@ -332,6 +332,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1798. 你能构造出连续值的最大数目
+     * 中等
+     * https://leetcode.cn/problems/maximum-number-of-consecutive-values-you-can-make/
+     */
+    @Test
+    public void no1798() {
+        Assertions.assertEquals(solution.getMaximumConsecutive(new int[]{1, 3}), 2);
+        Assertions.assertEquals(solution.getMaximumConsecutive(new int[]{1, 1, 1, 4}), 8);
+        Assertions.assertEquals(solution.getMaximumConsecutive(new int[]{1, 4, 10, 3, 1}), 20);
+    }
+
+    /**
      * 1800. 最大升序子数组和
      * 简单
      * https://leetcode.cn/problems/maximum-ascending-subarray-sum/
