@@ -616,9 +616,10 @@ public class MySolution_1501_2000 {
         Arrays.sort(coins);
         int max = 0;
         for (int coin : coins) {
-            if (coin <= max + 1) {
-                max = coin + max;
+            if (coin > max + 1) {
+                return max + 1;
             }
+            max = coin + max;
         }
         return max + 1;
     }
