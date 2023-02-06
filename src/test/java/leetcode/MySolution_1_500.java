@@ -66,6 +66,29 @@ public class MySolution_1_500 {
         return b;
     }
 
+    public int firstBadVersion(int n) {
+        return findBetween(1, n);
+    }
+
+    private int findBetween(int start, int end) {
+        if (start > end) {
+            return 0;
+        }
+        int i = start + (end - start) / 2;
+        boolean isBad = isBadVersion(i);
+        if (!isBad) {
+            return findBetween(i + 1, end);
+        }
+        if (i == 0 || !isBadVersion(i - 1)) {
+            return i;
+        }
+        return findBetween(start, i - 1);
+    }
+
+    private boolean isBadVersion(int i) {
+        return i >= 1702766719;
+    }
+
     public int bulbSwitch(int n) {
         return 0;
     }

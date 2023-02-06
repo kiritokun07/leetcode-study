@@ -66,6 +66,16 @@ public class MyClientTest_1_500 {
     }
 
     /**
+     * 278. 第一个错误的版本
+     * 简单
+     * https://leetcode.cn/problems/first-bad-version/
+     */
+    @Test
+    public void no278() {
+        Assertions.assertEquals(solution.firstBadVersion(2126753390), 1702766719);
+    }
+
+    /**
      * （正在写）319. 灯泡开关
      * 中等
      * https://leetcode.cn/problems/bulb-switcher/
