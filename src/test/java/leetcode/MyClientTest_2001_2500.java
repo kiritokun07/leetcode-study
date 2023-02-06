@@ -1,7 +1,10 @@
 package leetcode;
 
+import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
 
 public class MyClientTest_2001_2500 {
 
@@ -101,4 +104,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertTrue(solution.checkXMatrix(new int[][]{{2, 0, 0, 1}, {0, 3, 1, 0}, {0, 5, 2, 0}, {4, 0, 0, 2}}));
         Assertions.assertFalse(solution.checkXMatrix(new int[][]{{5, 7, 0}, {0, 3, 1}, {0, 5, 0}}));
     }
+
+    /**
+     * 2331. 计算布尔二叉树的值
+     * 简单
+     * https://leetcode.cn/problems/evaluate-boolean-binary-tree/
+     */
+    @Test
+    public void no2331() {
+        Assertions.assertTrue(solution.evaluateTree(Objects.requireNonNull(TreeNode.array2TreeNode2(new Integer[]{2, 1, 3, null, null, 0, 1}))));
+        Assertions.assertFalse(solution.evaluateTree(Objects.requireNonNull(TreeNode.array2TreeNode2(new Integer[]{0}))));
+    }
+
 }
