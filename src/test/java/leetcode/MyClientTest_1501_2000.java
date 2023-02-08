@@ -58,6 +58,19 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * （正在写）1604. 警告一小时内使用相同员工卡大于等于三次的人
+     * 中等
+     * https://leetcode.cn/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/
+     */
+    @Test
+    public void no1604() {
+        Assertions.assertEquals(solution.alertNames(new String[]{"daniel", "daniel", "daniel", "luis", "luis", "luis", "luis"}, new String[]{"10:00", "10:40", "11:00", "09:00", "11:00", "13:00", "15:00"}).toString(), "[daniel]");
+        Assertions.assertEquals(solution.alertNames(new String[]{"alice", "alice", "alice", "bob", "bob", "bob", "bob"}, new String[]{"12:01", "12:00", "18:00", "21:00", "21:20", "21:30", "23:00"}).toString(), "[bob]");
+        Assertions.assertEquals(solution.alertNames(new String[]{"john", "john", "john"}, new String[]{"23:58", "23:59", "00:01"}).toString(), "[]");
+        Assertions.assertEquals(solution.alertNames(new String[]{"leslie", "leslie", "leslie", "clare", "clare", "clare", "clare"}, new String[]{"13:00", "13:20", "14:00", "18:00", "18:51", "19:30", "19:49"}).toString(), "[clare, leslie]");
+    }
+
+    /**
      * 1608. 特殊数组的特征值
      * 简单
      * https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x/
