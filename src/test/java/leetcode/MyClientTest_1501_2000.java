@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.node.AuthenticationManager;
 import leetcode.node.ListNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -342,6 +343,23 @@ public class MyClientTest_1501_2000 {
         Assertions.assertFalse(solution.areAlmostEqual("attack", "defend"));
         Assertions.assertTrue(solution.areAlmostEqual("kelb", "kelb"));
         Assertions.assertFalse(solution.areAlmostEqual("abcd", "dcba"));
+    }
+
+    /**
+     * 1797. 设计一个验证系统
+     * 中等
+     * https://leetcode.cn/problems/design-authentication-manager/
+     */
+    @Test
+    public void no1797() {
+        AuthenticationManager manager = new AuthenticationManager(5);
+        manager.renew("aaa", 1);
+        manager.generate("aaa", 2);
+        Assertions.assertEquals(manager.countUnexpiredTokens(6), 1);
+        manager.generate("bbb", 7);
+        manager.renew("aaa", 8);
+        manager.renew("bbb", 10);
+        Assertions.assertEquals(manager.countUnexpiredTokens(15), 0);
     }
 
     /**
