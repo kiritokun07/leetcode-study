@@ -50,6 +50,18 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * （正在写）1233. 删除子文件夹
+     * 中等
+     * https://leetcode.cn/problems/remove-sub-folders-from-the-filesystem/
+     */
+    @Test
+    public void no1233() {
+        Assertions.assertEquals(solution.removeSubfolders(new String[]{"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"}).stream().sorted().toString(), "[/a, /c/d, /c/f]");
+        Assertions.assertEquals(solution.removeSubfolders(new String[]{"/a", "/a/b/c", "/a/b/d"}).stream().sorted().toString(), "[/a]");
+        Assertions.assertEquals(solution.removeSubfolders(new String[]{"/a/b/c", "/a/b/ca", "/a/b/d"}).stream().sorted().toString(), "[/a/b/c, /a/b/ca, /a/b/d]");
+    }
+
+    /**
      * 1282. 用户分组
      * 中等
      * https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/

@@ -75,6 +75,36 @@ public class MySolution_1001_1500 {
         return res;
     }
 
+    public List<String> removeSubfolders(String[] folder) {
+        //字典树
+        MyTreeNode root = new MyTreeNode();
+        for (String path : folder) {
+            String[] split = path.split("/");
+            //第一个/前面是空的
+            root.insert(path);
+        }
+        //找这颗字典树所有第一个有效子节点（有效的意思是这个节点必须是路径的终点，第一个的意思是找到这个就不再递归找了）
+        List<String> res = new ArrayList<>(folder.length);
+        dfsTree(folder, root, res);
+        return res;
+    }
+
+    public class MyTreeNode {
+        public Map<String, MyTreeNode> node;
+        //下标
+        public int sub = -1;
+
+
+        public void insert(String path) {
+
+        }
+
+    }
+
+    private void dfsTree(String[] folder, MyTreeNode root, List<String> res) {
+
+    }
+
     public static class NumberAndSubScript {
         private Integer num;
         private Integer sub;
