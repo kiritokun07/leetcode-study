@@ -27,6 +27,18 @@ public class MyClientTest_1_500 {
     }
 
     /**
+     * 19. 删除链表的倒数第 N 个结点
+     * 中等
+     * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
+     */
+    @Test
+    public void no19() {
+        ListNode listNode = solution.removeNthFromEnd(MyUtils.array2ListNode(new Integer[]{1, 2, 3, 4, 5}), 2);
+        ListNode listNode2 = solution.removeNthFromEnd(MyUtils.array2ListNode(new Integer[]{1}), 1);
+        //System.out.println("listNode.toString() = " + listNode.toString());
+    }
+
+    /**
      * 83. 删除排序链表中的重复元素
      * 简单
      * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/

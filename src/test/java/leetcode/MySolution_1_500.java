@@ -47,6 +47,21 @@ public class MySolution_1_500 {
         return result;
     }
 
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode pre = new ListNode(0, head);
+        ListNode h1 = pre;
+        ListNode h2 = pre;
+        for (int i = 0; i < n + 1; ++i) {
+            h1 = h1.next;
+        }
+        while (h1 != null) {
+            h1 = h1.next;
+            h2 = h2.next;
+        }
+        h2.next = h2.next.next;
+        return pre.next;
+    }
+
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;
