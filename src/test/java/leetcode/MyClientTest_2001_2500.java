@@ -116,4 +116,18 @@ public class MyClientTest_2001_2500 {
         Assertions.assertFalse(solution.evaluateTree(Objects.requireNonNull(TreeNode.array2TreeNode2(new Integer[]{0}))));
     }
 
+    /**
+     * 2335. 装满杯子需要的最短总时长
+     * 简单
+     * https://leetcode.cn/problems/minimum-amount-of-time-to-fill-cups/
+     */
+    @Test
+    public void no2335() {
+        Assertions.assertEquals(solution.fillCups(new int[]{1, 4, 2}), 4);
+        Assertions.assertEquals(solution.fillCups(new int[]{5, 4, 4}), 7);
+        Assertions.assertEquals(solution.fillCups(new int[]{5, 0, 0}), 5);
+        Assertions.assertEquals(solution.fillCups(new int[]{1, 2, 3}), 3);
+        Assertions.assertEquals(solution.fillCups(new int[]{2, 4, 2}), 4);
+    }
+
 }

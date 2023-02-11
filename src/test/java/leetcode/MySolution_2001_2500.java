@@ -2,10 +2,7 @@ package leetcode;
 
 import leetcode.node.TreeNode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MySolution_2001_2500 {
 
@@ -231,6 +228,18 @@ public class MySolution_2001_2500 {
             return evaluateTree(root.left) || evaluateTree(root.right);
         }
         return evaluateTree(root.left) && evaluateTree(root.right);
+    }
+
+    public int fillCups(int[] amount) {
+        Arrays.sort(amount);
+        //a>b>c
+        int a = amount[2];
+        int b = amount[1];
+        int c = amount[0];
+        if (a >= b + c) {
+            return a;
+        }
+        return (a + b + c + 1) / 2;
     }
 
 }
