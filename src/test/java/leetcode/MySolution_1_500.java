@@ -2,6 +2,8 @@ package leetcode;
 
 import leetcode.node.ListNode;
 
+import java.util.Arrays;
+
 /**
  * @author kirito
  * @desc ...
@@ -106,6 +108,30 @@ public class MySolution_1_500 {
 
     public int bulbSwitch(int n) {
         return 0;
+    }
+
+    public boolean PredictTheWinner(int[] nums) {
+        int length = nums.length;
+        int[][] memo = new int[length][length];
+        for (int i = 0; i < length; ++i) {
+            Arrays.fill(memo[i], Integer.MIN_VALUE);
+        }
+        return dfsPredict(nums, 0, length - 1, memo) >= 0;
+    }
+
+    /**
+     * 返回第一个人比第二个多多少分
+     */
+    private int dfsPredict(int[] nums, int i, int j, int[][] memo) {
+        if (i > j) {
+            return 0;
+        }
+        if (memo[i][j] != Integer.MIN_VALUE) {
+            return memo[i][j];
+        }
+        memo[i][j] = Math.max(nums[i] - dfsPredict(nums, i + 1, j, memo),
+                nums[j] - dfsPredict(nums, i, j - 1, memo));
+        return memo[i][j];
     }
 
 }

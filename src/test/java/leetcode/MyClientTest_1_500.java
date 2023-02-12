@@ -99,4 +99,15 @@ public class MyClientTest_1_500 {
         Assertions.assertEquals(solution.bulbSwitch(1), 1);
     }
 
+    /**
+     * 486. 预测赢家
+     * 中等
+     * https://leetcode.cn/problems/predict-the-winner/
+     */
+    @Test
+    public void no486() {
+        Assertions.assertFalse(solution.PredictTheWinner(new int[]{1, 5, 2}));
+        Assertions.assertTrue(solution.PredictTheWinner(new int[]{1, 5, 233, 7}));
+    }
+
 }
