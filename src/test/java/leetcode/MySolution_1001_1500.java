@@ -12,6 +12,80 @@ import java.util.stream.Collectors;
  */
 public class MySolution_1001_1500 {
 
+    public String alphabetBoardPath(String target) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < target.length(); i++) {
+            if (i == 0) {
+                sb.append(alphaStart2End('a', target.charAt(i)));
+            } else {
+                sb.append(alphaStart2End(target.charAt(i - 1), target.charAt(i)));
+            }
+            sb.append(SELECT);
+        }
+        return sb.toString();
+    }
+
+    private static final char UP = 'U';
+    private static final char DOWN = 'D';
+    private static final char LEFT = 'L';
+    private static final char RIGHT = 'R';
+    private static final char SELECT = '!';
+
+    //abcde 97~101
+    //fghij 102~106
+    //klmno 107~111
+    //pqrst 112~116
+    //uvwxy 117~121
+    //z     122
+    private StringBuilder alphaStart2End(char start, char end) {
+        if (start == end) {
+            return new StringBuilder();
+        }
+        if (start == 'z') {
+            //先上移一层，再u->end
+            return new StringBuilder().append(UP).append(alphaStart2End('u', end));
+        }
+        if (end == 'z') {
+            //先移到u再下移一层
+            return alphaStart2End(start, 'u').append(DOWN);
+            //先左移到最左再往下
+        }
+        int startI = (start - 97) / 5;
+        int startJ = (start - 97) % 5;
+        int endI = (end - 97) / 5;
+        int endJ = (end - 97) % 5;
+        //假如end=='o' 111
+        //111-97=14
+        //14/5=2...4
+        //坐标是(2,4)
+        //
+        //假如end=='s' 115
+        //115-97=18
+        //15/5=3...3
+        //坐标是(3,3)
+        StringBuilder sb = new StringBuilder();
+        if (endI > startI) {
+            for (int i = 0; i < endI - startI; ++i) {
+                sb.append(DOWN);
+            }
+        } else if (startI > endI) {
+            for (int i = 0; i < startI - endI; ++i) {
+                sb.append(UP);
+            }
+        }
+
+        if (endJ > startJ) {
+            for (int i = 0; i < endJ - startJ; ++i) {
+                sb.append(RIGHT);
+            }
+        } else if (startJ > endJ) {
+            for (int i = 0; i < startJ - endJ; ++i) {
+                sb.append(LEFT);
+            }
+        }
+        return sb;
+    }
+
     public int maxLevelSum(TreeNode root) {
         List<TreeNode> rootList = new ArrayList<>();
         rootList.add(root);

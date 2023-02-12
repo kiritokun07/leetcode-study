@@ -17,6 +17,18 @@ public class MyClientTest_1001_1500 {
     MySolution_1001_1500 solution = new MySolution_1001_1500();
 
     /**
+     * 1138. 字母板上的路径
+     * 中等
+     * https://leetcode.cn/problems/alphabet-board-path/
+     */
+    @Test
+    public void no1138() {
+        Assertions.assertEquals(solution.alphabetBoardPath("leet"), "DDR!UURRR!!DDD!");
+        Assertions.assertEquals(solution.alphabetBoardPath("code"), "RR!DDRR!UUL!R!");
+        Assertions.assertEquals(solution.alphabetBoardPath("buzz"), "R!DDDDL!D!!");
+    }
+
+    /**
      * 1161. 最大层内元素和
      * 中等
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/
