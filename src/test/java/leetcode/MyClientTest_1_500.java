@@ -15,6 +15,18 @@ public class MyClientTest_1_500 {
     MySolution_1_500 solution = new MySolution_1_500();
 
     /**
+     * 3. 无重复字符的最长子串
+     * 简单
+     * https://leetcode.cn/problems/longest-substring-without-repeating-characters/
+     */
+    @Test
+    public void no3() {
+        Assertions.assertEquals(solution.lengthOfLongestSubstring("abcabcbb"), 3);
+        Assertions.assertEquals(solution.lengthOfLongestSubstring("bbbbb"), 1);
+        Assertions.assertEquals(solution.lengthOfLongestSubstring("pwwkew"), 3);
+    }
+
+    /**
      * 14. 最长公共前缀
      * 简单
      * https://leetcode.cn/problems/longest-common-prefix/

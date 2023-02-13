@@ -3,6 +3,8 @@ package leetcode;
 import leetcode.node.ListNode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author kirito
@@ -11,12 +13,28 @@ import java.util.Arrays;
  */
 public class MySolution_1_500 {
 
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        //计算以s[i]为结尾的无重复最长子串，最后取最大值即可
+        int res = 0;
+        int start = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                start = Math.max(start, map.get(c) + 1);
+            }
+            map.put(c, i);
+            res = Math.max(res, i - start + 1);
+        }
+        return res;
+    }
+
     public void printNode(ListNode l) {
         while (l != null) {
             System.out.print(l.val);
             l = l.next;
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public String longestCommonPrefix(String[] strs) {
