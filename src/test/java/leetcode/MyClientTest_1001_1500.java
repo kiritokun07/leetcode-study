@@ -74,6 +74,19 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * （正在写）1234. 替换子串得到平衡字符串
+     * 中等
+     * https://leetcode.cn/problems/replace-the-substring-for-balanced-string/
+     */
+    @Test
+    public void no1234() {
+        Assertions.assertEquals(solution.balancedString("QWER"), 0);
+        Assertions.assertEquals(solution.balancedString("QQWE"), 1);
+        Assertions.assertEquals(solution.balancedString("QQQW"), 2);
+        Assertions.assertEquals(solution.balancedString("QQQQ"), 3);
+    }
+
+    /**
      * 1282. 用户分组
      * 中等
      * https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/

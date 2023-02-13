@@ -179,6 +179,10 @@ public class MySolution_1001_1500 {
 
     }
 
+    public int balancedString(String s) {
+        return 0;
+    }
+
     public static class NumberAndSubScript {
         private Integer num;
         private Integer sub;
