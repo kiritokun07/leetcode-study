@@ -4,6 +4,7 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyClientTest_2001_2500 {
@@ -128,6 +129,18 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.fillCups(new int[]{5, 0, 0}), 5);
         Assertions.assertEquals(solution.fillCups(new int[]{1, 2, 3}), 3);
         Assertions.assertEquals(solution.fillCups(new int[]{2, 4, 2}), 4);
+    }
+
+    /**
+     * 2341. 数组能形成多少数对
+     * 简单
+     * https://leetcode.cn/problems/maximum-number-of-pairs-in-array/
+     */
+    @Test
+    public void no2341() {
+        Assertions.assertEquals(Arrays.toString(solution.numberOfPairs(new int[]{1, 3, 2, 1, 3, 2, 2})), "[3, 1]");
+        Assertions.assertEquals(Arrays.toString(solution.numberOfPairs(new int[]{1, 1})), "[1, 0]");
+        Assertions.assertEquals(Arrays.toString(solution.numberOfPairs(new int[]{0})), "[0, 1]");
     }
 
 }

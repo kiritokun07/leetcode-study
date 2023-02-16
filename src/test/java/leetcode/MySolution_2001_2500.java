@@ -242,4 +242,22 @@ public class MySolution_2001_2500 {
         return (a + b + c + 1) / 2;
     }
 
+    public int[] numberOfPairs(int[] nums) {
+        int[] exist101 = new int[101];
+        Arrays.fill(exist101, 0);
+        int sum = 0;
+        for (int num : nums) {
+            if (exist101[num] == 0) {
+                exist101[num] = 1;
+            } else {
+                exist101[num] = 0;
+                ++sum;
+            }
+        }
+        int[] res = new int[2];
+        res[0] = sum;
+        res[1] = nums.length - sum * 2;
+        return res;
+    }
+
 }
