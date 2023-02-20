@@ -29,6 +29,17 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * （正在写）1139. 最大的以 1 为边界的正方形
+     * 中等
+     * https://leetcode.cn/problems/largest-1-bordered-square/
+     */
+    @Test
+    public void no1139() {
+        Assertions.assertEquals(solution.largest1BorderedSquare(new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}}), 9);
+        Assertions.assertEquals(solution.largest1BorderedSquare(new int[][]{{1, 1, 0, 0}}), 1);
+    }
+
+    /**
      * 1161. 最大层内元素和
      * 中等
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/

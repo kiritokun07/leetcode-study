@@ -86,6 +86,32 @@ public class MySolution_1001_1500 {
         return sb;
     }
 
+    public int largest1BorderedSquare(int[][] grid) {
+        //行数
+        int row = grid.length;
+        //列数
+        int col = grid[0].length;
+        //记录当前到右边连续1的个数
+        int[][] right = new int[row][col];
+        //记录当前到下边连续1的个数
+        int[][] down = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            Arrays.fill(right[i],0);
+            Arrays.fill(down[i],0);
+        }
+        //预处理
+        //←←←③
+        //←←←②
+        //←←←①
+        for (int i = row - 1; i >= 0; --i) {
+            for (int j = col; j >= 0; --j) {
+                int point = grid[i][j];
+
+            }
+        }
+        return 0;
+    }
+
     public int maxLevelSum(TreeNode root) {
         List<TreeNode> rootList = new ArrayList<>();
         rootList.add(root);
