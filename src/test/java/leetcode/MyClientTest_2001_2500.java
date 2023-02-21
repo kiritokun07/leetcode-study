@@ -143,4 +143,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(Arrays.toString(solution.numberOfPairs(new int[]{0})), "[0, 1]");
     }
 
+    /**
+     * 2347. 最好的扑克手牌
+     * 简单
+     * https://leetcode.cn/problems/best-poker-hand/
+     */
+    @Test
+    public void no2347() {
+        Assertions.assertEquals(solution.bestHand(new int[]{13, 2, 3, 1, 9}, new char[]{'a', 'a', 'a', 'a', 'a'}), "Flush");
+        Assertions.assertEquals(solution.bestHand(new int[]{4, 4, 2, 4, 4}, new char[]{'d', 'a', 'a', 'b', 'c'}), "Three of a Kind");
+        Assertions.assertEquals(solution.bestHand(new int[]{10, 10, 2, 12, 9}, new char[]{'a', 'b', 'c', 'a', 'd'}), "Pair");
+    }
+
 }

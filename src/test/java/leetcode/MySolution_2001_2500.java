@@ -260,4 +260,45 @@ public class MySolution_2001_2500 {
         return res;
     }
 
+    public String bestHand(int[] ranks, char[] suits) {
+        int flush = 0;
+        for (int i = 1; i < suits.length; i++) {
+            if (suits[i] == suits[0]) {
+                ++flush;
+            }
+        }
+        if (flush == 4) {
+            return "Flush";
+        }
+        int[] rankArr = new int[13];
+        Arrays.fill(rankArr, 0);
+        for (int rank : ranks) {
+            ++rankArr[rank - 1];
+        }
+        boolean threeOfAKind = false;
+        boolean pair = false;
+        boolean highCard = true;
+        for (int rank : rankArr) {
+            if (rank >= 3) {
+                threeOfAKind = true;
+            }
+            if (rank == 2) {
+                pair = true;
+            }
+            if (rank > 1) {
+                highCard = false;
+            }
+        }
+        if (threeOfAKind) {
+            return "Three of a Kind";
+        }
+        if (pair) {
+            return "Pair";
+        }
+        if (highCard) {
+            return "High Card";
+        }
+        return null;
+    }
+
 }
