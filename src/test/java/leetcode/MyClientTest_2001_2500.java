@@ -155,4 +155,15 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.bestHand(new int[]{10, 10, 2, 12, 9}, new char[]{'a', 'b', 'c', 'a', 'd'}), "Pair");
     }
 
+    /**
+     * 2357. 使数组中所有元素都等于零
+     * 简单
+     * https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts/
+     */
+    @Test
+    public void no2357() {
+        Assertions.assertEquals(solution.minimumOperations(new int[]{1, 5, 0, 3, 5}), 3);
+        Assertions.assertEquals(solution.minimumOperations(new int[]{0}), 0);
+    }
+
 }

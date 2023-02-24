@@ -301,4 +301,14 @@ public class MySolution_2001_2500 {
         return null;
     }
 
+    public int minimumOperations(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            if (num > 0) {
+                numSet.add(num);
+            }
+        }
+        return numSet.size();
+    }
+
 }
