@@ -111,6 +111,19 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * 1247. 交换字符使得字符串相同
+     * 中等
+     * https://leetcode.cn/problems/minimum-swaps-to-make-strings-equal/
+     */
+    @Test
+    public void no1247() {
+        Assertions.assertEquals(solution.minimumSwap("xx", "yy"), 1);
+        Assertions.assertEquals(solution.minimumSwap("xy", "yx"), 2);
+        Assertions.assertEquals(solution.minimumSwap("xx", "xy"), -1);
+        Assertions.assertEquals(solution.minimumSwap("xxyyxyxyxx", "xyyxyxxxyx"), 4);
+    }
+
+    /**
      * 验证这个数组的每个元素所在的list的大小都等于以数字为下表的原数组的值
      *
      * @param groupSizes 数组大小

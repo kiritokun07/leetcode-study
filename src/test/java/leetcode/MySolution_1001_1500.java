@@ -96,8 +96,8 @@ public class MySolution_1001_1500 {
         //记录当前到下边连续1的个数
         int[][] down = new int[row][col];
         for (int i = 0; i < row; i++) {
-            Arrays.fill(right[i],0);
-            Arrays.fill(down[i],0);
+            Arrays.fill(right[i], 0);
+            Arrays.fill(down[i], 0);
         }
         //预处理
         //←←←③
@@ -207,6 +207,37 @@ public class MySolution_1001_1500 {
 
     public int balancedString(String s) {
         return 0;
+    }
+
+    public int minimumSwap(String s1, String s2) {
+        int xyCount = 0;
+        int yxCount = 0;
+        int length = s1.length();
+        for (int i = 0; i < length; i++) {
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
+            if (c1 == c2) {
+                continue;
+            }
+            if (c1 == 'x') {
+                ++xyCount;
+            } else {
+                ++yxCount;
+            }
+        }
+        //偶数个可以消掉
+        int res = 0;
+        res += xyCount / 2;
+        res += yxCount / 2;
+        xyCount %= 2;
+        yxCount %= 2;
+        if (xyCount + yxCount == 1) {
+            return -1;
+        }
+        if (xyCount + yxCount == 2) {
+            return res + 2;
+        }
+        return res;
     }
 
     public static class NumberAndSubScript {
