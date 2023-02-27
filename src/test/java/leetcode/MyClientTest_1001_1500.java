@@ -40,6 +40,18 @@ public class MyClientTest_1001_1500 {
     }
 
     /**
+     * 1144. 递减元素使数组呈锯齿状
+     * 中等
+     * https://leetcode.cn/problems/decrease-elements-to-make-array-zigzag/
+     */
+    @Test
+    public void no1144() {
+        Assertions.assertEquals(solution.movesToMakeZigzag(new int[]{1, 2, 3}), 2);
+        Assertions.assertEquals(solution.movesToMakeZigzag(new int[]{9, 6, 1, 6, 2}), 4);
+        Assertions.assertEquals(solution.movesToMakeZigzag(new int[]{2, 7, 10, 9, 8, 9}), 4);
+    }
+
+    /**
      * 1161. 最大层内元素和
      * 中等
      * https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/

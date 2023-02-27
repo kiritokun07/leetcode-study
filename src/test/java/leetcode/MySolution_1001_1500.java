@@ -112,6 +112,39 @@ public class MySolution_1001_1500 {
         return 0;
     }
 
+    public int movesToMakeZigzag(int[] nums) {
+        //奇数下标大的结果
+        int oddRes = 0;
+        //偶数下标大的结果
+        int evenRes = 0;
+        //下标是奇数
+        boolean isOdd = false;
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            //判断两边元素和中间元素的关系，并累加需要操作的次数
+            if (isOdd) {
+                oddRes += getZipOperate(nums, i);
+            } else {
+                //如果是0或length-1就判断一边
+                evenRes += getZipOperate(nums, i);
+            }
+            isOdd = !isOdd;
+        }
+        return Math.min(oddRes, evenRes);
+    }
+
+    private static int getZipOperate(int[] nums, int i) {
+        int max1 = 0;
+        int max2 = 0;
+        if (i > 0 && nums[i - 1] <= nums[i]) {
+            max1 = nums[i] - nums[i - 1] + 1;
+        }
+        if (i < nums.length - 1 && nums[i + 1] <= nums[i]) {
+            max2 = nums[i] - nums[i + 1] + 1;
+        }
+        return Math.max(max1, max2);
+    }
+
     public int maxLevelSum(TreeNode root) {
         List<TreeNode> rootList = new ArrayList<>();
         rootList.add(root);
