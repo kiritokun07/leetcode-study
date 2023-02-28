@@ -4,7 +4,9 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class MyClientTest_2001_2500 {
@@ -164,6 +166,18 @@ public class MyClientTest_2001_2500 {
     public void no2357() {
         Assertions.assertEquals(solution.minimumOperations(new int[]{1, 5, 0, 3, 5}), 3);
         Assertions.assertEquals(solution.minimumOperations(new int[]{0}), 0);
+    }
+
+    /**
+     * 2363. 合并相似的物品
+     * 简单
+     * https://leetcode.cn/problems/merge-similar-items/
+     */
+    @Test
+    public void no2363() {
+        Assertions.assertEquals(solution.mergeSimilarItems(new int[][]{{1, 1}, {4, 5}, {3, 8}}, new int[][]{{3, 1}, {1, 5}}).toString(), "[[1, 6], [3, 9], [4, 5]]");
+        Assertions.assertEquals(solution.mergeSimilarItems(new int[][]{{1, 1}, {3, 2}, {2, 3}}, new int[][]{{2, 1}, {3, 2}, {1, 3}}).toString(), "[[1, 4], [2, 4], [3, 4]]");
+        Assertions.assertEquals(solution.mergeSimilarItems(new int[][]{{1, 3}, {2, 2}}, new int[][]{{7, 1}, {2, 2}, {1, 4}}).toString(), "[[1, 7], [2, 4], [7, 1]]");
     }
 
 }

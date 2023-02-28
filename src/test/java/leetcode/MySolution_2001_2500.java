@@ -311,4 +311,22 @@ public class MySolution_2001_2500 {
         return numSet.size();
     }
 
+    public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        for (int[] item : items1) {
+            map.merge(item[0], item[1], Integer::sum);
+        }
+        for (int[] item : items2) {
+            map.merge(item[0], item[1], Integer::sum);
+        }
+        List<List<Integer>> res = new ArrayList<>(map.size());
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            List<Integer> resI = new ArrayList<>(2);
+            resI.add(entry.getKey());
+            resI.add(entry.getValue());
+            res.add(resI);
+        }
+        return res;
+    }
+
 }
