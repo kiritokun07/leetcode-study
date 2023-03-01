@@ -329,4 +329,27 @@ public class MySolution_2001_2500 {
         return res;
     }
 
+    public int[][] largestLocal(int[][] grid) {
+        int length = grid.length;
+        int resLength = length - 2;
+        int[][] res = new int[resLength][resLength];
+        for (int i = 0; i < resLength; i++) {
+            for (int j = 0; j < resLength; j++) {
+                res[i][j] = getLocalMax(grid, i + 1, j + 1);
+            }
+        }
+        return res;
+    }
+
+    //获取i j周围最大值
+    private int getLocalMax(int[][] grid, int i, int j) {
+        int max = grid[i][j];
+        for (int ii = i - 1; ii <= i + 1; ii++) {
+            for (int jj = j - 1; jj <= j + 1; jj++) {
+                max = Math.max(max, grid[ii][jj]);
+            }
+        }
+        return max;
+    }
+
 }
