@@ -636,4 +636,24 @@ public class MySolution_1001_1500 {
         return res;
     }
 
+    public String[] getFolderNames(String[] names) {
+        Map<String, Integer> map = new HashMap<>(names.length);
+        for (int i = 0; i < names.length; i++) {
+            String name = names[i];
+            if (!map.containsKey(name)) {
+                map.put(name, 1);
+            } else {
+                Integer times = map.get(name);
+                map.put(name, times + 1);
+                int ii = times;
+                while (map.containsKey(name + "(" + ii + ")")) {
+                    ++ii;
+                }
+                map.put(name + "(" + ii + ")", 1);
+                names[i] = name + "(" + ii + ")";
+            }
+        }
+        return names;
+    }
+
 }
