@@ -191,4 +191,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(Arrays.deepToString(solution.largestLocal(new int[][]{{1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 2, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}})), "[[2, 2, 2], [2, 2, 2], [2, 2, 2]]");
     }
 
+    /**
+     * 2383. 赢得比赛需要的最少训练时长
+     * 简单
+     * https://leetcode.cn/problems/minimum-hours-of-training-to-win-a-competition/
+     */
+    @Test
+    public void no2383() {
+        Assertions.assertEquals(solution.minNumberOfHours(5, 3, new int[]{1, 4, 3, 2}, new int[]{2, 6, 3, 1}), 8);
+        Assertions.assertEquals(solution.minNumberOfHours(2, 4, new int[]{1}, new int[]{3}), 0);
+        Assertions.assertEquals(solution.minNumberOfHours(1, 1, new int[]{1, 1, 1, 1}, new int[]{1, 1, 1, 50}), 51);
+    }
+
 }

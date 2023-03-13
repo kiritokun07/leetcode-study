@@ -352,4 +352,33 @@ public class MySolution_2001_2500 {
         return max;
     }
 
+    public int minNumberOfHours(int initialEnergy, int initialExperience, int[] energy, int[] experience) {
+        int currentEn = initialEnergy;
+        int currentEx = initialExperience;
+
+        int totalAddEn = 0;
+        int totalAddEx = 0;
+
+        for (int i = 0; i < energy.length; i++) {
+            int enI = energy[i];
+            int exI = experience[i];
+
+            if (currentEn > enI) {
+            } else {
+                totalAddEn += enI - currentEn + 1;
+                currentEn += enI - currentEn + 1;
+            }
+            currentEn -= enI;
+
+            if (currentEx > exI) {
+            } else {
+                totalAddEx += exI - currentEx + 1;
+                currentEx += exI - currentEx + 1;
+            }
+            currentEx += exI;
+
+        }
+        return totalAddEn + totalAddEx;
+    }
+
 }
