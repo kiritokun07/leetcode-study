@@ -32,6 +32,20 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * （正在写）1590. 使数组和能被 P 整除
+     * 中等
+     * https://leetcode.cn/problems/make-sum-divisible-by-p/
+     */
+    @Test
+    public void no1590() {
+        Assertions.assertEquals(solution.minSubarray(new int[]{3, 1, 4, 2}, 6), 1);
+        Assertions.assertEquals(solution.minSubarray(new int[]{6, 3, 5, 2}, 9), 2);
+        Assertions.assertEquals(solution.minSubarray(new int[]{1, 2, 3}, 3), 0);
+        Assertions.assertEquals(solution.minSubarray(new int[]{1, 2, 3}, 7), -1);
+        Assertions.assertEquals(solution.minSubarray(new int[]{1000000000, 1000000000, 1000000000}, 3), 0);
+    }
+
+    /**
      * 1592. 重新排列单词间的空格
      * 简单
      * https://leetcode.cn/problems/rearrange-spaces-between-words/

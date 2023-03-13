@@ -38,6 +38,19 @@ public class MySolution_1501_2000 {
         return sum;
     }
 
+    public int minSubarray(int[] nums, int p) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum = (sum + nums[i]) % p;
+        }
+        if (sum == 0) {
+            return 0;
+        }
+
+
+        return -1;
+    }
+
     public String reorderSpaces(String text) {
         //获得空格数量和每个单词的数组 空格是32
         int blankNum = 0;
