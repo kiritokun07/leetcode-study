@@ -139,6 +139,31 @@ public class MySolution_1501_2000 {
         return x;
     }
 
+    public int maximalNetworkRank(int n, int[][] roads) {
+        Map<Integer, Integer> map = new HashMap<>(n);
+        Map<String, Integer> map2 = new HashMap<>(n);
+        for (int[] road : roads) {
+            map.merge(road[0], 1, Integer::sum);
+            map.merge(road[1], 1, Integer::sum);
+            if (road[0] < road[1]) {
+                map2.put(road[0] + "_" + road[1], 1);
+            } else {
+                map2.put(road[1] + "_" + road[0], 1);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (map2.getOrDefault(i + "_" + j, -1) == 1) {
+                    res = Math.max(res, map.getOrDefault(i, 0) + map.getOrDefault(j, 0) - 1);
+                } else {
+                    res = Math.max(res, map.getOrDefault(i, 0) + map.getOrDefault(j, 0));
+                }
+            }
+        }
+        return res;
+    }
+
     public double trimMean(int[] arr) {
         //5%
         int delNum = arr.length / 20;

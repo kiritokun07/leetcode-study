@@ -99,6 +99,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1615. 最大网络秩
+     * 中等
+     * https://leetcode.cn/problems/maximal-network-rank/
+     */
+    @Test
+    public void no1615() {
+        Assertions.assertEquals(solution.maximalNetworkRank(4, new int[][]{{0, 1}, {0, 3}, {1, 2}, {1, 3}}), 4);
+        Assertions.assertEquals(solution.maximalNetworkRank(5, new int[][]{{0, 1}, {0, 3}, {1, 2}, {1, 3}, {2, 3}, {2, 4}}), 5);
+        Assertions.assertEquals(solution.maximalNetworkRank(8, new int[][]{{0, 1}, {1, 2}, {2, 3}, {2, 4}, {5, 6}, {5, 7}}), 5);
+    }
+
+    /**
      * 1619. 删除某些元素后的数组均值
      * 简单
      * https://leetcode.cn/problems/mean-of-array-after-removing-some-elements/
