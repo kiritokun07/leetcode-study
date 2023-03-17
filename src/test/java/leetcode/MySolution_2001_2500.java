@@ -381,4 +381,35 @@ public class MySolution_2001_2500 {
         return totalAddEn + totalAddEx;
     }
 
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+        Map<Integer, Integer> map = new TreeMap<>();
+        for (int query : queries) {
+            map.put(query, 0);
+        }
+        int sum = 0;
+        //前缀和
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            nums[i] = sum;
+        }
+        //算子序列最大长度
+        int cursor = -1;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            Integer key = entry.getKey();
+            while (cursor < nums.length - 1 && nums[cursor + 1] <= key) {
+                ++cursor;
+            }
+            map.put(key, cursor + 1);
+        }
+
+        int[] res = new int[queries.length];
+        int i = 0;
+        for (int query : queries) {
+            res[i] = map.get(query);
+            ++i;
+        }
+        return res;
+    }
+
 }

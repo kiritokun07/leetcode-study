@@ -203,4 +203,16 @@ public class MyClientTest_2001_2500 {
         Assertions.assertEquals(solution.minNumberOfHours(1, 1, new int[]{1, 1, 1, 1}, new int[]{1, 1, 1, 50}), 51);
     }
 
+    /**
+     * 2389. 和有限的最长子序列
+     * 简单
+     * https://leetcode.cn/problems/longest-subsequence-with-limited-sum/
+     */
+    @Test
+    public void no2389() {
+        Assertions.assertEquals(Arrays.toString(solution.answerQueries(new int[]{4, 5, 2, 1}, new int[]{3, 10, 21})), "[2, 3, 4]");
+        Assertions.assertEquals(Arrays.toString(solution.answerQueries(new int[]{2, 3, 4, 5}, new int[]{1})), "[0]");
+        Assertions.assertEquals(Arrays.toString(solution.answerQueries(new int[]{736411, 184882, 914641, 37925, 214915}, new int[]{331244, 273144, 118983, 118252, 305688, 718089, 665450})), "[2, 2, 1, 1, 2, 3, 3]");
+    }
+
 }
