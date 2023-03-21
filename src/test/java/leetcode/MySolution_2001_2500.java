@@ -412,4 +412,9 @@ public class MySolution_2001_2500 {
         return res;
     }
 
+    public double[] convertTemperature(double celsius) {
+        double[] res = new double[]{celsius+273.15, celsius*1.80+32.0};
+        return res;
+    }
+
 }
