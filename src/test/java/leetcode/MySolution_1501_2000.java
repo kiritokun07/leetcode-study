@@ -14,7 +14,7 @@ public class MySolution_1501_2000 {
 
     public int findLengthOfShortestSubarray(int[] arr) {
         int length = arr.length;
-        for (int i = length-1; i >=0; i++) {
+        for (int i = length - 1; i >= 0; i++) {
 
         }
         return 0;
@@ -267,6 +267,29 @@ public class MySolution_1501_2000 {
             i += length;
         }
         return true;
+    }
+
+    public int countVowelStrings(int n) {
+        int[] aArr = new int[]{1, 1, 1, 1, 1};
+        int[] eArr = new int[]{0, 1, 1, 1, 1};
+        int[] iArr = new int[]{0, 0, 1, 1, 1};
+        int[] oArr = new int[]{0, 0, 0, 1, 1};
+        int[] uArr = new int[]{0, 0, 0, 0, 1};
+        int[] resArr = new int[]{1, 0, 0, 0, 0};
+        for (int k = 0; k < n; k++) {
+            int a = resArr[0];
+            int e = resArr[1];
+            int i = resArr[2];
+            int o = resArr[3];
+            int u = resArr[4];
+
+            resArr[0] = a * aArr[0] + e * eArr[0] + i * iArr[0] + o * oArr[0] + u * uArr[0];
+            resArr[1] = a * aArr[1] + e * eArr[1] + i * iArr[1] + o * oArr[1] + u * uArr[1];
+            resArr[2] = a * aArr[2] + e * eArr[2] + i * iArr[2] + o * oArr[2] + u * uArr[2];
+            resArr[3] = a * aArr[3] + e * eArr[3] + i * iArr[3] + o * oArr[3] + u * uArr[3];
+            resArr[4] = a * aArr[4] + e * eArr[4] + i * iArr[4] + o * oArr[4] + u * uArr[4];
+        }
+        return resArr[0] + resArr[1] + resArr[2] + resArr[3] + resArr[4];
     }
 
     public int[] decrypt(int[] code, int k) {

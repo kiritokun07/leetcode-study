@@ -176,6 +176,18 @@ public class MyClientTest_1501_2000 {
     }
 
     /**
+     * 1641. 统计字典序元音字符串的数目
+     * 中等
+     * https://leetcode.cn/problems/count-sorted-vowel-strings/
+     */
+    @Test
+    public void no1641() {
+        Assertions.assertEquals(solution.countVowelStrings(1), 5);
+        Assertions.assertEquals(solution.countVowelStrings(2), 15);
+        Assertions.assertEquals(solution.countVowelStrings(33), 66045);
+    }
+
+    /**
      * 1652. 拆炸弹
      * 简单
      * https://leetcode.cn/problems/defuse-the-bomb/
