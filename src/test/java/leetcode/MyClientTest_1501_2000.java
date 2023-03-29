@@ -19,6 +19,19 @@ public class MyClientTest_1501_2000 {
     MySolution_1501_2000 solution = new MySolution_1501_2000();
 
     /**
+     * （正在写）1574. 删除最短的子数组使剩余数组有序
+     * 中等
+     * https://leetcode.cn/problems/shortest-subarray-to-be-removed-to-make-array-sorted/
+     */
+    @Test
+    public void no1574() {
+        Assertions.assertEquals(solution.findLengthOfShortestSubarray(new int[]{1, 2, 3, 10, 4, 2, 3, 5}), 3);
+        Assertions.assertEquals(solution.findLengthOfShortestSubarray(new int[]{5, 4, 3, 2, 1}), 4);
+        Assertions.assertEquals(solution.findLengthOfShortestSubarray(new int[]{1, 2, 3}), 0);
+        Assertions.assertEquals(solution.findLengthOfShortestSubarray(new int[]{1}), 0);
+    }
+
+    /**
      * 1582. 二进制矩阵中的特殊位置
      * 简单
      * https://leetcode.cn/problems/special-positions-in-a-binary-matrix/

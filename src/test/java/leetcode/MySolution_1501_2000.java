@@ -12,6 +12,14 @@ import java.util.stream.Collectors;
  */
 public class MySolution_1501_2000 {
 
+    public int findLengthOfShortestSubarray(int[] arr) {
+        int length = arr.length;
+        for (int i = length-1; i >=0; i++) {
+
+        }
+        return 0;
+    }
+
     public int numSpecial(int[][] mat) {
         //行数
         int row = mat.length;
