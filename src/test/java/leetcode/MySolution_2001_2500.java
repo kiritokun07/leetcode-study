@@ -58,6 +58,19 @@ public class MySolution_2001_2500 {
         return res;
     }
 
+    public int minimumCardPickup(int[] cards) {
+        int min = cards.length + 1;
+        Map<Integer, Integer> valueSubMap = new HashMap<>();
+        for (int i = 0; i < cards.length; i++) {
+            int card = cards[i];
+            if (valueSubMap.containsKey(card)) {
+                min = Math.min(min, i - valueSubMap.get(card) + 1);
+            }
+            valueSubMap.put(card, i);
+        }
+        return min == cards.length + 1 ? -1 : min;
+    }
+
     public int rearrangeCharacters(String s, String target) {
         Map<Character, Integer> sMap = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -413,7 +426,7 @@ public class MySolution_2001_2500 {
     }
 
     public double[] convertTemperature(double celsius) {
-        double[] res = new double[]{celsius+273.15, celsius*1.80+32.0};
+        double[] res = new double[]{celsius + 273.15, celsius * 1.80 + 32.0};
         return res;
     }
 

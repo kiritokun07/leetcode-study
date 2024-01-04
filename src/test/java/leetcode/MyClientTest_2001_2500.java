@@ -4,9 +4,7 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class MyClientTest_2001_2500 {
@@ -47,6 +45,17 @@ public class MyClientTest_2001_2500 {
     public void no2185() {
         Assertions.assertEquals(solution.prefixCount(new String[]{"pay", "attention", "practice", "attend"}, "at"), 2);
         Assertions.assertEquals(solution.prefixCount(new String[]{"leetcode", "win", "loops", "success"}, "code"), 0);
+    }
+
+    /**
+     * 2260. 必须拿起的最小连续卡牌数
+     * 中等
+     * https://leetcode.cn/problems/minimum-consecutive-cards-to-pick-up/
+     */
+    @Test
+    public void no2260() {
+        Assertions.assertEquals(4, solution.minimumCardPickup(new int[]{3, 4, 2, 3, 4, 7}));
+        Assertions.assertEquals(-1, solution.minimumCardPickup(new int[]{1, 0, 5, 3}));
     }
 
     /**
