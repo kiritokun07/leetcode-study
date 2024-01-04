@@ -82,6 +82,37 @@ public class MySolution_1_500 {
         return pre.next;
     }
 
+    class MyStack {
+        private int head;
+        private char[] list;
+
+        public MyStack(int size) {
+            this.head = 0;
+            this.list = new char[size];
+        }
+
+        public boolean put(char c) {
+            if (head - 1 == list.length) {
+                return false;
+            }
+            this.list[head] = c;
+            head++;
+            return true;
+        }
+
+        public boolean pop() {
+            if (head == 0) {
+                return false;
+            }
+            head--;
+            return true;
+        }
+    }
+
+    public boolean isValid(String s) {
+        return false;
+    }
+
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;

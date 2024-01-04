@@ -51,6 +51,18 @@ public class MyClientTest_1_500 {
     }
 
     /**
+     * 20. 有效的括号
+     * 简单
+     * https://leetcode.cn/problems/valid-parentheses/
+     */
+    @Test
+    public void no20() {
+        Assertions.assertTrue(solution.isValid("()"));
+        Assertions.assertTrue(solution.isValid("()[]{}"));
+        Assertions.assertFalse(solution.isValid("(]"));
+    }
+
+    /**
      * 83. 删除排序链表中的重复元素
      * 简单
      * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
