@@ -26,14 +26,7 @@ public class MySolution_2501_3000 {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < mountain.length; i++) {
             //如果是开头
-            if (i == 0) {
-                if (mountain[i] > mountain[i + 1]) {
-                    result.add(i);
-                }
-            } else if (i == mountain.length - 1) {
-                if (mountain[i] > mountain[i - 1]) {
-                    result.add(i);
-                }
+            if (i == 0 || i == mountain.length - 1) {
             } else if (mountain[i] > mountain[i - 1] && mountain[i] > mountain[i + 1]) {
                 result.add(i);
             }
