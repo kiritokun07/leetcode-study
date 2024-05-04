@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -23,6 +20,25 @@ public class MySolution_2501_3000 {
             score[i] = map.get(sortedKList.get(i));
         }
         return score;
+    }
+
+    public List<Integer> findPeaks(int[] mountain) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < mountain.length; i++) {
+            //如果是开头
+            if (i == 0) {
+                if (mountain[i] > mountain[i + 1]) {
+                    result.add(i);
+                }
+            } else if (i == mountain.length - 1) {
+                if (mountain[i] > mountain[i - 1]) {
+                    result.add(i);
+                }
+            } else if (mountain[i] > mountain[i - 1] && mountain[i] > mountain[i + 1]) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 
 }

@@ -6,6 +6,9 @@
 力扣每日一题
 https://leetcode.cn/problemset/all/
 
+####
+`Assertions.assertEquals(应该为什么值, 实际运行的值)`
+
 #### 正在写
 no672
 no698
