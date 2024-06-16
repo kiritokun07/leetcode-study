@@ -6,7 +6,10 @@ import leetcode.node.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author kirito
@@ -16,6 +19,18 @@ import java.util.*;
 public class MyClientTest_501_1000 {
 
     MySolution_501_1000 solution = new MySolution_501_1000();
+
+    /**
+     * 521. 最长特殊序列 Ⅰ
+     * 简单
+     * https://leetcode.cn/problems/longest-uncommon-subsequence-i/description/
+     */
+    @Test
+    public void no521() {
+        Assertions.assertEquals(3, solution.findLUSlength("aba", "cdc"));
+        Assertions.assertEquals(3, solution.findLUSlength("aaa", "bbb"));
+        Assertions.assertEquals(-1, solution.findLUSlength("aaa", "aaa"));
+    }
 
     /**
      * 622. 设计循环队列

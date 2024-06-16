@@ -15,6 +15,13 @@ import java.util.stream.Collectors;
  */
 public class MySolution_501_1000 {
 
+    public int findLUSlength(String a, String b) {
+        if (a.equals(b)) {
+            return -1;
+        }
+        return Math.max(a.length(), b.length());
+    }
+
     public TreeNode addOneRow(TreeNode root, int val, int depth) {
         if (depth == 1) {
             return new TreeNode(val, root, null);
