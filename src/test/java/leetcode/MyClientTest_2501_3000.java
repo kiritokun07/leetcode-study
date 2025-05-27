@@ -35,6 +35,25 @@ public class MyClientTest_2501_3000 {
     }
 
     /**
+     * 2894. 分类求和并作差
+     * 简单
+     * https://leetcode.cn/problems/divisible-and-non-divisible-sums-difference/description
+     */
+    @Test
+    public void no2894() {
+        //num1-num2=num1+num2-2*num2
+        //问题是求n以内能被m整除的数量
+        //如果m=1，结果是n
+        //如果m=2，结果是n/2
+        //如果m大于n/2，结果是m
+        //如果m大于n，结果是0
+        Assertions.assertEquals(solution.differenceOfSums(10, 3), 19);
+        Assertions.assertEquals(solution.differenceOfSums(5, 6), 15);
+        Assertions.assertEquals(solution.differenceOfSums(5, 1), -15);
+        Assertions.assertEquals(solution.differenceOfSums(4, 2), -2);
+    }
+
+    /**
      * 2951. 找出峰值
      * 简单
      * https://leetcode.cn/problems/find-the-peaks/

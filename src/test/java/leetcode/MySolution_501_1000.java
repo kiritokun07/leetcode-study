@@ -1,6 +1,6 @@
 package leetcode;
 
-import javafx.util.Pair;
+import cn.hutool.core.lang.Pair;
 import leetcode.node.ListNode;
 import leetcode.node.MyStack;
 import leetcode.node.TreeNode;
